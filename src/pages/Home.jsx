@@ -8,8 +8,8 @@ export default function Home() {
     <>
       {/* Hero*/}
       <HeroBanner
-        imagem="imagens/banner.jpg"
-        titulo="Inovação e Avanços Responsáveis na Oncologia"
+        imagem="imagens/banner.gif"
+        titulo="Inovação e Avanços na Oncologia"
         subtitulo="Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia."
         botao={{ texto: "Saiba Mais", link: "/sobre" }}
       />

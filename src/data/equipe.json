@@ -285,7 +285,7 @@
     "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
     "areas": "Nutrição",
     "lattes": "http://lattes.cnpq.br/2023582227583047",
-    "imagem": "imagens/membros/ilana.gif"
+    "imagem": "imagens/membros/default.gif"
   },
   {
     "categoria": "Aluno de Pós-Graduação",
@@ -312,7 +312,7 @@
     "instituicao": "Universidade Federal do Pará (UFPA-PA)",
     "areas": "Biologia Molecular, Hematologia",
     "lattes": "http://lattes.cnpq.br/7808896399153129",
-    "imagem": "imagens/membros/marcelo.gif"
+    "imagem": "imagens/membros/default.gif"
   },
   {
     "categoria": "Aluno de Pós-Graduação",
@@ -357,43 +357,43 @@
     "instituicao": "Universidade Federal do Pará (UFPA-PA)",
     "areas": "Genética Humana e Médica, Citogenética, Biologia Celular, Carcinogênese, Genética, Mutagenese",
     "lattes": "http://lattes.cnpq.br/6305099258051586",
-    "imagem": "imagens/membros/andre.gif"
+    "imagem": "imagens/membros/default.gif"
   },
   {
-    "categoria": "Pesquisador / Colaboradora Estrangeira",
+    "categoria": "Pesquisador Colaborador Estrangeiro",
     "nome": "Aldebaran Marie Hofer",
     "formacao": "",
     "instituicao": "Medical Sciences (CMPMS-RS)",
     "areas": "",
-    "lattes": "http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4240989E6",
-    "imagem": "imagens/membros/aldebaran.gif"
+    "lattes": "",
+    "imagem": "imagens/membros/default.gif"
   },
   {
-    "categoria": "Pesquisador / Colaboradora Estrangeira",
+    "categoria": "Pesquisador Colaborador Estrangeiro",
     "nome": "Anxo Vidal Figueroa",
     "formacao": "",
     "instituicao": "Universidad de Santiago de Compostela (USC-Espanha)",
     "areas": "",
     "lattes": "",
-    "imagem": "imagens/membros/anxo.gif"
+    "imagem": "imagens/membros/default.gif"
   },
   {
-    "categoria": "Pesquisador / Colaboradora Estrangeira",
+    "categoria": "Pesquisador Colaborador Estrangeiro",
     "nome": "Muhammad Torequl Islam",
     "formacao": "",
     "instituicao": "Southern University Bangladesh (SOUTHERN-Bangladesh)",
     "areas": "",
     "lattes": "",
-    "imagem": "imagens/membros/muhammad.gif"
+    "imagem": "imagens/membros/default.gif"
   },
   {
-    "categoria": "Pesquisador / Colaboradora Estrangeira",
+    "categoria": "Pesquisador Colaborador Estrangeiro",
     "nome": "Román Pérez-Fernández",
     "formacao": "",
     "instituicao": "Universidad de Santiago de Compostela (USC-Espanha)",
     "areas": "",
     "lattes": "",
-    "imagem": "imagens/membros/roman.gif"
+    "imagem": "imagens/membros/default.gif"
   },
   {
     "categoria": "Pesquisador Estrangeiro",
@@ -401,8 +401,8 @@
     "formacao": "",
     "instituicao": "Medical School of Hamburg (MSH-Alemanha)",
     "areas": "",
-    "lattes": "http://lattes.cnpq.br/4919556273623318",
-    "imagem": "imagens/membros/lucas.gif"
+    "lattes": "",
+    "imagem": "imagens/membros/default.gif"
   },
   {
     "categoria": "Técnico de Laboratório",
@@ -479,7 +479,7 @@
   {
     "categoria": "Aluno",
     "nome": "Igor Gabriel Barbosa de Sousa",
-    "formacao": "Ensino Médio (2o grau)",
+    "formacao": "Ensino Médio (2º grau)",
     "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
     "areas": "",
     "lattes": "http://lattes.cnpq.br/5555937576724422",

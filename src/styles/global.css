@@ -81,6 +81,7 @@ img {
 .nav-links {
   display: flex;
   gap: 24px;
+  z-index: 9999; 
 }
 
 .nav-links a {
@@ -133,21 +134,23 @@ img {
 
 
 /* ==========================================
-   HERO BANNER - IGUAL AO WIX
+   HERO BANNER
 ========================================== */
 
 .hero {
   position: relative;
+  z-index: 0; 
   width: 100%;
   height: 520px;
   overflow: hidden;
 }
 
 .hero-img {
+  position: bottom;
   width: 100%;
   height: 520px;
   object-fit: cover;
-  filter: brightness(60%);
+  filter: brightness(90%);
 }
 
 .hero-content {
@@ -362,22 +365,62 @@ img {
 }
 
 .categoria-LíderdeLaboratórioAssociado {
-  background: #003f91;
+  background: #01bb83;
   color: white;
 }
 
 .categoria-PesquisadorColaborador {
-  background: #7b1fa2;
+  background: #01b1a8;
   color: white;
 }
 
 .categoria-AlunodePós-Graduação {
-  background: #2e7d32;
+  background: #068f88;
   color: white;
 }
 
-.categoria-Outros {
-  background: #6b7280;
+.categoria-Vice-Coordenador {
+  background: #0a4a86;
+  color: white;
+}
+
+.categoria-PesquisadorColaboradorEstrangeiro {
+  background: #0f2a66;
+  color: white;
+}
+
+.categoria-PesquisadorEstrangeiro {
+  background: #3d1881;
+  color: white;
+}
+
+.categoria-TécnicodeLaboratório {
+  background: #502e8f;
+  color: white;
+}
+
+.categoria-MembrodoComitêGestor {
+  background: #653c94;
+  color: white;
+}
+
+.categoria-Administrativa {
+  background: #6d3f8b;
+  color: white;
+}
+
+.categoria-Aluno {
+  background: #7e688b;
+  color: white;
+}
+
+.categoria-Bolsista {
+  background: #8b6d8b;
+  color: white;
+}
+
+.categoria-Pesquisador {
+  background: #806f7b;
   color: white;
 }
 
