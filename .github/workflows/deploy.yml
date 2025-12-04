@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
 
+permissions:
+  contents: write   # <-- ESTA LINHA É O QUE RESOLVE O PROBLEMA
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
