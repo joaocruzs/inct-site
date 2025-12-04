@@ -262,6 +262,15 @@
   },
   {
     "categoria": "Aluno de Pós-Graduação",
+    "nome": "Álisson Emannuel Franco Alves",
+    "formacao": "Mestrado",
+    "instituicao": "Universidade Federal da Paraíba (UFPB-PB)",
+    "areas": "Genética Humana e Médica, BIOLOGIA CELULAR, Métodos e Técnicas de Ensino",
+    "lattes": "http://lattes.cnpq.br/2479604008680099",
+    "imagem": "imagens/membros/alisson.gif"
+  },
+  {
+    "categoria": "Aluno de Pós-Graduação",
     "nome": "Glissia Lysandra dos Santos Marciel",
     "formacao": "Graduação",
     "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
@@ -340,15 +349,6 @@
     "areas": "Nutrição",
     "lattes": "http://lattes.cnpq.br/4859137720026037",
     "imagem": "imagens/membros/taline.gif"
-  },
-  {
-    "categoria": "Aluno de Pós-Graduação",
-    "nome": "Álisson Emannuel Franco Alves",
-    "formacao": "Mestrado",
-    "instituicao": "Universidade Federal da Paraíba (UFPB-PB)",
-    "areas": "Genética Humana e Médica, BIOLOGIA CELULAR, Métodos e Técnicas de Ensino",
-    "lattes": "http://lattes.cnpq.br/2479604008680099",
-    "imagem": "imagens/membros/alisson.gif"
   },
   {
     "categoria": "Vice-Coordenador",
