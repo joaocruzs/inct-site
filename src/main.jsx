@@ -9,14 +9,8 @@ const isProd = import.meta.env.MODE === "production";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {isProd ? (
-      <HashRouter>
-        <App />
-      </HashRouter>
-    ) : (
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    )}
   </React.StrictMode>
 );
