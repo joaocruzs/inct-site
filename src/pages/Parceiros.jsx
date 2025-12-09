@@ -49,7 +49,7 @@ export default function Parceiros() {
 
       {/* ===================== MURAL ===================== */}
       <div className="mural-categorias">
-        <img src="/imagens/banner.gif" className="mural-bg" alt="" />
+        <img src="imagens/banner.gif" className="mural-bg" alt="" />
 
         <div className="mural-container mural-wrap">
           {Object.keys(grupos).map((categoria, index) => (
