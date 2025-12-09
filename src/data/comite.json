@@ -1,0 +1,45 @@
+[
+  {
+    "nome": "Dr. Daniel Pereira Bezerra",
+    "cargo": "Membro do Comitê Gestor (Fiocruz Bahia)",
+    "descricao": "Possui graduação em Farmácia (modalidade indústria) pela Universidade Federal do Ceará, mestrado e doutorado em Farmacologia pela UFC, e pós-doutorado na Weill Cornell Medical College (Nova York, EUA). Membro do Comitê Gestor do INCT em Oncologia Translacional e Terapias Gênicas, sediado no Piauí. Pesquisador da Fiocruz Bahia. Professor permanente do Programa de Pós-Graduação em Biotecnologia em Saúde e Medicina Investigativa da Fiocruz Bahia. Membro do comitê científico da América Latina de projetos submetidos ao AACR MONARCA.",
+    "imagem": "imagens/membros/daniel.gif"
+  },
+  {
+    "nome": "Dra. Gardenia Carmen Gadelha",
+    "cargo": "Membro do Comitê Gestor (UFPE)",
+    "descricao": "Graduada em Farmácia pela Universidade Federal do Ceará (2002), com mestrado (2005) e doutorado (2007) em Farmacologia pela UFC, com ênfase em Oncologia Experimental. Realizou pós-doutorado em Farmacologia na University of British Columbia e BC Cancer Research Centre, com foco em nanomedicina para tratamento do câncer (2016). Membro do Comitê Gestor do INCT em Oncologia Translacional e Terapias Gênicas. Professora Associada IV da Universidade Federal de Pernambuco. Líder do grupo de Pesquisa Proliferação Celular e Câncer. Experiência em oncologia experimental, produtos naturais e sintéticos como fonte de fármacos, cultura de células, citometria de fluxo, biologia molecular e farmacocinética de formulações antitumorais.",
+    "imagem": "imagens/membros/gardenia.gif"
+  },
+  {
+    "nome": "Dra. Giovana Tardin Torrezan",
+    "cargo": "Membro do Comitê Gestor (Hospital A.C. Camargo, SP)",
+    "descricao": "Possui doutorado em Oncologia pela Fundação Antônio Prudente (A.C. Camargo Cancer Center, 2014), com período sanduíche no MD Anderson Cancer Center (Programa TAMU/CAPES). Mestre em Genética pela Universidade Federal do Paraná (2009) e graduada em Ciências Biológicas pela UFPR (2006). Membro do Comitê Gestor do INCT em Oncologia Translacional e Terapias Gênicas. Pesquisadora científica do Grupo de Genômica Clínica e Funcional do A.C. Camargo Cancer Center. Orientadora do Programa de Pós-Graduação em Oncologia da Fundação Antônio Prudente. Membro curador do Hereditary Cancer Gene Curation Expert Panel (ClinGen/NIH). Experiência em Genômica, Biologia Molecular, Genética, Oncogenética e testes moleculares em Oncologia.",
+    "imagem": "imagens/membros/giovana.gif"
+  },
+  {
+    "nome": "Dr. Juan Carlos Ramos Gonçalves",
+    "cargo": "Membro do Comitê Gestor (UFPB)",
+    "descricao": "Pós-doutorado (2012–2013) pela Rede Nordeste de Biotecnologia (RENORBIO). Doutor em Farmacologia (2011) pelo Programa de Pós-Graduação em Produtos Naturais e Sintéticos Bioativos (PgPNSB/UFPB), com estágio doutoral na University of Western Ontario (UWO-Canada). Farmacêutico-Bioquímico (2006) e Mestre em Farmacologia (2008) pela UFPB. Membro do Comitê Gestor do INCT em Oncologia Translacional e Terapias Gênicas. Professor Adjunto do Departamento de Ciências Farmacêuticas (CCS/UFPB) e membro do Programa de Pós-Graduação em Produtos Naturais e Sintéticos Bioativos. Pesquisador do Laboratório de Oncofarmacologia da UFPB (ONCOFAR). Membro associado da World Academy of Sciences e do conselho editorial da Scientific Reports. Atua em Farmacologia, Biotecnologia, Biologia Celular e Molecular.",
+    "imagem": "imagens/membros/juan.gif"
+  },
+  {
+    "nome": "Dr. Paulo Michel Pinheiro Ferreira",
+    "cargo": "Membro do Comitê Gestor (UFPI)",
+    "descricao": "Bacharel em Ciências Biológicas e Farmácia, com especialização em Bioquímica Clínica e Biologia Molecular (UFC), mestrado em Análises Clínicas e Toxicológicas (UFC), doutorado em Farmacologia (UFC) e pós-doutorado em Oncologia Translacional pelo Centro de Investigación del Cáncer, Universidad de Salamanca (Espanha). Membro do Comitê Gestor do INCT em Oncologia Translacional e Terapias Gênicas. Bolsista de Produtividade do CNPq desde 2014 e Professor Associado IV da UFPI nas áreas de Fisiologia Humana e Oncologia. Criador do primeiro laboratório de pesquisa em câncer do Piauí (LabCancer). Membro da SBFTE, SBFis, RECOFANNCE e dos Programas de Pós-Graduação em Ciências Farmacêuticas, Farmacologia e Biotecnologia (RENORBIO). Atua como membro do Comitê de Assessoramento do CNPq nas áreas de Biofísica, Bioquímica, Farmacologia, Fisiologia e Neurociências.",
+    "imagem": "imagens/membros/paulo.gif"
+  },
+  {
+    "nome": "Dr. André Salim Khayat",
+    "cargo": "Vice-coordenador do INCT (UFPA)",
+    "descricao": "Bacharel em Biologia Modalidade Médica pela Universidade Federal do Pará (1997), mestre em Ciências Biológicas (UFPA, 2001) e doutor em Genética e Biologia Molecular (UFPA, 2007). Vice-coordenador do INCT em Oncologia Translacional e Terapias Gênicas, sediado no Piauí. Professor Titular do Instituto de Ciências Biológicas da UFPA. Coordenador do Grupo de Estudos em Terapias e Biomarcadores em Oncologia (GETBIO). Membro da SOBOPE. Membro permanente do Programa de Pós-Graduação em Genética e Biologia Molecular da UFPA e cofundador do Programa de Pós-Graduação em Oncologia e Ciências Médicas da UFPA. Possui experiência em Genética Humana e Médica, atuando em carcinogênese, imunoterapia, edição gênica, mutagênese, biologia celular, biologia molecular, citogenética e oncologia.",
+    "imagem": "imagens/membros/salim.jpg"
+  },
+  {
+    "nome": "Dr. João Marcelo de Castro e Sousa",
+    "cargo": "Coordenador do INCT (UFPI)",
+    "descricao": "Bacharel em Ciências Biológicas pela UFPI (2006), mestre em Genética e Biologia Molecular pela UFPA (2009) e doutor em Ciências pela Universidade Estadual de Maringá (UEM, 2015). Coordenador do INCT em Oncologia Translacional e Terapias Gênicas, sediado no Piauí. Coordenador de pesquisa e inovação da UFPI. Docente permanente dos Programas de Pós-Graduação em Ciências Farmacêuticas (linha: Farmacologia e Toxicologia de Produtos Naturais e Sintéticos) e Biotecnologia (RENORBIO). Bolsista de produtividade do CNPq (Nível 2). Desenvolve pesquisas interinstitucionais com diversas universidades e centros no Brasil (UFPA, Fiocruz, UFSC, AC Camargo Cancer Center, UFPB, UFAL, USP, UFC, UNINTA, INPA, UFRN) e no exterior (CIMUS Espanha, BSMRSTU Bangladesh, Auburn University EUA). Experiência em genética toxicológica, avaliação de compostos bioativos antitumorais, nanoformulações, mutagênese ambiental, citogenética humana, cultivo celular e modelos experimentais de carcinogênese.",
+    "imagem": "imagens/membros/marcelo.gif"
+  }
+]
+

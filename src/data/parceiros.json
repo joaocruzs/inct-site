@@ -204,6 +204,13 @@
   },
  {
     "categoria": "Laboratórios",
+    "nome": "Grupo de Genética Humana e Médica",
+    "descricao": "",
+    "imagem": "imagens/labs/GeHMed.jpg",
+    "link": ""
+  },
+ {
+    "categoria": "Laboratórios",
     "nome": "LABGEN",
     "descricao": "Laboratório de Genética Clínica NPDM-UFC",
     "imagem": "imagens/labs/labgen.png",
@@ -253,6 +260,13 @@
   },
  {
     "categoria": "Laboratórios",
+    "nome": "Laboratório de Sistemas Complexos",
+    "descricao": "",
+    "imagem": "imagens/labs/sc.png",
+    "link": ""
+  },
+ {
+    "categoria": "Laboratórios",
     "nome": "LVGBM FIOCRUZ-PI",
     "descricao": "Laboratório de Vigilância Gemônica e Biologia Molecular",
     "imagem": "imagens/labs/lvgbm.png",
@@ -270,13 +284,6 @@
     "nome": "PUC RIO",
     "descricao": "",
     "imagem": "imagens/labs/puc.png",
-    "link": ""
-  },
- {
-    "categoria": "Laboratórios",
-    "nome": "Laboratório de Sistemas Complexos",
-    "descricao": "",
-    "imagem": "imagens/labs/sc.png",
     "link": ""
   }
 ]

@@ -1,9 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
+import Comite from "./pages/Comite";
+import Documentos from "./pages/Documentos";
 import Equipe from "./pages/Equipe";
 import Parceiros from "./pages/Parceiros";
 import Noticias from "./pages/Noticias";
@@ -12,13 +14,19 @@ import Publicacoes from "./pages/Publicacoes";
 import Galeria from "./pages/Galeria";
 
 export default function App() {
+  const { pathname } = useLocation();
+
+  const isHome = pathname === "/" || pathname === "/#/" || pathname === "/inct-site/#/";
+
   return (
     <>
-      <Header />
+      <Header transparent={isHome} />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
+        <Route path="/comite" element={<Comite />} />
+        <Route path="/documentos" element={<Documentos />} />
         <Route path="/equipe" element={<Equipe />} />
         <Route path="/parceiros" element={<Parceiros />} />
         <Route path="/noticias" element={<Noticias />} />

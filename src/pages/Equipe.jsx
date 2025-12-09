@@ -11,7 +11,9 @@ export default function Equipe() {
     return acc;
   }, {});
 
-  const refs = Object.keys(grupos).reduce((acc, cat) => {
+  const categoriasOrdenadas = Object.keys(grupos).sort().reverse();
+
+  const refs = categoriasOrdenadas.reduce((acc, cat) => {
     acc[cat] = useRef(null);
     return acc;
   }, {});
@@ -23,64 +25,49 @@ export default function Equipe() {
     });
   };
 
-  // REFERÊNCIA DO CARROSSEL
-  const sliderRef = useRef(null);
-
-  const scrollLeft = () => {
-    sliderRef.current.scrollBy({ left: -300, behavior: "smooth" });
-  };
-
-  const scrollRight = () => {
-    sliderRef.current.scrollBy({ left: 300, behavior: "smooth" });
-  };
-
-  // ANIMAÇÃO DOS CONTADORES
+  // contador animado
   const [counts, setCounts] = useState({});
-
   useEffect(() => {
-    const animated = {};
-    Object.keys(grupos).forEach((cat) => {
+    const updated = {};
+
+    categoriasOrdenadas.forEach((cat) => {
       let start = 0;
       const end = grupos[cat].length;
-      const duration = 600;
-      const stepTime = Math.max(Math.floor(duration / end), 20);
+      const duration = 800;
+      const step = Math.max(Math.floor(duration / end), 20);
 
       const timer = setInterval(() => {
         start++;
-        animated[cat] = start;
-        setCounts({ ...animated });
+        updated[cat] = start;
+        setCounts({ ...updated });
 
         if (start >= end) clearInterval(timer);
-      }, stepTime);
+      }, step);
     });
   }, []);
 
   return (
     <div>
+      {/* ===================== MURAL HERO ===================== */}
+      <div className="mural-categorias">
+        <img src="/imagens/banner.gif" className="mural-bg" alt="" />
 
-      {/* ======== CARROSSEL ========= */}
-      <div className="categoria-carousel-container">
-
-        <button className="carousel-btn left" onClick={scrollLeft}>❮</button>
-        <button className="carousel-btn right" onClick={scrollRight}>❯</button>
-
-        <div className="categoria-carousel-mini" ref={sliderRef}>
-          {Object.keys(grupos).map((categoria, index) => (
+        <div className="mural-container">
+          {categoriasOrdenadas.map((categoria, index) => (
             <div
               key={index}
-              className={`categoria-mini-card categoria-${categoria.replace(/\s+/g, "")}`}
+              className="mural-card"
               onClick={() => scrollTo(categoria)}
             >
-              <h4>{categoria}</h4>
-              <span className="categoria-mini-num">{counts[categoria] ?? 0}</span>
+              <h3>{categoria}</h3>
+              <span className="mural-num">{counts[categoria] ?? 0}</span>
             </div>
           ))}
         </div>
       </div>
 
-
-      {/* ======== SEÇÕES ========= */}
-      {Object.keys(grupos).map((categoria, index) => (
+      {/* ===================== SEÇÕES DOS GRUPOS ===================== */}
+      {categoriasOrdenadas.map((categoria, index) => (
         <div key={index} ref={refs[categoria]}>
           <Section title={categoria}>
             <div className="membros-grid">
@@ -89,7 +76,6 @@ export default function Equipe() {
                   key={i}
                   nome={m.nome}
                   formacao={m.formacao}
-                  nivel={m.nivel}
                   instituicao={m.instituicao}
                   areas={m.areas}
                   lattes={m.lattes}

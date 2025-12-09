@@ -23,6 +23,7 @@ export default function Footer() {
         <div className="footer-col">
           <h3>Redes Sociais</h3>
           <p><a href="https://www.instagram.com/inct.oncottgen/" target="_blank">Instagram</a></p>
+          <p><a href="https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true" target="_blank">LinkedIn</a></p>
         </div>
 
       </div>
