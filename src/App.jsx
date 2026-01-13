@@ -12,6 +12,7 @@ import Noticias from "./pages/Noticias";
 import Eventos from "./pages/Eventos";
 import Publicacoes from "./pages/Publicacoes";
 import Galeria from "./pages/Galeria";
+import Lapgenic from "./pages/Lapgenic";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/publicacoes" element={<Publicacoes />} />
         <Route path="/galeria" element={<Galeria />} />
+        <Route path="/lapgenic" element={<Lapgenic />} />
       </Routes>
 
       <Footer />

@@ -60,13 +60,39 @@ export default function Header({ transparent = false }) {
               }}
             >
               <NavLink to="/sobre" onClick={closeAll}>Sobre</NavLink>
-              <NavLink to="/comite" onClick={closeAll}>Comitê Gestor</NavLink>
               <NavLink to="/documentos" onClick={closeAll}>Documentos</NavLink>
+              <NavLink to="/lapgenic" onClick={closeAll}>Lapgenic</NavLink>
             </div>
           </div>
 
-          <NavLink to="/equipe" onClick={closeAll}>Equipe</NavLink>
-          <NavLink to="/parceiros" onClick={closeAll}>Parceiros</NavLink>
+          {/* SUBMENU */}
+          <div className="submenu-click">
+
+            <span
+              className="submenu-title"
+              onClick={() => setSubmenuOpen(!submenuOpen)}
+            >
+              Equipe ▾
+            </span>
+            
+            {/* SUBMENU SEMPRE RENDERIZADO */}
+            <div
+              className="submenu-box"
+              style={{
+                display:
+                  window.innerWidth <= 820
+                    ? submenuOpen
+                      ? "flex"
+                      : "none"
+                    : ""
+              }}
+            >
+              <NavLink to="/comite" onClick={closeAll}>Comitê Gestor</NavLink>
+              <NavLink to="/equipe" onClick={closeAll}>Pesquisadores</NavLink>
+              <NavLink to="/parceiros" onClick={closeAll}>Parceiros</NavLink>
+            </div>
+          </div>
+
           <NavLink to="/publicacoes" onClick={closeAll}>Pesquisa</NavLink>
           <NavLink to="/noticias" onClick={closeAll}>Notícias</NavLink>
           <NavLink to="/contato" onClick={closeAll}>Contato</NavLink>

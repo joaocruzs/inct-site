@@ -251,6 +251,13 @@
     "imagem": "imagens/labs/lapib.png",
     "link": ""
   },
+  {
+    "categoria": "Laboratórios",
+    "nome": "Lapgenic",
+    "descricao": "Laboratório de Pesquisa em Genética Toxicológica",
+    "imagem": "imagens/labs/lapgenic.png",
+    "link": ""
+  },
  {
     "categoria": "Laboratórios",
     "nome": "LMBM",
