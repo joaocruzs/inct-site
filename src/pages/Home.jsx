@@ -8,7 +8,7 @@ export default function Home() {
     <>
       {/* Hero*/}
       <HeroBanner
-        imagem="imagens/banner.gif"
+        imagem="banners/banner.gif"
         titulo="Inovação e Avanços na Oncologia"
         subtitulo="Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia."
       />

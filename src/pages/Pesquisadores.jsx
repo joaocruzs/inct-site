@@ -50,7 +50,7 @@ export default function Pesquisadores() {
     <div>
       {/* ===================== MURAL HERO ===================== */}
       <div className="mural-categorias">
-        <img src="imagens/banner.gif" className="mural-bg" alt="" />
+        <img src="banners/banner.gif" className="mural-bg" alt="" />
 
         <div className="mural-container">
           {categoriasOrdenadas.map((categoria, index) => (

@@ -18,7 +18,7 @@ export default function Header({ transparent = false }) {
         {/* LOGO */}
         <div className="logo">
           <Link to="/" onClick={closeAll}>
-            <img src="imagens/logo.png" alt="Logo INCT" />
+            <img src="banners/logo.png" alt="Logo INCT" />
           </Link>
         </div>
 

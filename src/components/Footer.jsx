@@ -7,7 +7,7 @@ export default function Footer() {
 
         {/* Coluna 1 – Logo e nome */}
         <div className="footer-col">
-          <img src="imagens/logo.png" alt="Logo INCT" className="footer-logo" />
+          <img src="banners/logo.png" alt="Logo INCT" className="footer-logo" />
           <p className="footer-slogan">
             Instituto Nacional de Ciência e Tecnologia em Oncologia Translacional e Terapias Gênicas
           </p>

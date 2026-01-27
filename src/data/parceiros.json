@@ -85,10 +85,17 @@
   },
  {
     "categoria": "Instituições Parceiras",
-    "nome": "FIOCRUZ",
+    "nome": "FIOCRUZ Instituto Gonçalo Moniz - Bahia",
     "descricao": "",
-    "imagem": "imagens/nacionais/FIOCRUZ.png",
-    "link": "https://fiocruz.br/"
+    "imagem": "imagens/nacionais/FIOCRUZ-BA.png",
+    "link": "https://www.bahia.fiocruz.br/"
+  },
+ {
+    "categoria": "Instituições Parceiras",
+    "nome": "FIOCRUZ-PI",
+    "descricao": "",
+    "imagem": "imagens/nacionais/FIOCRUZ-PI.png",
+    "link": "https://fiocruz.br/fiocruz-piaui"
   },
  {
     "categoria": "Instituições Parceiras",
