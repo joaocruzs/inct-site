@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { FaYoutube, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function Header({ transparent = false }) {
   const [open, setOpen] = useState(false);           
@@ -44,7 +45,7 @@ export default function Header({ transparent = false }) {
               className="submenu-title"
               onClick={() => setSubmenuOpen(!submenuOpen)}
             >
-              Instituto ▾
+              Instituto ⁝
             </span>
 
             {/* SUBMENU SEMPRE RENDERIZADO */}
@@ -72,7 +73,7 @@ export default function Header({ transparent = false }) {
               className="submenu-title"
               onClick={() => setSubmenuOpen(!submenuOpen)}
             >
-              Equipe ▾
+              Equipe ⁝
             </span>
             
             {/* SUBMENU SEMPRE RENDERIZADO */}
@@ -88,7 +89,7 @@ export default function Header({ transparent = false }) {
               }}
             >
               <NavLink to="/comite" onClick={closeAll}>Comitê Gestor</NavLink>
-              <NavLink to="/equipe" onClick={closeAll}>Pesquisadores</NavLink>
+              <NavLink to="/pesquisadores" onClick={closeAll}>Pesquisadores</NavLink>
               <NavLink to="/parceiros" onClick={closeAll}>Parceiros</NavLink>
             </div>
           </div>
@@ -96,7 +97,35 @@ export default function Header({ transparent = false }) {
           <NavLink to="/publicacoes" onClick={closeAll}>Pesquisa</NavLink>
           <NavLink to="/noticias" onClick={closeAll}>Notícias</NavLink>
           <NavLink to="/contato" onClick={closeAll}>Contato</NavLink>
+        
+          <div className="social-links">
+            <a
+              href="https://www.youtube.com/@InstitutoNacionalONCOTTGEN"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <FaYoutube />
+            </a>
 
+            <a
+              href="https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin />
+            </a>
+
+            <a
+              href="https://www.instagram.com/inct.oncottgen/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </a>
+          </div>
         </nav>
       </div>
     </header>

@@ -7,7 +7,7 @@ export default function Lapgenic() {
       {/* ================= HERO ================= */}
       <div className="lab-hero">
         <img
-          src="/imagens/labs/lapgenic.png"
+          src="/imagens/labs/LAPGENIC.png"
           alt="LAPGENIC"
           className="lab-hero-bg"
         />

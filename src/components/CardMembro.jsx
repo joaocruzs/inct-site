@@ -5,8 +5,9 @@ export default function CardMembro({
   nivel,
   instituicao,
   areas,
-  lattes,
-  imagem
+  link,
+  imagem,
+  email
 }) {
   return (
     <div className="card-membro-full">
@@ -51,11 +52,10 @@ export default function CardMembro({
       )}
 
       {/* Lattes */}
-      {lattes && (
+      {link && (
         <p className="card-membro-info">
-          <strong>Lattes: </strong>
           <a
-            href={lattes}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
             className="card-membro-link"
@@ -65,6 +65,11 @@ export default function CardMembro({
         </p>
       )}
 
+      {email && (
+        <p className="card-membro-info">
+          <strong>Email: </strong> {email}
+        </p>
+      )}
     </div>
   );
 }

@@ -4,293 +4,342 @@
     "nome": "Hospital Getúlio Vargas",
     "descricao": "",
     "imagem": "imagens/hospitais/HGV.png",
-    "link": ""
+    "link": "http://www.hgv.pi.gov.br/"
   },
  {
     "categoria": "Hospitais",
     "nome": "Hospital Ophir Loyola",
     "descricao": "",
     "imagem": "imagens/hospitais/HOL.png",
-    "link": ""
+    "link": "https://www.ophirloyola.pa.gov.br/"
   },
  {
     "categoria": "Hospitais",
     "nome": "Hospital São Marcos",
     "descricao": "",
     "imagem": "imagens/hospitais/HSM.png",
-    "link": ""
+    "link": "https://www.saomarcos.org.br/"
   },
  {
     "categoria": "Hospitais",
     "nome": "Hospital Universitário João de Barros Barreto",
     "descricao": "",
     "imagem": "imagens/hospitais/HUJBB.png",
-    "link": ""
+    "link": "https://www.gov.br/ebserh/pt-br/hospitais-universitarios/regiao-norte/chu-ufpa/acesso-a-informacao/institucional/barros-barreto"
   },
  {
     "categoria": "Hospitais",
     "nome": "Hospital Universitário Lauro Wanderley",
     "descricao": "",
     "imagem": "imagens/hospitais/HULW.png",
-    "link": ""
+    "link": "https://www.gov.br/ebserh/pt-br/hospitais-universitarios/regiao-nordeste/hulw-ufpb"
   },
  {
     "categoria": "Hospitais",
     "nome": "Hospital Universitário da UFPI",
     "descricao": "",
     "imagem": "imagens/hospitais/HUUFPI.png",
-    "link": ""
+    "link": "https://www.gov.br/ebserh/pt-br/hospitais-universitarios/regiao-nordeste/hu-ufpi"
   },
  {
     "categoria": "Instituições Internacionais",
     "nome": "Harvard Medical School",
     "descricao": "",
     "imagem": "imagens/internacionais/HMS.png",
-    "link": ""
+    "link": "https://hms.harvard.edu/"
   },
  {
     "categoria": "Instituições Internacionais",
     "nome": "Medical School Hamburg",
     "descricao": "",
     "imagem": "imagens/internacionais/MSH.png",
-    "link": ""
+    "link": "https://www.medicalschool-hamburg.de/"
   },
  {
     "categoria": "Instituições Internacionais",
     "nome": "Southern University of Bangladesh",
     "descricao": "",
     "imagem": "imagens/internacionais/SUB.png",
-    "link": ""
+    "link": "https://southern.ac.bd/"
   },
  {
     "categoria": "Instituições Internacionais",
     "nome": "University of Oxford",
     "descricao": "",
     "imagem": "imagens/internacionais/UOx.png",
-    "link": ""
+    "link": "https://www.estudarfora.org.br/bolsas-rhodes-oxford/?utm_source=googlegrants&utm_medium=search&utm_campaign=donnu-artigos-bolsas-de-estudo&utm_term=universidade%20de%20oxford&utm_content=oxford&gad_source=1&gad_campaignid=22736396624&gbraid=0AAAAAD2cQDKZiYV0GVk9q52w6mJEY0kca&gclid=Cj0KCQiAvtzLBhCPARIsALwhxdqAvMeVhXgNBwn2vAN4UkcDwXmAcQ0nLecYW5h-0eE1mxFB3_lJK9YaAsPqEALw_wcB"
   },
  {
     "categoria": "Instituições Internacionais",
     "nome": "Universidade de Santiago de Compostela",
     "descricao": "",
     "imagem": "imagens/internacionais/USC.png",
-    "link": ""
+    "link": "https://www.usc.gal/gl"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "A. C. Camargo Cancer Center",
     "descricao": "",
     "imagem": "imagens/nacionais/ACC.png",
-    "link": ""
+    "link": "https://accamargo.org.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "FIOCRUZ",
     "descricao": "",
     "imagem": "imagens/nacionais/FIOCRUZ.png",
-    "link": ""
+    "link": "https://fiocruz.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Insittuto Federal do Piauí",
     "descricao": "",
     "imagem": "imagens/nacionais/IFPI.png",
-    "link": ""
+    "link": "https://www.ifpi.edu.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Pontifícia Universidade Católica - Rio de Janeiro",
     "descricao": "",
     "imagem": "imagens/nacionais/PUC.png",
-    "link": ""
+    "link": "https://www.puc-rio.br/index.html"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Estadual de Londrina",
     "descricao": "",
     "imagem": "imagens/nacionais/UEL.png",
-    "link": ""
+    "link": "https://portal.uel.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Estadual de Maringá",
     "descricao": "",
     "imagem": "imagens/nacionais/UEM.png",
-    "link": ""
+    "link": "https://www.uem.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Estadual do Piauí",
     "descricao": "",
     "imagem": "imagens/nacionais/UESPI.png",
-    "link": ""
+    "link": "https://uespi.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Federal do Ceará",
     "descricao": "",
     "imagem": "imagens/nacionais/UFC.png",
-    "link": ""
+    "link": "https://www.ufc.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Federal de Minas Gerais",
     "descricao": "",
     "imagem": "imagens/nacionais/UFMG.png",
-    "link": ""
+    "link": "https://www.ufmg.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Federal do Pará",
     "descricao": "",
     "imagem": "imagens/nacionais/UFPA.png",
-    "link": ""
+    "link": "https://ufpa.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Federal da Paraíba",
     "descricao": "",
     "imagem": "imagens/nacionais/UFPB.png",
-    "link": ""
+    "link": "https://www.ufpb.br/"
+  },
+{
+    "categoria": "Instituições Parceiras",
+    "nome": "Universidade Federal de Pernambuco",
+    "descricao": "",
+    "imagem": "imagens/nacionais/UFPE.png",
+    "link": "https://www.ufpe.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Federal do Piauí",
     "descricao": "",
     "imagem": "imagens/nacionais/UFPI.png",
-    "link": ""
+    "link": "https://www.ufpi.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Federal do Rio de Janeiro",
     "descricao": "",
     "imagem": "imagens/nacionais/UFRJ.png",
-    "link": ""
+    "link": "https://ufrj.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Federal de Santa Catarina",
     "descricao": "",
     "imagem": "imagens/nacionais/UFSC.png",
-    "link": ""
+    "link": "https://ufsc.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Federal de São Paulo",
     "descricao": "",
     "imagem": "imagens/nacionais/UNIFESP.png",
-    "link": ""
+    "link": "https://portal.unifesp.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Centro Universitário Inta - UNINTA",
     "descricao": "",
     "imagem": "imagens/nacionais/UNINTA.png",
-    "link": ""
+    "link": "https://www.uninta.edu.br/"
   },
  {
     "categoria": "Instituições Parceiras",
     "nome": "Universidade Regional do Cariri",
     "descricao": "",
     "imagem": "imagens/nacionais/URCA.png",
-    "link": ""
+    "link": "https://www.urca.br/"
   },
  {
     "categoria": "Laboratórios",
     "nome": "BioTecFarm",
     "descricao": "Laboratório - DCF / UFPB",
-    "imagem": "imagens/labs/biotecfarm.png",
-    "link": ""
+    "imagem": "imagens/labs/BIOTECFARM.png",
+    "link": "https://www.instagram.com/biotecfarm.ufpb/"
   },
  {
     "categoria": "Laboratórios",
-    "nome": "Grupo de Genética Humana e Médica",
-    "descricao": "",
-    "imagem": "imagens/labs/GeHMed.jpg",
-    "link": ""
+    "nome": "GEHMED",
+    "descricao": "Grupo de Genética Humana e Médica - UFDPar",
+    "imagem": "imagens/labs/GEHMED.jpg",
+    "link": "https://www.instagram.com/gehmed.ufdpar/"
   },
  {
     "categoria": "Laboratórios",
     "nome": "LABGEN",
     "descricao": "Laboratório de Genética Clínica NPDM-UFC",
-    "imagem": "imagens/labs/labgen.png",
+    "imagem": "imagens/labs/LABGEN.png",
     "link": ""
   },
  {
     "categoria": "Laboratórios",
     "nome": "LAFAN",
     "descricao": "Laboratório de Farmacologia Antinoplásica",
-    "imagem": "imagens/labs/lafan.png",
-    "link": ""
+    "imagem": "imagens/labs/LAFAN.png",
+    "link": "https://www.instagram.com/lafan_ufpi/"
   },
  {
     "categoria": "Laboratórios",
     "nome": "LAGMES",
-    "descricao": "Laboratório de Genética Molecular de Eucariontes e Simbiontes",
-    "imagem": "imagens/labs/lagmes.png",
-    "link": ""
+    "descricao": "Laboratório de Genética Molecular de Eucariontes e Simbiontes - UFRJ",
+    "imagem": "imagens/labs/LAGMES.png",
+    "link": "https://www.instagram.com/lagmes.lab/"
   },
  {
     "categoria": "Laboratórios",
     "nome": "LAMON",
     "descricao": "Laboratório de Mutagênese e Oncogenética - UEL/Londrina",
-    "imagem": "imagens/labs/lamon.png",
-    "link": ""
+    "imagem": "imagens/labs/LAMON.png",
+    "link": "https://www.instagram.com/lamon.uel/"
   },
  {
     "categoria": "Laboratórios",
-    "nome": "LaPAF-UEM",
-    "descricao": "Laboratório de Planejamento e Avaliação de Fármacos",
-    "imagem": "imagens/labs/lapaf.png",
+    "nome": "LaPAF",
+    "descricao": "Laboratório de Planejamento e Avaliação de Fármacos - UEM",
+    "imagem": "imagens/labs/LAPAF.png",
     "link": ""
   },
  {
     "categoria": "Laboratórios",
     "nome": "LaPIB",
     "descricao": "Laboratório de Pesquisa e Inovação Biomédica",
-    "imagem": "imagens/labs/lapib.png",
+    "imagem": "imagens/labs/LAPIB.png",
     "link": ""
   },
   {
     "categoria": "Laboratórios",
-    "nome": "Lapgenic",
-    "descricao": "Laboratório de Pesquisa em Genética Toxicológica",
-    "imagem": "imagens/labs/lapgenic.png",
-    "link": ""
+    "nome": "LAPGENIC",
+    "descricao": "Laboratório de Pesquisa em Genética Toxicológica - UFPI",
+    "imagem": "imagens/labs/LAPGENIC.png",
+    "link": "https://www.instagram.com/lapgenic/"
   },
  {
     "categoria": "Laboratórios",
     "nome": "LMBM",
     "descricao": "Laboratório de Microbiologia e Biologia Molecular",
-    "imagem": "imagens/labs/lmbm.png",
-    "link": ""
+    "imagem": "imagens/labs/LMBM.png",
+    "link": "https://www.instagram.com/lmbm_urca/"
   },
  {
     "categoria": "Laboratórios",
-    "nome": "Laboratório de Sistemas Complexos",
-    "descricao": "",
-    "imagem": "imagens/labs/sc.png",
+    "nome": "LSC",
+    "descricao": "Laboratório de Sistemas Complexos",
+    "imagem": "imagens/labs/LSC.png",
     "link": ""
   },
  {
     "categoria": "Laboratórios",
     "nome": "LVGBM FIOCRUZ-PI",
     "descricao": "Laboratório de Vigilância Gemônica e Biologia Molecular",
-    "imagem": "imagens/labs/lvgbm.png",
-    "link": ""
+    "imagem": "imagens/labs/LVGBM.png",
+    "link": "https://www.instagram.com/lvgbmfiocruzpi/"
   },
  {
     "categoria": "Laboratórios",
     "nome": "ONCOFAR",
     "descricao": "Laboratório de Oncofarmacologia",
-    "imagem": "imagens/labs/oncofar.png",
-    "link": ""
+    "imagem": "imagens/labs/ONCOFAR.png",
+    "link": "https://www.instagram.com/oncofar.ufpb/"
   },
-   {
+ {
     "categoria": "Laboratórios",
     "nome": "PUC RIO",
     "descricao": "",
-    "imagem": "imagens/labs/puc.png",
+    "imagem": "imagens/labs/PUC.png",
+    "link": ""
+  },
+  {
+    "categoria": "Laboratórios",
+    "nome": "ONCOFARLAB",
+    "descricao": "Laboratório de Farmacologia e Oncologia Molecular - UFPE",
+    "imagem": "imagens/labs/ONCOFARLAB.png",
+    "link": ""
+  },
+ {
+    "categoria": "Laboratórios",
+    "nome": "LABCANCER",
+    "descricao": "Cancerologia Experimental - UFPI",
+    "imagem": "imagens/labs/LABCANCERUFPI.png",
+    "link": "https://www.instagram.com/labcancer_ufpi/"
+  },
+ {
+    "categoria": "Laboratórios",
+    "nome": "LABCANCER",
+    "descricao": "Departamento de Farmacologia - UFSC",
+    "imagem": "imagens/labs/LABCANCERUFSC.png",
+    "link": "https://www.instagram.com/labcancer/"
+  },
+ {
+    "categoria": "Laboratórios",
+    "nome": "LABNANO",
+    "descricao": "Laboratório de Biofísica de Sistemas Nanoestruturados",
+    "imagem": "imagens/labs/LABNANO.png",
+    "link": "https://www.instagram.com/labnanoufmg/"
+  },
+ {
+    "categoria": "Laboratórios",
+    "nome": "LGI",
+    "descricao": "Laboratório de Genômica Integrativa",
+    "imagem": "imagens/labs/LGI.png",
+    "link": ""
+  },
+ {
+    "categoria": "Laboratórios",
+    "nome": "NPO",
+    "descricao": "Núcleo de Pesquisas em Oncologia",
+    "imagem": "imagens/labs/NPO.png",
     "link": ""
   }
 ]

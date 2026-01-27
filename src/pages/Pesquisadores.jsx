@@ -1,9 +1,9 @@
-import equipe from "../data/equipe.json";
+import equipe from "../data/pesquisadores.json";
 import Section from "../components/Section";
 import CardMembro from "../components/CardMembro";
 import { useRef, useEffect, useState } from "react";
 
-export default function Equipe() {
+export default function Pesquisadores() {
   const grupos = equipe.reduce((acc, membro) => {
     const cat = membro.categoria || "Outros";
     if (!acc[cat]) acc[cat] = [];
@@ -78,8 +78,9 @@ export default function Equipe() {
                   formacao={m.formacao}
                   instituicao={m.instituicao}
                   areas={m.areas}
-                  lattes={m.lattes}
+                  link={m.link}
                   imagem={m.imagem}
+                  email={m.email}
                 />
               ))}
             </div>
