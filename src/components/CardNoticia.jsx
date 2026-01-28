@@ -1,9 +1,14 @@
 export default function CardNoticia({ imagem, titulo, resumo }) {
   return (
-    <div className="card">
-      <img src={imagem} alt={titulo} />
-      <h3>{titulo}</h3>
-      <p>{resumo}</p>
-    </div>
+    <article className="card-noticia">
+      <div className="card-noticia-img">
+        <img src={imagem} alt={titulo} />
+      </div>
+
+      <div className="card-noticia-body">
+        <h3>{titulo}</h3>
+        <p>{resumo}</p>
+      </div>
+    </article>
   );
 }
