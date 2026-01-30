@@ -254,7 +254,7 @@ img {
 .hero {
   position: relative;
   width: 100%;
-  height: 520px;
+  height: 480px;
   overflow: hidden;
 }
 
@@ -318,7 +318,7 @@ img {
    SECTIONS
 ========================================== */
 .section {
-  padding: 60px 0;
+  padding: 15px 0;
 }
 
 .section-title {
@@ -333,7 +333,7 @@ img {
   max-width: 850px;
   margin: 0 auto;
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.5;
   color: #1f2937;
 }
 
@@ -659,7 +659,7 @@ img {
 .mural-categorias {
   position: relative;
   width: 100%;
-  padding: 120px 15px;
+  padding: 25px 15px;
   overflow: hidden;
   margin-bottom: 40px;
 }
@@ -696,6 +696,11 @@ img {
   color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
+
+.mural-card {
+  text-decoration: none;
+}
+
 
 .mural-card:hover {
   transform: translateY(-6px);
@@ -1051,7 +1056,6 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
-  background-color: white;
 }
 
 .split-section img {
@@ -1069,4 +1073,62 @@ footer {
 .header a,
 .submenu-title {
   font-size: 16px;
+}
+
+/* ==========================================*/
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.accordion-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: white;
+}
+
+/* Header clicável */
+.accordion-header {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background-color: #f9fafb;
+}
+
+/* Ícone */
+.accordion-icon {
+  font-size: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+/* Conteúdo escondido */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 1.25rem;
+}
+
+/* Conteúdo visível */
+.accordion-item.open .accordion-content {
+  max-height: 200px; /* pode aumentar se quiser */
+  padding-bottom: 1rem;
+}
+
+/* Rotação da seta (opcional) */
+.accordion-item.open .accordion-icon {
+  transform: rotate(90deg);
 }
