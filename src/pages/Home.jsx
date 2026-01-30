@@ -39,9 +39,6 @@ export default function Home() {
 
           <div className="split-text">
             <h3>Plataforma de Colaboração para Membros</h3>
-            <p>
-              Acesse nossa plataforma integrada.
-            </p>
             <a
               href="https://oncottgenpesq.vercel.app"
               target="_blank"
@@ -93,11 +90,9 @@ export default function Home() {
       <Section title="O Instituto">
         <div className="prose">
         <p>
-          O INCT OncottGen é dedicado ao desenvolvimento de tecnologias inovadoras
-          em oncologia, com foco em terapias gênicas, siRNA, CRISPR e pesquisas
-          translacionais.
-          O Instituto Nacional de Ciência e Tecnologia de Oncologia Translacional e Terapias Gênicas (INCT-OncoTTG) é uma rede nacional e internacional dedicada ao desenvolvimento de soluções inovadoras para o diagnóstico e tratamento do câncer, com foco especial nos tumores que acometem o sistema nervoso central.
+          O Instituto Nacional de Ciência e Tecnologia de Oncologia Translacional e Terapias Gênicas (INCT-OncoTTGen) é uma rede nacional e internacional dedicada ao desenvolvimento de soluções inovadoras para o diagnóstico e tratamento do câncer, com foco especial nos tumores que acometem o sistema nervoso central.
           O Instituto integra pesquisa de ponta, formação de recursos humanos e inovação tecnológica para transformar descobertas científicas em benefícios reais para pacientes e para o Sistema Único de Saúde.
+          Dedica-se ao desenvolvimento de tecnologias inovadoras em oncologia, com foco em terapias gênicas, siRNA, CRISPR e pesquisas translacionais.
         </p>
         </div>
       </Section>
@@ -109,9 +104,6 @@ export default function Home() {
 
           <div className="split-text">
             <h3>Plataforma de Colaboração para Membros</h3>
-            <p>
-              Acesse nossa plataforma integrada.
-            </p>
             <a
               href="https://oncottgenpesq.vercel.app"
               target="_blank"
