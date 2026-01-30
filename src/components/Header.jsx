@@ -62,7 +62,35 @@ export default function Header({ transparent = false }) {
             >
               <NavLink to="/sobre" onClick={closeAll}>Sobre</NavLink>
               <NavLink to="/documentos" onClick={closeAll}>Documentos</NavLink>
-              <NavLink to="/lapgenic" onClick={closeAll}>Lapgenic</NavLink>
+              <NavLink to="/contato" onClick={closeAll}>Contato</NavLink>
+            </div>
+          </div>
+
+          {/* SUBMENU */}
+          <div className="submenu-click">
+
+            <span
+              className="submenu-title"
+              onClick={() => setSubmenuOpen(!submenuOpen)}
+            >
+              Publicações ⁝
+            </span>
+            
+            {/* SUBMENU SEMPRE RENDERIZADO */}
+            <div
+              className="submenu-box"
+              style={{
+                display:
+                  window.innerWidth <= 820
+                    ? submenuOpen
+                      ? "flex"
+                      : "none"
+                    : ""
+              }}
+            >
+            <NavLink to="/noticias" onClick={closeAll}>Notícias</NavLink>
+            <NavLink to="/publicacoes" onClick={closeAll}>Publicações Acadêmicas</NavLink>
+            <NavLink to="/eventos" onClick={closeAll}>Eventos</NavLink>
             </div>
           </div>
 
@@ -94,10 +122,8 @@ export default function Header({ transparent = false }) {
             </div>
           </div>
 
-          <NavLink to="/publicacoes" onClick={closeAll}>Pesquisa</NavLink>
-          <NavLink to="/noticias" onClick={closeAll}>Notícias</NavLink>
-          <NavLink to="/contato" onClick={closeAll}>Contato</NavLink>
-        
+          <NavLink to="/lapgenic" onClick={closeAll}>Lapgenic</NavLink>
+
           <div className="social-links">
             <a
               href="https://www.youtube.com/@InstitutoNacionalONCOTTGEN"

@@ -29,16 +29,25 @@ export default function Home() {
         titulo="Inovação e Avanços na Oncologia"
         subtitulo="Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia."
         botaotexto="Saiba mais"
-        botaolink={"/sobre" || pathname === "/#/sobre" || pathname === "/inct-site/#/sobre"} 
+        botaolink={"/sobre"} 
       />
+      
+      {/* Plataforma externa */}
+      <Section>
+        <div className="split-section">
+          <img src="banners/background.jpg" alt="" />
 
-      {/* Instituto */}
-      <Section title="O Instituto">
-        <p>
-          O INCT OncottGen é dedicado ao desenvolvimento de tecnologias inovadoras
-          em oncologia, com foco em terapias gênicas, siRNA, CRISPR e pesquisas
-          translacionais.
-        </p>
+          <div className="split-text">
+            <h3>Plataforma de Colaboração para Membros</h3>
+            <a
+              href="https://oncottgenpesq.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Acessar plataforma
+            </a>
+          </div>
+        </div>
       </Section>
 
       {/* Últimas Notícias */}
@@ -77,16 +86,24 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Instituto */}
+      <Section title="O Instituto">
+        <div className="prose">
+        <p>
+          O Instituto Nacional de Ciência e Tecnologia de Oncologia Translacional e Terapias Gênicas (INCT-OncoTTGen) é uma rede nacional e internacional dedicada ao desenvolvimento de soluções inovadoras para o diagnóstico e tratamento do câncer, com foco especial nos tumores que acometem o sistema nervoso central.
+          O Instituto integra pesquisa de ponta, formação de recursos humanos e inovação tecnológica para transformar descobertas científicas em benefícios reais para pacientes e para o Sistema Único de Saúde.
+          Dedica-se ao desenvolvimento de tecnologias inovadoras em oncologia, com foco em terapias gênicas, siRNA, CRISPR e pesquisas translacionais.
+        </p>
+        </div>
+      </Section>
+
       {/* Plataforma externa */}
       <Section>
         <div className="split-section">
-          <img src="banners/equipe.png" alt="" />
+          <img src="banners/background.jpg" alt="" />
 
           <div className="split-text">
-            <h3>Plataforma de Dados Científicos</h3>
-            <p>
-              Acesse nossa plataforma integrada.
-            </p>
+            <h3>Plataforma de Colaboração para Membros</h3>
             <a
               href="https://oncottgenpesq.vercel.app"
               target="_blank"
