@@ -62,7 +62,7 @@ export default function Header({ transparent = false }) {
             >
               <NavLink to="/sobre" onClick={closeAll}>Sobre</NavLink>
               <NavLink to="/documentos" onClick={closeAll}>Documentos</NavLink>
-              <NavLink to="/contato" onClick={closeAll}>Contato</NavLink>
+              <NavLink to="/plataforma" onClick={closeAll}>Plataforma</NavLink>
             </div>
           </div>
 

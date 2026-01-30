@@ -5,12 +5,13 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Documentos from "./pages/Documentos";
-import Comite from "./pages/Comite";
-import Pesquisadores from "./pages/Pesquisadores";
-import Parceiros from "./pages/Parceiros";
+import Plataforma from "./pages/Plataforma";
 import Noticias from "./pages/Noticias";
 import Eventos from "./pages/Eventos";
 import Publicacoes from "./pages/Publicacoes";
+import Comite from "./pages/Comite";
+import Pesquisadores from "./pages/Pesquisadores";
+import Parceiros from "./pages/Parceiros";
 import Lapgenic from "./pages/Lapgenic";
 
 export default function App() {
@@ -26,12 +27,13 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/documentos" element={<Documentos />} />
-        <Route path="/comite" element={<Comite />} />
-        <Route path="/pesquisadores" element={<Pesquisadores />} />
-        <Route path="/parceiros" element={<Parceiros />} />
+        <Route path="/plataforma" element={<Plataforma />} />
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/publicacoes" element={<Publicacoes />} />
+        <Route path="/comite" element={<Comite />} />
+        <Route path="/pesquisadores" element={<Pesquisadores />} />
+        <Route path="/parceiros" element={<Parceiros />} />
         <Route path="/lapgenic" element={<Lapgenic />} />
       </Routes>
 
