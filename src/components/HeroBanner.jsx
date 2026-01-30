@@ -6,7 +6,9 @@ export default function HeroBanner({ imagem, titulo, subtitulo, botaolink, botao
       <div className="hero-content container">
         <h1>{titulo}</h1>
         <p>{subtitulo}</p>
-        <a className="hero-btn" href={botaolink}>{botaotexto}</a>
+        <Link to={botaolink} className="mural-card">
+          <span className="mural-num">{botaotexto}</span>
+        </Link>
       </div>
     </section>
   );
