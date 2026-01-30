@@ -1,4 +1,6 @@
-export default function HeroBanner({ imagem, titulo, subtitulo, botaolink, botaotexto }) {
+import { Link } from "react-router-dom";
+
+export default function HeroBanner({ imagem, titulo, subtitulo, botao }) {
   return (
     <section className="hero">
       <img src={imagem} alt="Banner" className="hero-img" />
@@ -6,9 +8,12 @@ export default function HeroBanner({ imagem, titulo, subtitulo, botaolink, botao
       <div className="hero-content container">
         <h1>{titulo}</h1>
         <p>{subtitulo}</p>
-        <Link to={botaolink} className="mural-card">
-          <span className="mural-num">{botaotexto}</span>
-        </Link>
+
+        {botao && (
+          <Link to={botao.link} className="hero-btn">
+            {botao.texto}
+          </Link>
+        )}
       </div>
     </section>
   );

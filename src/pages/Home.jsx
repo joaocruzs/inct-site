@@ -28,8 +28,7 @@ export default function Home() {
         imagem="banners/banner.gif"
         titulo="Inovação e Avanços na Oncologia"
         subtitulo="Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia."
-        botaotexto="Saiba mais"
-        botaolink={"/sobre"} 
+        botao={{ link: "/sobre", texto: "Saiba Mais" }} 
       />
       
       {/* Plataforma externa */}
