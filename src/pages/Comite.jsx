@@ -4,26 +4,26 @@ import Section from "../components/Section";
 export default function Comite() {
   return (
     <Section title="Comitê Gestor">
-      {/* ====== BLOCO DO CARROSSEL / MURAL ====== */}
-      <div className="carousel-wrapper">
-        <div className="carousel-track">
+      {/* 1. ROLETA DE IMAGENS */}
+      <div className="roleta-wrapper">
+        <div className="roleta-track">
           {comite.concat(comite).map((pessoa, i) => (
             <a 
               key={i} 
               href={`#membro-${i % comite.length}`} 
-              className="carousel-link"
+              className="roleta-link"
             >
               <img
                 src={pessoa.imagem}
                 alt={pessoa.nome}
-                className="carousel-img"
+                className="roleta-img"
               />
             </a>
           ))}
         </div>
       </div>
 
-      {/* ====== LISTA DE CARDS ====== */}
+      {/* 2. LISTA DE CARDS */}
       <div className="lista-comite">
         {comite.map((pessoa, i) => (
           <div key={i} id={`membro-${i}`} className="card-comite">

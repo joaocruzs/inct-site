@@ -1,22 +1,26 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import sobre from "../data/sobre.json";
 import Section from "../components/Section";
+import sobre from "../data/sobre.json";
 
 export default function Sobre() {
-  const [aberto, setAberto] = useState(null);
+  const [abertos, setAbertos] = useState([]);
 
   function toggle(index) {
-    setAberto(aberto === index ? null : index);
+    setAbertos((prev) =>
+      prev.includes(index)
+        ? prev.filter((i) => i !== index)
+        : [...prev, index]               
+    );
   }
 
   return (
     <div>
-      {/* ===================== MURAL HERO ===================== */}
-      <div className="mural-categorias">
+      {/* 1. MURAL */}
+      <div className="mural">
         <img
           src="banners/banner.gif"
-          className="mural-bg"
+          className="mural-img"
           alt="Banner institucional"
         />
 
@@ -35,37 +39,34 @@ export default function Sobre() {
         </div>
       </div>
 
-      {/* ===================== CONTEÚDO ===================== */}
+      {/* 2. SOBRE O INSTITUTO */}
       <Section title="Sobre o Instituto">
-        {/* Texto institucional */}
-        <div className="prose max-w-none mb-12">
-          {sobre.paragrafos.map((p, i) => (
-            <p key={i}>{p}</p>
-          ))}
+        <div className="split-about"> 
+          <div className="prose max-w-none mb-12">
+            {sobre.paragrafos.map((p, i) => (<p key={i}>{p}</p>))}
+          </div>
+          <div><img src="banners/parceiros.png" /> </div>
         </div>
 
-        {/* Accordion / Conceitos */}
-        <div className="accordion">
+        {/* 3. CONCEITOS */}
+        <div className="faq">
           {sobre.definicoes.map((item, i) => {
-            const isOpen = aberto === i;
+            const isOpen = abertos.includes(i);
 
             return (
-              <div
-                key={i}
-                className={`accordion-item ${isOpen ? "open" : ""}`}
-              >
+              <div key={i} className={`faq-item ${isOpen ? "open" : ""}`}>
                 <button
-                  className="accordion-header"
+                  className="faq-header"
                   onClick={() => toggle(i)}
                   aria-expanded={isOpen}
                 >
                   <span>{item.titulo}</span>
-                  <span className="accordion-icon">
+                  <span className="faq-icon">
                     {isOpen ? "▾" : "▸"}
                   </span>
                 </button>
 
-                <div className="accordion-content">
+                <div className="faq-content">
                   <p>{item.descricao}</p>
                 </div>
               </div>

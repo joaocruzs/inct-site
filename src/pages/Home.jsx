@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import HeroBanner from "../components/HeroBanner";
+import { Link } from "react-router-dom";
 import Section from "../components/Section";
 import CardNoticia from "../components/CardNoticia";
-import noticias from "../data/noticias.json";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import noticias from "../data/noticias.json"; // a inserir últimas notícias
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -23,93 +24,83 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <HeroBanner
-        imagem="banners/banner.gif"
-        titulo="Inovação e Avanços na Oncologia"
-        subtitulo="Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia."
-        botao={{ link: "/sobre", texto: "Saiba Mais" }} 
-      />
+      {/* 1. BANNER */}
+      <section className="banner">
+        <img src="banners/banner.gif" className="banner-img" />
+        <div className="banner-content container">
+          <h1>Inovação e Avanços na Oncologia</h1>
+          <p>Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia.</p>
+          <Link to="/sobre" className="banner-button">Saiba Mais</Link>
+        </div>
+      </section>
       
-      {/* Plataforma externa */}
+      {/* 2. PLATAFORMA EXTERNA */}
       <Section>
-        <div className="split-section">
-          <img src="banners/background.jpg" alt="" />
+        <div className="split">
+          <Link to="/plataforma">
+            <img src="banners/background.jpg"/>
+          </Link>
 
           <div className="split-text">
-            <h3>Plataforma de Colaboração para Membros</h3>
-            <a
+            <Link to="/plataforma"><h3>Plataforma de Colaboração para Membros</h3></Link>
+            <a 
               href="https://oncottgenpesq.vercel.app"
               target="_blank"
-              rel="noreferrer"
-            >
-              Acessar plataforma
-            </a>
+              rel="noreferrer">
+                Acessar plataforma <FaExternalLinkAlt />
+              </a>
           </div>
         </div>
       </Section>
 
-      {/* Últimas Notícias */}
+      {/* 3. ÚLTIMAS NOTÍCIAS */}
       <Section title="Últimas Notícias">
-        <div className="news-carousel">
-          <button className="carousel-nav left" onClick={prev}>
-            ‹
-          </button>
-
-          <div className="carousel-window">
-            <div
-              className="home-carousel-track"
-              style={{ transform: `translateX(-${index * 100}%)` }}
-            >
+        <div className="carrossel-news">
+          <button className="carrossel-nav" onClick={prev}> ‹ </button>
+          <div className="carrossel-window">
+            <div className="carrossel-track" style={{transform: `translateX(-${index * 100}%)` }}>
               {noticias.map((n, i) => (
-                <div className="carousel-slide" key={i}>
+                <div className="carrossel-slide" key={i}>
                   <CardNoticia {...n} />
-                </div>
-              ))}
+                </div>))}
             </div>
           </div>
-
-          <button className="carousel-nav right" onClick={next}>
-            ›
-          </button>
+          <button className="carrossel-nav" onClick={next}> › </button>
         </div>
 
-        <div className="carousel-dots">
+        <div className="carrossel-dots">
           {noticias.map((_, i) => (
-            <span
-              key={i}
-              className={`dot ${i === index ? "active" : ""}`}
-              onClick={() => setIndex(i)}
-            />
-          ))}
+            <span key={i} 
+                  className={`dot ${i === index ? "active" : ""}`}
+                  onClick={() => setIndex(i)}/>))}
         </div>
       </Section>
 
-      {/* Instituto */}
+      {/* 4. APRESENTAÇÃO DO INSTITUTO */}
       <Section title="O Instituto">
         <div className="prose">
         <p>
           O Instituto Nacional de Ciência e Tecnologia de Oncologia Translacional e Terapias Gênicas (INCT-OncoTTGen) é uma rede nacional e internacional dedicada ao desenvolvimento de soluções inovadoras para o diagnóstico e tratamento do câncer, com foco especial nos tumores que acometem o sistema nervoso central.
-          O Instituto integra pesquisa de ponta, formação de recursos humanos e inovação tecnológica para transformar descobertas científicas em benefícios reais para pacientes e para o Sistema Único de Saúde.
-          Dedica-se ao desenvolvimento de tecnologias inovadoras em oncologia, com foco em terapias gênicas, siRNA, CRISPR e pesquisas translacionais.
+          O Instituto dedica-se ao desenvolvimento de tecnologias inovadoras em oncologia, com foco em terapias gênicas, siRNA, CRISPR e pesquisas translacionais, integrando pesquisa de ponta, formação de recursos humanos e inovação tecnológica para transformar descobertas científicas em benefícios reais para pacientes e para o Sistema Único de Saúde.
         </p>
         </div>
       </Section>
 
-      {/* Plataforma externa */}
+      {/* 5. PLATAFORMA EXTERNA */}
       <Section>
-        <div className="split-section">
-          <img src="banners/background.jpg" alt="" />
+        <div className="split">
+          <Link to="/plataforma">
+            <img src="banners/background.jpg"/>
+          </Link>
 
           <div className="split-text">
-            <h3>Plataforma de Colaboração para Membros</h3>
-            <a
+            <Link to="/plataforma"><h3>Plataforma de Colaboração para Membros</h3></Link>
+            <a 
               href="https://oncottgenpesq.vercel.app"
               target="_blank"
-              rel="noreferrer"
-            >
-              Acessar plataforma
-            </a>
+              rel="noreferrer">
+                Acessar plataforma <FaExternalLinkAlt />
+              </a>
           </div>
         </div>
       </Section>

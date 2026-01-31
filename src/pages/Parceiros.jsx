@@ -47,9 +47,9 @@ export default function Parceiros() {
   return (
     <div>
 
-      {/* ===================== MURAL ===================== */}
-      <div className="mural-categorias">
-        <img src="banners/banner.gif" className="mural-bg" alt="" />
+      {/* 1. MURAL */}
+      <div className="mural">
+        <img src="banners/banner.gif" className="mural-img" alt="" />
 
         <div className="mural-container mural-wrap">
           {Object.keys(grupos).map((categoria, index) => (
@@ -65,7 +65,7 @@ export default function Parceiros() {
         </div>
       </div>
 
-      {/* ===================== SEÇÕES ===================== */}
+      {/* 2. SEÇÕES DOS GRUPOS */}
       {Object.keys(grupos).map((categoria, index) => (
         <div key={index} ref={refs[categoria]}>
           <Section title={categoria}>
