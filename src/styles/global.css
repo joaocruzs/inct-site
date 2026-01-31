@@ -1,5 +1,5 @@
 /* ==========================================
-   RESET E BASE
+    0. RESET, BASE E LAYOUT
 ========================================== */
 * {
   margin: 0;
@@ -20,16 +20,12 @@ img {
   display: block;
 }
 
-/* ==========================================
-   LAYOUT
-========================================== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
 }
 
-/* Grid System */
 .grid {
   display: grid;
   gap: 24px;
@@ -51,8 +47,442 @@ img {
 }
 
 /* ==========================================
-   HEADER E NAVEGAÇÃO
+   1. HOME (INÍCIO)
 ========================================== */
+/* 1.1 BANNER ============================ */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(90%);
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  max-width: 800px;
+}
+
+.banner-content h1 {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.banner-content p {
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+.banner-button {
+  padding: 14px 28px;
+  background: #ffdd57;
+  color: #003572;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.banner-button:hover {
+  background: #ffe88c;
+}
+
+@media (max-width: 700px) {
+  .banner {
+    height: 420px;
+  }
+
+  .banner-content h1 {
+    font-size: 28px;
+  }
+
+  .banner-content p {
+    font-size: 18px;
+  }
+}
+
+/* 1.2 SPLIT (PLATAFORMA) ================ */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #001c45;
+  color: #c0c0c0;
+}
+
+.split a{
+  color: #f0f0f0;
+  text-decoration: none;
+}
+
+.split img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+@media (max-width: 800px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 1.3 CARROSSEL (NEWS) ================== */
+.carrossel-news {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carrossel-window {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carrossel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.6s ease;
+}
+
+.carrossel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carrossel-nav {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #003572;
+  padding: 0 10px;
+}
+
+.carrossel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #003572;
+}
+
+/* ==========================================
+   2. SOBRE, DOCUMENTOS E PLATAFORMA
+========================================== */
+/* 2.1.1. MURAL COM BOTÕES =============== */
+
+  /* ==========================
+  Observação: usado também em
+  pesquisadores, parceiros e lapgenic
+  ========================== */
+
+.mural {
+  position: relative;
+  width: 100%;
+  padding: 25px 15px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.mural-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.mural-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  padding: 25px;
+}
+
+.mural-card {
+  min-width: 220px;
+  max-width: 280px;
+  background: rgba(0, 60, 130, 0.45);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.25s, background 0.25s;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.mural-card {
+  text-decoration: none;
+}
+
+
+.mural-card:hover {
+  transform: translateY(-6px);
+  background: rgba(0, 60, 130, 0.65);
+}
+
+.mural-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.mural-num {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .mural-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .mural-container {
+    padding: 10px;
+    gap: 15px;
+  }
+}
+
+/* 2.1.2. SOBRE (IMAGEM E FOTO) ===========*/
+.split-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  border-radius: 20px;
+  color: #c0c0c0;
+}
+
+@media (max-width: 800px) {
+  .split-about {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 2.1.3. FAQ =============================*/
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.faq-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: white;
+}
+
+.faq-header {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.faq-header:hover {
+  background-color: #f9fafb;
+}
+
+.faq-icon {
+  font-size: 1.25rem;
+  transition: transform 0.2s ease;
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 1.25rem;
+}
+
+.faq-item.open .faq-content {
+  max-height: 200px;
+  padding-bottom: 1rem;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(90deg);
+}
+
+/* 2.2. DOCUMENTOS ======================= */
+.documentos-card {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.documentos-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.visualizar {
+  background: #0077ff;
+}
+
+.baixar {
+  background: #00b050;
+}
+
+/* 2.3. PLATAFORMA ======================= */
+
+/* ==========================================
+   4. NOTÍCIAS, PUBLICAÇÕES E EVENTOS
+========================================== */
+
+/* ==========================================
+   5. COMITE, PESQUISADORES E PARCEIROS
+========================================== */
+/* 5.1.1. ROLETA DE MEMBROS ============== */
+.roleta-wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin: 2rem auto 0;
+}
+
+.roleta-wrapper:hover .roleta-track {
+  animation-play-state: paused;
+}
+
+.roleta-track {
+  display: flex;
+  width: max-content;
+  animation: slide 35s linear infinite;
+  gap: 2rem;
+}
+
+.roleta-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.roleta-img:hover {
+  transform: scale(1.08);
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.roleta-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #003f91;
+  border: none;
+  color: white;
+  font-size: 26px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.roleta-btn:hover {
+  background: #001c45;
+}
+
+.roleta-btn.left {
+  left: -10px;
+}
+
+.roleta-btn.right {
+  right: -10px;
+}
+
+@media (max-width: 700px) {
+  .roleta-btn {
+    display: none;
+  }
+}
+/* 5.1.2. CARDS DO COMITÊ ================ */
+
+/* 5.2. GRID DE MEMBROS ================== */
+.membros-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  width: 100%;
+  justify-items: center;
+}
+
+/* ==========================================
+   + UTILITÁRIOS
+========================================== */
+/* A. HEADER ============================= */
+.header,
+.header a,
+.submenu-title {
+  font-size: 16px;
+}
+
 .header {
   background: #fff;
   padding: 10px 0;
@@ -71,17 +501,17 @@ img {
   z-index: 20;
 }
 
+.logo img {
+  height: 55px;
+}
+
+/* B. NAVEGAÇÃO ========================== */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo img {
-  height: 55px;
-}
-
-/* Nav Links */
 .nav-links {
   display: flex;
   gap: 24px;
@@ -104,7 +534,6 @@ img {
   color: white !important;
 }
 
-/* Submenu */
 .submenu-click {
   position: relative;
 }
@@ -151,7 +580,6 @@ img {
   backdrop-filter: blur(6px);
 }
 
-/* Menu Mobile */
 .menu-btn {
   display: none;
   font-size: 28px;
@@ -163,7 +591,6 @@ img {
   color: #fff;
 }
 
-/* Responsividade Mobile */
 @media (max-width: 820px) {
   .menu-btn {
     display: block;
@@ -248,75 +675,84 @@ img {
   }
 }
 
-/* ==========================================
-   HERO BANNER
-========================================== */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 480px;
-  overflow: hidden;
-}
-
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(90%);
-}
-
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* C. FOOTER ============================= */
+footer {
+  background: #001c45;
   color: white;
+  padding: 40px 0;
   text-align: center;
-  max-width: 800px;
+  margin-top: 50px;
 }
 
-.hero-content h1 {
-  font-size: 42px;
-  font-weight: bold;
-  margin-bottom: 15px;
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
 }
 
-.hero-content p {
-  font-size: 22px;
-  margin-bottom: 24px;
+.footer-col h3 {
+  color: #ffdd57;
+  margin-bottom: 12px;
+  font-size: 18px;
 }
 
-.hero-btn {
-  padding: 14px 28px;
-  background: #ffdd57;
-  color: #003572;
+.footer-col p,
+.footer-col a {
+  font-size: 15px;
+  color: #d1d5db;
   text-decoration: none;
-  font-weight: bold;
-  border-radius: 10px;
-  transition: background 0.3s;
+  margin-bottom: 8px;
+  display: block;
 }
 
-.hero-btn:hover {
-  background: #ffe88c;
+.footer-col a:hover {
+  color: white;
+  text-decoration: underline;
 }
 
-@media (max-width: 700px) {
-  .hero {
-    height: 420px;
+.footer-logo {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+.footer-slogan {
+  font-size: 14px;
+  color: #cbd5e1;
+  max-width: 260px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.footer-credit {
+  font-size: 12px;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+@media (max-width: 800px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero-content h1 {
-    font-size: 28px;
+  .footer-logo {
+    margin: 0 auto 20px;
   }
 
-  .hero-content p {
-    font-size: 18px;
+  .footer-slogan {
+    margin: 0 auto;
   }
 }
 
-/* ==========================================
-   SECTIONS
-========================================== */
+/* D. SECTIONS =========================== */
 .section {
   padding: 15px 0;
 }
@@ -342,90 +778,7 @@ img {
   text-align: justify;
 }
 
-/* ==========================================
-   CARROSSEL
-========================================== */
-.mural-comite {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.carousel-wrapper {
-  overflow: hidden;
-  width: 100%;
-  margin: 2rem auto 0;
-}
-
-.carousel-wrapper:hover .carousel-track {
-  animation-play-state: paused;
-}
-
-.carousel-track {
-  display: flex;
-  width: max-content;
-  animation: slide 35s linear infinite;
-  gap: 2rem;
-}
-
-.carousel-img {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s;
-}
-
-.carousel-img:hover {
-  transform: scale(1.08);
-}
-
-@keyframes slide {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #003f91;
-  border: none;
-  color: white;
-  font-size: 26px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-  transition: background 0.2s;
-}
-
-.carousel-btn:hover {
-  background: #001c45;
-}
-
-.carousel-btn.left {
-  left: -10px;
-}
-
-.carousel-btn.right {
-  right: -10px;
-}
-
-@media (max-width: 700px) {
-  .carousel-btn {
-    display: none;
-  }
-}
-
-/* ==========================================
-   CARDS
-========================================== */
+/* E. CARDS ============================== */
 .card {
   background: white;
   border-radius: 12px;
@@ -653,83 +1006,6 @@ img {
   }
 }
 
-/* ==========================================
-   MURAIS E CATEGORIAS
-========================================== */
-.mural-categorias {
-  position: relative;
-  width: 100%;
-  padding: 25px 15px;
-  overflow: hidden;
-  margin-bottom: 40px;
-}
-
-.mural-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.mural-container {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-  padding: 25px;
-}
-
-.mural-card {
-  min-width: 220px;
-  max-width: 280px;
-  background: rgba(0, 60, 130, 0.45);
-  backdrop-filter: blur(8px);
-  padding: 20px;
-  border-radius: 14px;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.25s, background 0.25s;
-  color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.mural-card {
-  text-decoration: none;
-}
-
-
-.mural-card:hover {
-  transform: translateY(-6px);
-  background: rgba(0, 60, 130, 0.65);
-}
-
-.mural-card h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-.mural-num {
-  font-size: 32px;
-  font-weight: bold;
-}
-
-@media (max-width: 800px) {
-  .mural-card {
-    width: 100%;
-  }
-}
-
-@media (max-width: 500px) {
-  .mural-container {
-    padding: 10px;
-    gap: 15px;
-  }
-}
-
 /* Dashboard de Categorias */
 .categoria-dashboard {
   display: grid;
@@ -793,189 +1069,7 @@ img {
   opacity: 0.9;
 }
 
-/* ==========================================
-   MEMBROS
-========================================== */
-.membros-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  width: 100%;
-  justify-items: center;
-}
-
-/* ==========================================
-   DOCUMENTOS
-========================================== */
-.documento-card {
-  background: #fff;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-.doc-actions {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.btn {
-  padding: 8px 14px;
-  border-radius: 6px;
-  text-decoration: none;
-  color: white;
-  transition: opacity 0.2s;
-}
-
-.btn:hover {
-  opacity: 0.9;
-}
-
-.visualizar {
-  background: #0077ff;
-}
-
-.baixar {
-  background: #00b050;
-}
-
-/* ==========================================
-   LABORATÓRIO
-========================================== */
-.lab-hero {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-}
-
-.lab-hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.6);
-}
-
-.lab-hero-content {
-  position: relative;
-  z-index: 2;
-  color: white;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 40px;
-}
-
-.lab-hero-content h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-.lab-list {
-  padding-left: 20px;
-}
-
-.lab-list li {
-  margin-bottom: 8px;
-}
-
-.lab-galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-}
-
-.lab-galeria img {
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-}
-
-/* ==========================================
-   FOOTER
-========================================== */
-footer {
-  background: #001c45;
-  color: white;
-  padding: 40px 0;
-  text-align: center;
-  margin-top: 50px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  padding-bottom: 40px;
-}
-
-.footer-col h3 {
-  color: #ffdd57;
-  margin-bottom: 12px;
-  font-size: 18px;
-}
-
-.footer-col p,
-.footer-col a {
-  font-size: 15px;
-  color: #d1d5db;
-  text-decoration: none;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.footer-col a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-.footer-logo {
-  width: 200px;
-  margin-bottom: 10px;
-}
-
-.footer-slogan {
-  font-size: 14px;
-  color: #cbd5e1;
-  max-width: 260px;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 20px;
-}
-
-.footer-bottom p {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.footer-credit {
-  font-size: 12px;
-  margin-top: 4px;
-  opacity: 0.7;
-}
-
-@media (max-width: 800px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-logo {
-    margin: 0 auto 20px;
-  }
-
-  .footer-slogan {
-    margin: 0 auto;
-  }
-}
-
-/* ==========================================
-   SCROLLBAR
-========================================== */
+/* F. SCROLLBAR ========================== */
 ::-webkit-scrollbar {
   width: 9px;
 }
@@ -991,144 +1085,4 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #4b5563;
-}
-
-/* ==========================================
-   CARROSSEL DE NOTÍCIAS DA HOME
-========================================== */
-.news-carousel {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.carousel-window {
-  overflow: hidden;
-  width: 100%;
-}
-
-.home-carousel-track {
-  display: flex;
-  width: 100%;
-  transition: transform 0.6s ease;
-}
-
-.carousel-slide {
-  min-width: 100%;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.carousel-nav {
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #003572;
-  padding: 0 10px;
-}
-
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 12px;
-  gap: 8px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ccc;
-  cursor: pointer;
-}
-
-.dot.active {
-  background: #003572;
-}
-
-/* ==========================================
-   UTILITÁRIOS
-========================================== */
-.split-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.split-section img {
-  width: 100%;
-  border-radius: 14px;
-}
-
-@media (max-width: 800px) {
-  .split-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-.header,
-.header a,
-.submenu-title {
-  font-size: 16px;
-}
-
-/* ==========================================*/
-.accordion {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.accordion-item {
-  border: 1px solid #e5e7eb;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  background: white;
-}
-
-/* Header clicável */
-.accordion-header {
-  width: 100%;
-  padding: 1rem 1.25rem;
-  background: none;
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: left;
-}
-
-.accordion-header:hover {
-  background-color: #f9fafb;
-}
-
-/* Ícone */
-.accordion-icon {
-  font-size: 1.25rem;
-  transition: transform 0.2s ease;
-}
-
-/* Conteúdo escondido */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  padding: 0 1.25rem;
-}
-
-/* Conteúdo visível */
-.accordion-item.open .accordion-content {
-  max-height: 200px; /* pode aumentar se quiser */
-  padding-bottom: 1rem;
-}
-
-/* Rotação da seta (opcional) */
-.accordion-item.open .accordion-icon {
-  transform: rotate(90deg);
 }

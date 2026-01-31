@@ -4,11 +4,11 @@ import Section from "../components/Section";
 export default function Lapgenic() {
   return (
     <div>
-      {/* ===================== MURAL HERO ===================== */}
-      <div className="mural-categorias">
+      {/* 1. MURAL */}
+      <div className="mural">
         <img
           src="banners/banner.gif"
-          className="mural-bg"
+          className="mural-img"
           alt="Banner LAPGENIC"
         />
 
@@ -27,10 +27,9 @@ export default function Lapgenic() {
         </div>
       </div>
 
-      {/* ===================== CONTEÚDO ===================== */}
+      {/* 2. APRESENTAÇÃO */}
       <Section title="Sobre o Laboratório">
-        <div className="split-section">
-          {/* IMAGEM - direita */}
+        <div className="split-about">
           <div>
             <img src="banners/LAPGENIC.png"/>
           </div>
@@ -62,9 +61,8 @@ export default function Lapgenic() {
         </div>  
       </Section>
 
-      {/* ===================== ENDEREÇO E CONTATO ===================== */}
+      {/* 3. ENDEREÇO E CONTATO */}
       <Section title="Endereço e Contato">
-          {/* TEXTO - esquerda */}
           <div className="prose max-w-none">
             <p>
               <strong>Endereço:</strong>

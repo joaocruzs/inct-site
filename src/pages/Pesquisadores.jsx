@@ -48,9 +48,9 @@ export default function Pesquisadores() {
 
   return (
     <div>
-      {/* ===================== MURAL HERO ===================== */}
-      <div className="mural-categorias">
-        <img src="banners/banner.gif" className="mural-bg" alt="" />
+      {/* 1. MURAL */}
+      <div className="mural">
+        <img src="banners/banner.gif" className="mural-img" alt="" />
 
         <div className="mural-container">
           {categoriasOrdenadas.map((categoria, index) => (
@@ -66,7 +66,7 @@ export default function Pesquisadores() {
         </div>
       </div>
 
-      {/* ===================== SEÇÕES DOS GRUPOS ===================== */}
+      {/* 2. SEÇÕES DOS GRUPOS */}
       {categoriasOrdenadas.map((categoria, index) => (
         <div key={index} ref={refs[categoria]}>
           <Section title={categoria}>
