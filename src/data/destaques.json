@@ -1,0 +1,36 @@
+[
+  {
+    "titulo": "INCT OncoTTGen",
+    "subtitulo": "Pesquisa e inovação em oncologia translacional",
+    "imagem": "banners/inct.png",
+    "link": "/sobre"
+  },
+  {
+    "titulo": "Plataforma de Colaboração",
+    "subtitulo": "Ambiente dedicado aos pesquisadores",
+    "imagem": "banners/plataforma.png",
+    "link": "https://oncottgenpesq.vercel.app",
+    "externo": true
+  },
+  {
+    "titulo": "Conheça nosso Canal no YouTube",
+    "subtitulo": "",
+    "imagem": "banners/youtube.png",
+    "link": "https://www.youtube.com/@InstitutoNacionalONCOTTGEN",
+    "externo": true
+  },
+  {
+    "titulo": "Siga-nos no Instagram",
+    "subtitulo": "",
+    "imagem": "banners/instagram.png",
+    "link": "https://www.instagram.com/inct.oncottgen/",
+    "externo": true
+  },
+  {
+    "titulo": "Saiba mais no LinkedIn",
+    "subtitulo": "",
+    "imagem": "banners/linkedin.png",
+    "link": "https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true",
+    "externo": true
+  }
+]
