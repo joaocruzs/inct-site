@@ -1,6 +1,6 @@
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
-import CardNoticia from "../components/CardNoticia";
+import NoticiaListItem from "../components/noticias/NoticiaListItem";
 import noticias from "../data/noticias.json";
 
 export default function Noticias() {
@@ -8,9 +8,9 @@ export default function Noticias() {
     <Container>
       <PageTitle>Notícias</PageTitle>
 
-      <div className="grid grid-3">
+      <div className="noticia-list-item">
         {noticias.map((noticia, index) => (
-          <CardNoticia
+          <NoticiaListItem
             key={index}
             titulo={noticia.titulo}
             data={noticia.data}
