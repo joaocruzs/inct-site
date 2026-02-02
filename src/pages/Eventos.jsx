@@ -1,6 +1,6 @@
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
-import EventolistItem from "../components/eventos/EventolistItem";
+import EventoListItem from "../components/eventos/EventoListItem";
 import eventos from "../data/eventos.json";
 
 export default function Eventos() {
@@ -10,7 +10,7 @@ export default function Eventos() {
 
       <div className="evento-list-item">
         {eventos.map((evento, index) => (
-          <EventolistItem
+          <EventoListItem
             key={index}
             titulo={evento.titulo}
             data={evento.data}
