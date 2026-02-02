@@ -130,27 +130,21 @@ export default function Header({ transparent = false }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
-            >
-              <FaYoutube />
-            </a>
+            > <FaYoutube /> </a>
 
             <a
               href="https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-            >
-              <FaLinkedin />
-            </a>
+            > <FaLinkedin /> </a>
 
             <a
               href="https://www.instagram.com/inct.oncottgen/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-            >
-              <FaInstagram />
-            </a>
+            > <FaInstagram /> </a>
           </div>
         </nav>
       </div>

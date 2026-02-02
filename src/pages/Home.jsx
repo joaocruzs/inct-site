@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/Section";
-import CardNoticiaHome from "../components/noticias/CardNoticiaHome";
-import PublicacaoListItem from "../components/publicacoes/PublicacaoListItem";
+import CardNoticiaHome from "../components/CardNoticiaHome";
+import PublicacaoList from "../components/PublicacaoList";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 import noticias from "../data/noticias.json";
@@ -47,8 +47,6 @@ export default function Home() {
       {/* 2. CARROSSEL DE DESTAQUES */}
       <Section>
         <div className="carrossel-destaques">
-          <button className="carrossel-nav" onClick={prev}>‹</button>
-
           <div className="carrossel-window">
             <div
               className="carrossel-track"
@@ -57,26 +55,41 @@ export default function Home() {
               {destaques.map((item, i) => (
                 <div className="carrossel-slide destaque" key={i}>
                   <img src={item.imagem} alt="" />
+
                   <div className="destaque-content">
                     <h3>{item.titulo}</h3>
                     {item.subtitulo && <p>{item.subtitulo}</p>}
 
-                    {item.link && (
-                      item.externo ? (
+                    {item.link &&
+                      (item.externo ? (
                         <a href={item.link} target="_blank" rel="noreferrer">
                           Acessar <FaExternalLinkAlt />
                         </a>
                       ) : (
                         <Link to={item.link}>Saiba mais</Link>
-                      )
-                    )}
+                      ))}
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <button className="carrossel-nav" onClick={next}>›</button>
+          {/* CONTROLES */}
+          <div className="carrossel-controls">
+            <button onClick={prev} className="carrossel-arrow">‹</button>
+
+            <div className="carrossel-dots">
+              {destaques.map((_, i) => (
+                <span
+                  key={i}
+                  className={`dot ${i === index ? "active" : ""}`}
+                  onClick={() => setIndex(i)}
+                />
+              ))}
+            </div>
+
+            <button onClick={next} className="carrossel-arrow">›</button>
+          </div>
         </div>
       </Section>
 
@@ -97,7 +110,7 @@ export default function Home() {
       <Section title="Publicações">
         <div className="publicacoes-grid">
           {ultimasPublicacoes.map((p, i) => (
-            <PublicacaoListItem key={i} {...p} />
+            <PublicacaoList key={i} {...p} />
           ))}
         </div>
 

@@ -33,7 +33,7 @@ export default function Sobre() {
             <span className="mural-num">Notícias</span>
           </Link>
 
-          <Link to="/galeria" className="mural-card">
+          <Link to="/eventos" className="mural-card">
             <span className="mural-num">Eventos</span>
           </Link>
         </div>
