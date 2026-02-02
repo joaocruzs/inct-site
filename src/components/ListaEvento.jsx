@@ -1,4 +1,4 @@
-export default function EventoList({ titulo, data, local, imagem, resumo }) {
+export default function ListaEvento({ titulo, data, local, imagem, resumo }) {
   return (
     <article className="evento-list">
       <img src={imagem} alt={titulo} />

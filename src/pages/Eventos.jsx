@@ -2,7 +2,8 @@ import { useState } from "react";
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import FilterSidebar from "../components/FilterSidebar";
-import EventoList from "../components/EventoList";
+import ListaEvento from "../components/ListaEvento";
+
 import eventos from "../data/eventos.json";
 
 export default function Eventos() {
@@ -31,6 +32,7 @@ export default function Eventos() {
     <Container>
       <PageTitle>Eventos</PageTitle>
 
+      {/* 1. FILTROS DE BUSCA */}
       <div className="page-with-sidebar">
         <FilterSidebar
           periodos={[
@@ -42,9 +44,10 @@ export default function Eventos() {
           onApply={aplicarFiltros}
         />
 
+        {/* 2. LISTA DE EVENTOS */}
         <div className="page-content">
           {filtrados.map((e, i) => (
-            <EventoList key={i} {...e} />
+            <ListaEvento key={i} {...e} />
           ))}
         </div>
       </div>

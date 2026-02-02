@@ -2,7 +2,8 @@ import { useState } from "react";
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import FilterSidebar from "../components/FilterSidebar";
-import NoticiaList from "../components/NoticiaList";
+import ListaNoticia from "../components/ListaNoticia";
+
 import noticias from "../data/noticias.json";
 
 export default function Noticias() {
@@ -30,6 +31,7 @@ export default function Noticias() {
     <Container>
       <PageTitle>Notícias</PageTitle>
 
+      {/* 1. FILTROS DE BUSCA */}
       <div className="page-with-sidebar">
         <FilterSidebar
           periodos={[
@@ -41,10 +43,10 @@ export default function Noticias() {
           tags={["CRISPR", "siRNA", "Nanotecnologia"]}
           onApply={aplicarFiltros}
         />
-
+        {/* 2. LISTA DE NOTÍCIAS */}
         <div className="page-content">
           {filtradas.map((n, i) => (
-            <NoticiaList key={i} {...n} />
+            <ListaNoticia key={i} {...n} />
           ))}
         </div>
       </div>

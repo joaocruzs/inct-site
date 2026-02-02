@@ -1,7 +1,8 @@
-import parceiros from "../data/parceiros.json";
 import Section from "../components/Section";
 import CardParceiro from "../components/CardParceiro";
 import { useRef, useEffect, useState } from "react";
+
+import parceiros from "../data/parceiros.json";
 
 export default function Parceiros() {
   const grupos = parceiros.reduce((acc, parceiro) => {
@@ -11,7 +12,6 @@ export default function Parceiros() {
     return acc;
   }, {});
 
-  // refs das seções
   const refs = Object.keys(grupos).reduce((acc, cat) => {
     acc[cat] = useRef(null);
     return acc;
@@ -69,7 +69,7 @@ export default function Parceiros() {
       {Object.keys(grupos).map((categoria, index) => (
         <div key={index} ref={refs[categoria]}>
           <Section title={categoria}>
-            <div className="membros-grid">
+            <div className="equipe-grid">
               {grupos[categoria].map((m, i) => (
                 <CardParceiro
                   key={i}

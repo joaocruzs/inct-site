@@ -30,9 +30,7 @@ export default function Lapgenic() {
       {/* 2. APRESENTAÇÃO */}
       <Section title="Sobre o Laboratório">
         <div className="split-about">
-          <div>
-            <img src="banners/lapgenic.png"/>
-          </div>
+          <div> <img src="banners/lapgenic.png"/> </div>
 
           <div className="prose max-w-none space-y-6">
             <p>
@@ -63,6 +61,7 @@ export default function Lapgenic() {
 
       {/* 3. ENDEREÇO E CONTATO */}
       <Section title="Endereço e Contato">
+        <div className="split-about">
           <div className="prose max-w-none">
             <p>
               <strong>Endereço:</strong>
@@ -80,6 +79,9 @@ export default function Lapgenic() {
               <strong>Telefone:</strong> (86) 98100-6336
             </p>
           </div>
+
+          <div> <img src="banners/lapgenic.png"/> </div>
+        </div>
       </Section>
     </div>
   );

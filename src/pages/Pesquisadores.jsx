@@ -1,7 +1,8 @@
-import equipe from "../data/pesquisadores.json";
 import Section from "../components/Section";
 import CardMembro from "../components/CardMembro";
 import { useRef, useEffect, useState } from "react";
+
+import equipe from "../data/pesquisadores.json";
 
 export default function Pesquisadores() {
   const grupos = equipe.reduce((acc, membro) => {
@@ -25,7 +26,6 @@ export default function Pesquisadores() {
     });
   };
 
-  // contador animado
   const [counts, setCounts] = useState({});
   useEffect(() => {
     const updated = {};
@@ -70,7 +70,7 @@ export default function Pesquisadores() {
       {categoriasOrdenadas.map((categoria, index) => (
         <div key={index} ref={refs[categoria]}>
           <Section title={categoria}>
-            <div className="membros-grid">
+            <div className="equipe-grid">
               {grupos[categoria].map((m, i) => (
                 <CardMembro
                   key={i}

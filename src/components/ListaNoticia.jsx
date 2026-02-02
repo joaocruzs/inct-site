@@ -1,4 +1,4 @@
-export default function NoticiaList({ imagem, titulo, resumo, data }) {
+export default function ListaNoticia({ imagem, titulo, resumo, data }) {
   return (
     <article className="noticia-list">
       <img src={imagem} alt={titulo} />

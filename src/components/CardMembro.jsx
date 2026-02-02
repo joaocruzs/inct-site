@@ -12,46 +12,46 @@ export default function CardMembro({
   return (
     <div className="card-membro-full">
       
-      {/* Foto */}
+      {/* 1. Foto */}
       <div className="card-membro-img">
         <img src={imagem || "/imagens/default.png"} alt={nome} />
       </div>
 
-      {/* Nome */}
+      {/* 2. Nome */}
       <h3 className="card-membro-nome">{nome}</h3>
 
-      {/* Categoria */}
+      {/* 3. Categoria */}
       {categoria && <p className="card-membro-cat">{categoria}</p>}
 
-      {/* Formação */}
+      {/* 4. Formação */}
       {formacao && (
         <p className="card-membro-info">
           <strong>Formação: </strong> {formacao}
         </p>
       )}
 
-      {/* Nível (para alunos de pós) */}
+      {/* 5. Nível (para alunos de pós) */}
       {nivel && (
         <p className="card-membro-info">
           <strong>Nível: </strong> {nivel}
         </p>
       )}
 
-      {/* Instituição */}
+      {/* 6. Instituição */}
       {instituicao && (
         <p className="card-membro-info">
           <strong>Instituição: </strong> {instituicao}
         </p>
       )}
 
-      {/* Áreas */}
+      {/* 7. Áreas */}
       {areas && (
         <p className="card-membro-info">
           <strong>Áreas: </strong> {Array.isArray(areas) ? areas.join(", ") : areas}
         </p>
       )}
 
-      {/* Lattes */}
+      {/* 8. Lattes */}
       {link && (
         <p className="card-membro-info">
           <a
@@ -65,6 +65,7 @@ export default function CardMembro({
         </p>
       )}
 
+      {/* 9. Email */}
       {email && (
         <p className="card-membro-info">
           <strong>Email: </strong> {email}

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/Section";
-import CardNoticiaHome from "../components/CardNoticiaHome";
-import PublicacaoList from "../components/PublicacaoList";
+import CardNoticia from "../components/CardNoticia";
+import ListaPublicacao from "../components/ListaPublicacao";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 import noticias from "../data/noticias.json";
@@ -10,7 +10,6 @@ import publicacoes from "../data/publicacoes.json";
 import destaques from "../data/destaques.json";
 
 export default function Home() {
-  /* CARROSSEL DE DESTAQUES */
   const [index, setIndex] = useState(0);
   const total = destaques.length;
 
@@ -26,15 +25,14 @@ export default function Home() {
   const next = () => setIndex((i) => (i + 1) % total);
   const prev = () => setIndex((i) => (i - 1 + total) % total);
 
-  /* DADOS */
   const ultimasNoticias = noticias.slice(0, 8);
   const ultimasPublicacoes = publicacoes.slice(0, 8);
 
   return (
     <>
-      {/* 1. HERO */}
+      {/* 1. BANNER */}
       <section className="banner">
-        <img src="banners/banner.gif" className="banner-img" alt="" />
+        <img src="banners/banner.gif" className="banner-img" />
         <div className="banner-content container">
           <h1>Inovação e Avanços na Oncologia</h1>
           <p>Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia.</p>
@@ -54,7 +52,7 @@ export default function Home() {
             >
               {destaques.map((item, i) => (
                 <div className="carrossel-slide destaque" key={i}>
-                  <img src={item.imagem} alt="" />
+                  <img src={item.imagem}/>
 
                   <div className="destaque-content">
                     <h3>{item.titulo}</h3>
@@ -74,7 +72,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CONTROLES */}
           <div className="carrossel-controls">
             <button onClick={prev} className="carrossel-arrow">‹</button>
 
@@ -91,13 +88,14 @@ export default function Home() {
             <button onClick={next} className="carrossel-arrow">›</button>
           </div>
         </div>
+
       </Section>
 
       {/* 3. ÚLTIMAS NOTÍCIAS */}
       <Section title="Últimas Notícias">
         <div className="news-grid">
           {ultimasNoticias.map((n, i) => (
-            <CardNoticiaHome key={i} {...n} />
+            <CardNoticia key={i} {...n} />
           ))}
         </div>
 
@@ -110,7 +108,7 @@ export default function Home() {
       <Section title="Publicações">
         <div className="publicacoes-grid">
           {ultimasPublicacoes.map((p, i) => (
-            <PublicacaoList key={i} {...p} />
+            <ListaPublicacao key={i} {...p} />
           ))}
         </div>
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/Section";
+
 import sobre from "../data/sobre.json";
 
 export default function Sobre() {

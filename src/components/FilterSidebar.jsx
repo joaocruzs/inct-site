@@ -30,7 +30,7 @@ export default function FilterSidebar({
     <aside className="filter-sidebar">
       <h3>Filtros</h3>
 
-      {/* PERÍODO */}
+      {/* 1. BUSCA POR PERÍODO */}
       {periodos.length > 0 && (
         <div className="filter-group">
           <h4>Período</h4>
@@ -49,7 +49,7 @@ export default function FilterSidebar({
         </div>
       )}
 
-      {/* LABORATÓRIOS */}
+      {/* 2. OPÇÕES POR LABORATÓRIO */}
       {laboratorios.length > 0 && (
         <div className="filter-group">
           <h4>Laboratório</h4>
@@ -67,7 +67,7 @@ export default function FilterSidebar({
         </div>
       )}
 
-      {/* TAGS */}
+      {/* 3. BUSCA POR TAGS */}
       {tags.length > 0 && (
         <div className="filter-group">
           <h4>Temas</h4>
@@ -84,6 +84,7 @@ export default function FilterSidebar({
         </div>
       )}
 
+      {/* 4. BOTÕES APLICAR E LIMPAR */}
       <button className="filter-apply" onClick={aplicarFiltros}>
         Aplicar filtros
       </button>

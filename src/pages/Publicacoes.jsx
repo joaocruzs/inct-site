@@ -2,7 +2,8 @@ import { useState } from "react";
 import Container from "../components/Container";
 import PageTitle from "../components/PageTitle";
 import FilterSidebar from "../components/FilterSidebar";
-import PublicacaoList from "../components/PublicacaoList";
+import ListaPublicacao from "../components/ListaPublicacao";
+
 import publicacoes from "../data/publicacoes.json";
 
 export default function Publicacoes() {
@@ -24,6 +25,7 @@ export default function Publicacoes() {
     <Container>
       <PageTitle>Publicações</PageTitle>
 
+      {/* 1. FILTROS DE BUSCA */}
       <div className="page-with-sidebar">
         <FilterSidebar
           periodos={[]}
@@ -37,9 +39,10 @@ export default function Publicacoes() {
           onApply={aplicarFiltros}
         />
 
+        {/* 2. LISTA DE PUBLICAÇÕES */}
         <div className="page-content">
           {filtradas.map((p, i) => (
-            <PublicacaoList key={i} {...p} />
+            <ListaPublicacao key={i} {...p} />
           ))}
         </div>
       </div>
