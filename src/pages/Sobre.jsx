@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/Section";
+
 import sobre from "../data/sobre.json";
 
 export default function Sobre() {
@@ -33,7 +34,7 @@ export default function Sobre() {
             <span className="mural-num">Notícias</span>
           </Link>
 
-          <Link to="/galeria" className="mural-card">
+          <Link to="/eventos" className="mural-card">
             <span className="mural-num">Eventos</span>
           </Link>
         </div>

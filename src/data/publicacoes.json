@@ -1,14 +1,20 @@
 [
   {
-    "titulo": "Exemplo de artigo 1",
-    "autores": "Autor A, Autor B",
-    "ano": "2024",
-    "link": "https://doi.org/x"
+    "id": "pub-001",
+    "titulo": "Nanomedicine strategies for siRNA delivery",
+    "autores": "Autor A, Autor B, Autor C",
+    "ano": 2024,
+    "link": "https://doi.org/10.1016/j.nano.2024.123456",
+    "laboratorio": "LAPGENIC",
+    "tags": ["siRNA", "Nanomedicina", "Drug Delivery"]
   },
   {
-    "titulo": "Exemplo de artigo 2",
-    "autores": "Autor A, Autor B",
-    "ano": "2024",
-    "link": "https://doi.org/x"
+    "id": "pub-002",
+    "titulo": "CRISPR-based approaches in translational oncology",
+    "autores": "Autor D, Autor E",
+    "ano": 2023,
+    "link": "https://doi.org/10.1000/crispr.2023.987654",
+    "laboratorio": "INCT",
+    "tags": ["CRISPR", "Oncologia Translacional"]
   }
 ]

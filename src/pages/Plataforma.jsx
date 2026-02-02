@@ -1,7 +1,7 @@
 
 export default function Plataforma() {
   return (
-      <h1>Em breve</h1>
+      <img src="banners/plataforma.png" />
   );
 }
 

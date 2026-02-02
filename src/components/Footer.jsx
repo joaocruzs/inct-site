@@ -5,7 +5,7 @@ export default function Footer() {
     <footer>
       <div className="container footer-grid">
 
-        {/* Coluna 1 – Logo e nome */}
+        {/* 1. Logo e Nome */}
         <div className="footer-col">
           <img src="banners/logo.png" alt="Logo INCT" className="footer-logo" />
           <p className="footer-slogan">
@@ -13,7 +13,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Coluna 2 – Contato */}
+        {/* 2. Contato */}
         <div className="footer-col">
           <h3>Contato</h3>
           <p>Email: inctoncottgen@gmail.com</p>
@@ -21,7 +21,7 @@ export default function Footer() {
           <p>UFPI — Teresina, Piauí</p>
         </div>
 
-        {/* Coluna 3 – Redes Sociais */}
+        {/* 3. Redes Sociais */}
         <div className="footer-col">
           <h3>Redes Sociais</h3>
           <p><a href="https://www.instagram.com/inct.oncottgen/" target="_blank"><FaInstagram /> Instagram</a></p>
@@ -31,7 +31,7 @@ export default function Footer() {
 
       </div>
 
-      {/* Linha inferior */}
+      {/* 4. Linha inferior */}
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} INCT OncoTTGen — Todos os direitos reservados.</p>
         <p className="footer-credit">Desenvolvido pela equipe INCT OncoTTGen</p>

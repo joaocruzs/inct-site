@@ -1,5 +1,6 @@
-import documentos from "../data/documentos.json";
 import Section from "../components/Section";
+
+import documentos from "../data/documentos.json";
 
 export default function Documentos() {
   return (

@@ -7,7 +7,7 @@ export default function CardParceiro({
   return (
     <div className="card-membro-full">
       
-        {/* Foto clicável apenas se houver link */}
+        {/* 1. Foto clicável apenas se houver link */}
         {link ? (
           <a 
             href={link} 
@@ -23,10 +23,10 @@ export default function CardParceiro({
           </div>
         )}
 
-        {/* Nome */}
+        {/* 2. Nome */}
         <h3 className="card-membro-nome">{nome}</h3>
 
-        {/* Descrição */}
+        {/* 3. Descrição */}
         <p>{descricao}</p>
 
     </div>

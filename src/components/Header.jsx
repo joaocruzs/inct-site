@@ -15,14 +15,14 @@ export default function Header({ transparent = false }) {
     <header className={`header ${transparent ? "header-transparent" : ""}`}>
       <div className="container nav">
 
-        {/* LOGO */}
+        {/* 1. Logo */}
         <div className="logo">
           <Link to="/" onClick={closeAll}>
             <img src="banners/logo.png" alt="Logo INCT" />
           </Link>
         </div>
 
-        {/* BOTÃO MOBILE */}
+        {/* 2. Botão Mobile */}
         <div
           className="menu-btn"
           onClick={() => {
@@ -33,12 +33,12 @@ export default function Header({ transparent = false }) {
           {open ? "✕" : "☰"}
         </div>
 
-        {/* MENU PRINCIPAL */}
+        {/* 3. Menu Principal */}
         <nav className={`nav-links ${open ? "open" : ""}`}>
 
           <NavLink to="/" onClick={closeAll}>Início</NavLink>
 
-          {/* SUBMENU */}
+          {/* 4.1. Submenu Instituto */}
           <div className="submenu-click">
 
             <span
@@ -48,7 +48,6 @@ export default function Header({ transparent = false }) {
               Instituto ⁝
             </span>
 
-            {/* SUBMENU SEMPRE RENDERIZADO */}
             <div
               className="submenu-box"
               style={{
@@ -66,7 +65,7 @@ export default function Header({ transparent = false }) {
             </div>
           </div>
 
-          {/* SUBMENU */}
+          {/* 4.2. Submenu Publicações */}
           <div className="submenu-click">
 
             <span
@@ -75,8 +74,7 @@ export default function Header({ transparent = false }) {
             >
               Publicações ⁝
             </span>
-            
-            {/* SUBMENU SEMPRE RENDERIZADO */}
+
             <div
               className="submenu-box"
               style={{
@@ -94,7 +92,7 @@ export default function Header({ transparent = false }) {
             </div>
           </div>
 
-          {/* SUBMENU */}
+          {/* 4.3. Submenu Equipe */}
           <div className="submenu-click">
 
             <span
@@ -104,7 +102,6 @@ export default function Header({ transparent = false }) {
               Equipe ⁝
             </span>
             
-            {/* SUBMENU SEMPRE RENDERIZADO */}
             <div
               className="submenu-box"
               style={{
@@ -130,27 +127,21 @@ export default function Header({ transparent = false }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"
-            >
-              <FaYoutube />
-            </a>
+            > <FaYoutube /> </a>
 
             <a
               href="https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-            >
-              <FaLinkedin />
-            </a>
+            > <FaLinkedin /> </a>
 
             <a
               href="https://www.instagram.com/inct.oncottgen/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-            >
-              <FaInstagram />
-            </a>
+            > <FaInstagram /> </a>
           </div>
         </nav>
       </div>

@@ -1,5 +1,6 @@
-import comite from "../data/comite.json";
 import Section from "../components/Section";
+
+import comite from "../data/comite.json";
 
 export default function Comite() {
   return (

@@ -1,26 +1,46 @@
 [
   {
-    "titulo": "INCT OncottGen é lançado oficialmente",
-    "data": "10/04/2025",
-    "imagem": "banners/inct.png",
-    "resumo": "Lançamento oficial com pesquisadores e autoridades."
+    "id": "noticia-001",
+    "titulo": "Pesquisa do INCT avança no uso de CRISPR contra tumores cerebrais",
+    "resumo": "Estudo conduzido por pesquisadores do INCT-OncoTTGen.",
+    "conteudo": "Texto completo da notícia...",
+    "imagem": "/banners/inct.png",
+    "data": "2026-02-01",
+    "laboratorio": "LAPGENIC",
+    "tags": ["CRISPR", "Terapia Gênica", "Oncologia"],
+    "publicado": true
   },
   {
-    "titulo": "INCT OncottGen é lançado oficialmente",
-    "data": "10/04/2025",
-    "imagem": "banners/inct.png",
-    "resumo": "Lançamento oficial com pesquisadores e autoridades."
+    "id": "noticia-002",
+    "titulo": "INCT-OncoTTGen promove workshop internacional em terapias gênicas",
+    "resumo": "Evento reuniu pesquisadores nacionais e internacionais.",
+    "conteudo": "Texto completo da notícia...",
+    "imagem": "/banners/inct.png",
+    "data": "2025-04-22",
+    "laboratorio": "INCT",
+    "tags": ["Workshop", "siRNA", "Pesquisa Translacional"],
+    "publicado": true
   },
   {
-    "titulo": "INCT OncottGen é lançado oficialmente",
-    "data": "10/04/2025",
-    "imagem": "banners/inct.png",
-    "resumo": "Lançamento oficial com pesquisadores e autoridades."
+    "id": "noticia-001",
+    "titulo": "Pesquisa do INCT avança no uso de CRISPR contra tumores cerebrais",
+    "resumo": "Estudo conduzido por pesquisadores do INCT-OncoTTGen.",
+    "conteudo": "Texto completo da notícia...",
+    "imagem": "/banners/inct.png",
+    "data": "2026-02-01",
+    "laboratorio": "LAPGENIC",
+    "tags": ["CRISPR", "Terapia Gênica", "Oncologia"],
+    "publicado": true
   },
   {
-    "titulo": "INCT OncottGen é lançado oficialmente",
-    "data": "10/04/2025",
-    "imagem": "banners/inct.png",
-    "resumo": "Lançamento oficial com pesquisadores e autoridades."
+    "id": "noticia-002",
+    "titulo": "INCT-OncoTTGen promove workshop internacional em terapias gênicas",
+    "resumo": "Evento reuniu pesquisadores nacionais e internacionais.",
+    "conteudo": "Texto completo da notícia...",
+    "imagem": "/banners/inct.png",
+    "data": "2025-04-22",
+    "laboratorio": "INCT",
+    "tags": ["Workshop", "siRNA", "Pesquisa Translacional"],
+    "publicado": true
   }
 ]

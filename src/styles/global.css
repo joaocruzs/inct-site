@@ -49,7 +49,7 @@ img {
 /* ==========================================
    1. HOME (INÍCIO)
 ========================================== */
-/* 1.1 BANNER ============================ */
+/* 1.1. BANNER ============================ */
 .banner {
   position: relative;
   width: 100%;
@@ -113,12 +113,10 @@ img {
   }
 }
 
-/* 1.2 CARROSSEL DE DESTAQUES ========== */
+/* 1.2.1. CARROSSEL DE DESTAQUES ========== */
 .carrossel-destaques {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 15px;
+  width: 100%;
 }
 
 .carrossel-destaques .carrossel-window {
@@ -142,16 +140,6 @@ img {
   width: 100%;
   height: 320px;
   object-fit: cover;
-}
-
-.carrossel-nav {
-  background: white;
-  border: none;
-  font-size: 32px;
-  cursor: pointer;
-  padding: 8px 14px;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .destaque-content {
@@ -196,7 +184,62 @@ img {
   color: white;
 }
 
-/* 1.3 ÚLTIMAS NOTÍCIAS ================== */
+/* 1.2.2. SETAS =========================== */
+.carrossel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.carrossel-arrow {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #003f91;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.carrossel-arrow:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+.carrossel-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.carrossel-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: #cfd8e3;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s;
+}
+
+.carrossel-dots .dot:hover {
+  transform: scale(1.2);
+}
+
+.carrossel-dots .dot.active {
+  background: #003f91;
+}
+
+@media (max-width: 600px) {
+  .carrossel-slide.destaque img {
+    height: 240px;
+  }
+
+  .carrossel-arrow {
+    display: none;
+  }
+}
+
+/* 1.3.1. ÚLTIMAS NOTÍCIAS ============== */
 .news-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -236,35 +279,31 @@ img {
   color: white;
 }
 
-/* 1.4 ÚLTIMOS EVENTOS =================== */
-.eventos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+/* 1.3.2. CARD DE ÚLTIMAS NOTÍCIAS ======== */
+.card-noticia {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-@media (max-width: 1100px) {
-  .eventos-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.card-noticia-img {
+  height: 180px;
 }
 
-@media (max-width: 600px) {
-  .eventos-grid {
-    grid-template-columns: 1fr;
-  }
+.card-noticia-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ==========================================
    2. SOBRE, DOCUMENTOS E PLATAFORMA
 ========================================== */
 /* 2.1.1. MURAL COM BOTÕES =============== */
-
-  /* ==========================
-  Observação: usado também em
-  pesquisadores, parceiros e lapgenic
-  ========================== */
-
 .mural {
   position: relative;
   width: 100%;
@@ -442,16 +481,170 @@ img {
   background: #00b050;
 }
 
-/* 2.3. PLATAFORMA ======================= */
+/* ==========================================
+   3. NOTÍCIAS, PUBLICAÇÕES E EVENTOS
+========================================== */
+/* 3.0.1. LAYOUT COM SIDEBAR ============= */
+.page-with-sidebar {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .page-with-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3.0.2. FILTRO DO SIDEBAR ============== */
+.filter-sidebar {
+  background: white;
+  border: 1px solid #e3e3e3;
+  border-radius: 14px;
+  padding: 20px;
+  position: sticky;
+  top: 100px;
+}
+
+.filter-sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #003f91;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group h4 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.filter-option input {
+  cursor: pointer;
+}
+
+.filter-apply {
+  width: 100%;
+  margin-top: 10px;
+  background: #003f91;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.filter-apply:hover {
+  background: #002a66;
+}
+
+.filter-option input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #003f91;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.filter-option input:checked::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #003f91;
+  border-radius: 50%;
+}
+
+.filter-clear {
+  margin-top: 10px;
+  background: transparent;
+  border: none;
+  color: #555;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 3.1. LISTA DE NOTÍCIAS ================ */
+.noticia-list {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.noticia-list img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.noticia-data {
+  font-size: 13px;
+  color: #777;
+}
+
+/* 3.2. LISTA DE PUBLICAÇÕES ============= */
+.publicacao-list {
+  padding: 22px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.publicacao-list-content h3 {
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+.pub-ano {
+  font-size: 13px;
+  color: #666;
+  font-weight: 500;
+}
+
+.pub-autores {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* 3.3. LISTA DE EVENTOS ================= */
+.evento-list {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.evento-list img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
 
 /* ==========================================
-   4. NOTÍCIAS, PUBLICAÇÕES E EVENTOS
+   4. COMITE, PESQUISADORES E PARCEIROS
 ========================================== */
-
-/* ==========================================
-   5. COMITE, PESQUISADORES E PARCEIROS
-========================================== */
-/* 5.1.1. ROLETA DE MEMBROS ============== */
+/* 4.1. ROLETA DE MEMBROS ================ */
 .roleta-wrapper {
   overflow: hidden;
   width: 100%;
@@ -524,10 +717,9 @@ img {
     display: none;
   }
 }
-/* 5.1.2. CARDS DO COMITÊ ================ */
 
-/* 5.2. GRID DE MEMBROS ================== */
-.membros-grid {
+/* 4.2. GRID DE PESQUISADORES E PARCEIROS  */
+.equipe-grid {
   display: grid;
   gap: 24px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -840,7 +1032,7 @@ footer {
   text-align: justify;
 }
 
-/* E. CARDS ============================== */
+/* E. CARDS EXTRAS ======================= */
 .card {
   background: white;
   border-radius: 12px;
@@ -1031,14 +1223,12 @@ footer {
   flex-direction: column;
 }
 
-/* CONTAINER FIXO DA IMAGEM */
 .card-noticia-img {
   width: 100%;
-  height: 280px;              /* <<< altura padronizada */
+  height: 280px;              
   overflow: hidden;
 }
 
-/* IMAGEM CONTROLADA */
 .card-noticia-img img {
   width: 100%;
   height: 100%;
@@ -1046,7 +1236,6 @@ footer {
   display: block;
 }
 
-/* TEXTO */
 .card-noticia-body {
   padding: 20px;
 }
@@ -1068,7 +1257,6 @@ footer {
   }
 }
 
-/* Dashboard de Categorias */
 .categoria-dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1109,7 +1297,6 @@ footer {
   }
 }
 
-/* Card de Categoria */
 .categoria-card {
   min-width: 230px;
   padding: 22px;
@@ -1147,186 +1334,4 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #4b5563;
-}
-
-/* CARDS ESPECÍFICOS ============================= */
-/* HOME */
-.card-noticia-home {
-  background: white;
-  border-radius: 14px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.card-noticia-home-img {
-  height: 180px;
-}
-
-.card-noticia-home-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* GRID */
-.card-noticia-grid {
-  background: white;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.card-noticia-grid img {
-  height: 220px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.card-noticia-grid-body {
-  padding: 16px;
-}
-
-/* LISTA */
-.noticia-list-item {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 24px;
-  padding: 20px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.noticia-list-item img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.noticia-data {
-  font-size: 13px;
-  color: #777;
-}
-
-/* ======================================== */
-.card-evento-home img,
-.card-evento-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.card-evento-grid {
-  background: white;
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.card-evento-body {
-  padding: 16px;
-}
-
-.evento-list-item {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 24px;
-  padding: 24px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.evento-list-item img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* ======================================== */
-/* ===============================
-   HOME
-================================ */
-.card-publicacao-home {
-  background: white;
-  border-left: 5px solid #003f91;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.card-publicacao-home h3 {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.card-publicacao-home a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  color: #003f91;
-  font-weight: 500;
-}
-
-/* ===============================
-   GRID
-================================ */
-.card-publicacao-grid {
-  background: white;
-  border: 1px solid #e3e3e3;
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card-publicacao-grid:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-}
-
-.card-publicacao-grid h3 {
-  font-size: 17px;
-  margin: 8px 0;
-}
-
-.pub-meta {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.pub-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #003f91;
-}
-
-/* ===============================
-   LISTA
-================================ */
-.publicacao-list-item {
-  padding: 22px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.publicacao-list-content h3 {
-  font-size: 18px;
-  margin: 6px 0;
-}
-
-/* ===============================
-   COMUNS
-================================ */
-.pub-ano {
-  font-size: 13px;
-  color: #666;
-  font-weight: 500;
-}
-
-.pub-autores {
-  font-size: 14px;
-  color: #444;
-  line-height: 1.4;
 }
