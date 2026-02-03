@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginAdmin } from "../../services/auth.service";
+import { Link } from "react-router-dom";
 
 export default function LoginAdmin() {
   const [email, setEmail] = useState("");
@@ -43,6 +44,7 @@ export default function LoginAdmin() {
         />
 
         <button type="submit">Entrar</button>
+        <Link to="/home">Sair</Link>
       </form>
     </div>
   );
