@@ -4,14 +4,14 @@ import Section from "../components/general/Section";
 export default function Lapgenic() {
   return (
     <div>
-      {/* 1. MURAL */}
+      {/* 1. MURAL
       <div className="mural">
         <img
           src="banners/banner.gif"
           className="mural-img"
           alt="Banner LAPGENIC"
         />
-
+  
         <div className="mural-container">
           <Link to="/publicacoes" className="mural-card">
             <span className="mural-num">Publicações</span>
@@ -25,7 +25,7 @@ export default function Lapgenic() {
             <span className="mural-num">Eventos</span>
           </Link>
         </div>
-      </div>
+      </div>*/}
 
       {/* 2. APRESENTAÇÃO */}
       <Section title="Sobre o Laboratório">

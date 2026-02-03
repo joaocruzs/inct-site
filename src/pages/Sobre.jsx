@@ -61,9 +61,11 @@ export default function Sobre() {
                   onClick={() => toggle(i)}
                   aria-expanded={isOpen}
                 >
-                  <span>{item.titulo}</span>
+                  <span className="faq-titulo">{item.titulo}</span>
                   <span className="faq-icon">
-                    {isOpen ? "▾" : "▸"}
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
                   </span>
                 </button>
 

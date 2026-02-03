@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/general/Section";
 import CardNoticia from "../components/cards/CardNoticia";
@@ -6,10 +6,11 @@ import ListaPublicacao from "../components/lists/ListaPublicacao";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 import noticias from "../data/noticias.json";
-import publicacoes from "../data/publicacoes.json";
+import { getPublicacoes } from "../services/publicacoes.service";
 import destaques from "../data/destaques.json";
 
 export default function Home() {
+  /* Serviço 1 - Carrossel de Destaques */
   const [index, setIndex] = useState(0);
   const total = destaques.length;
 
@@ -25,8 +26,23 @@ export default function Home() {
   const next = () => setIndex((i) => (i + 1) % total);
   const prev = () => setIndex((i) => (i - 1 + total) % total);
 
+  /* Serviço 2 - Últimas Notícias */
   const ultimasNoticias = noticias.slice(0, 8);
-  const ultimasPublicacoes = publicacoes.slice(0, 8);
+
+  /* Serviço 3 - Últimas Publicações */
+  const [publicacoes, setPublicacoes] = useState([]);
+  const [loadingPublicacoes, setLoadingPublicacoes] = useState(true);
+  const [erro, setErro] = useState(false);
+
+  useEffect(() => {
+    getPublicacoes()
+      .then((data) => {
+        const ordenadas = [...data].sort((a, b) => b.ano - a.ano);
+        setPublicacoes(ordenadas.slice(0, 4));
+      })
+      .catch(() => setErro(true))
+      .finally(() => setLoadingPublicacoes(false));
+  }, []);
 
   return (
     <>
@@ -105,17 +121,20 @@ export default function Home() {
       </Section>
 
       {/* 4. ÚLTIMAS PUBLICAÇÕES */}
-      <Section title="Publicações">
-        <div className="publicacoes-grid">
-          {ultimasPublicacoes.map((p, i) => (
-            <ListaPublicacao key={i} {...p} />
-          ))}
-        </div>
+    <Section title="Publicações">
+      {loadingPublicacoes && <p>Carregando publicações...</p>}
+      {erro && <p>Erro ao carregar publicações.</p>}
 
-        <div className="section-action">
-          <Link to="/publicacoes">Ver todas as publicações</Link>
-        </div>
-      </Section>
+      <div className="publicacoes-grid">
+        {publicacoes.map((p) => (
+          <ListaPublicacao key={p._id} {...p} />
+        ))}
+      </div>
+
+      <div className="section-action">
+        <Link to="/publicacoes">Ver todas as publicações</Link>
+      </div>
+    </Section>
     </>
   );
 }

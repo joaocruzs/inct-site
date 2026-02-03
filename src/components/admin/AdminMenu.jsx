@@ -1,22 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { logoutAdmin } from "../../services/auth.service";
 
 export default function AdminMenu() {
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    logoutAdmin();
+    navigate("/admin/login");
+  }
+
   return (
     <aside className="admin-menu">
-      <div className="admin-menu-title">
-        <strong>INCT</strong>
-        <span>Painel Admin</span>
-      </div>
+      <h2>Admin</h2>
 
       <nav>
-        <NavLink to="/admin/dashboard">Dashboard</NavLink>
-
-        <span className="menu-section">Conteúdo</span>
-
-        <NavLink to="/admin/noticia">Nova Notícia</NavLink>
-        <NavLink to="/admin/evento">Novo Evento</NavLink>
-        <NavLink to="/admin/publicacao">Nova Publicação</NavLink>
+        <NavLink to="/admin">Dashboard</NavLink>
+        <NavLink to="/admin/noticia/nova">Nova Notícia</NavLink>
+        <NavLink to="/admin/publicacao/nova">Nova Publicação</NavLink>
+        <NavLink to="/admin/evento/novo">Novo Evento</NavLink>
       </nav>
+
+      <button onClick={handleLogout}>Sair</button>
     </aside>
   );
 }

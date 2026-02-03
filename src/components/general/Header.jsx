@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import { FaYoutube, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaYoutube, FaLinkedin, FaInstagram, FaRegUserCircle } from "react-icons/fa";
 
 export default function Header({ transparent = false }) {
   const [open, setOpen] = useState(false);           
@@ -142,6 +142,8 @@ export default function Header({ transparent = false }) {
               rel="noopener noreferrer"
               aria-label="Instagram"
             > <FaInstagram /> </a>
+
+            <NavLink to="/admin/login" onClick={closeAll}><FaRegUserCircle /></NavLink>
           </div>
         </nav>
       </div>

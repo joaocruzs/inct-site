@@ -1,30 +1,32 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { loginAdmin } from "../../services/auth.service";
 
 export default function LoginAdmin() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [erro, setErro] = useState("");
+  const [erro, setErro] = useState(false);
+
   const navigate = useNavigate();
 
-  function handleLogin(e) {
+  function handleSubmit(e) {
     e.preventDefault();
 
-    // TEMPORÁRIO (ANTES DO BACKEND)
-    if (email === "admin@inct.com" && senha === "123456") {
-      localStorage.setItem("admin-auth", "true");
-      navigate("/admin/dashboard");
+    const ok = loginAdmin({ email, senha });
+
+    if (ok) {
+      navigate("/admin");
     } else {
-      setErro("Credenciais inválidas");
+      setErro(true);
     }
   }
 
   return (
     <div className="admin-login">
-      <form onSubmit={handleLogin} className="admin-login-box">
-        <h2>Acesso Administrativo</h2>
+      <form onSubmit={handleSubmit}>
+        <h1>Login Admin</h1>
 
-        {erro && <p className="error">{erro}</p>}
+        {erro && <p className="erro">Credenciais inválidas</p>}
 
         <input
           type="email"

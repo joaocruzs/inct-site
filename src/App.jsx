@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/general/Header";
 import Footer from "./components/general/Footer";
 
-/* 1. PÁGINAS PÚBLICAS */
+/* 1. PÚBLICO */
 import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Documentos from "./pages/Documentos";
@@ -16,13 +16,14 @@ import Pesquisadores from "./pages/Pesquisadores";
 import Parceiros from "./pages/Parceiros";
 import Lapgenic from "./pages/Lapgenic";
 
-/* 2. ADMIN */
+/* 2. PRIVADO */
 import LoginAdmin from "./pages/admin/LoginAdmin";
 import DashboardAdmin from "./pages/admin/DashboardAdmin";
 import NovaNoticia from "./pages/admin/NovaNoticia";
 import NovoEvento from "./pages/admin/NovoEvento";
 import NovaPublicacao from "./pages/admin/NovaPublicacao";
 
+import AdminLayout from "./components/admin/AdminLayout";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 
 export default function App() {
@@ -40,7 +41,7 @@ export default function App() {
       {!isAdminRoute && <Header transparent={isHome} />}
 
       <Routes>
-        {/* 1. PÚBLICO */}
+        {/* 1. ROTAS (público) */}
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/documentos" element={<Documentos />} />
@@ -53,44 +54,26 @@ export default function App() {
         <Route path="/parceiros" element={<Parceiros />} />
         <Route path="/lapgenic" element={<Lapgenic />} />
 
-        {/* 2. ADMIN */}
-        <Route path="/admin" element={<LoginAdmin />} />
+        {/* 2.1 ROTA (privado) */}
+        <Route path="/admin/login" element={<LoginAdmin />} />
 
+        {/* 2.2. ROTAS ADMIN (protegidas) */}
         <Route
-          path="/admin/dashboard"
+          path="/admin"
           element={
             <ProtectedRoute>
-              <DashboardAdmin />
+              <AdminLayout />
             </ProtectedRoute>
           }
-        />
+        >
+          {/* 2.2.1. dashboard */}
+          <Route index element={<DashboardAdmin />} />
 
-        <Route
-          path="/admin/noticia"
-          element={
-            <ProtectedRoute>
-              <NovaNoticia />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/admin/evento"
-          element={
-            <ProtectedRoute>
-              <NovoEvento />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/admin/publicacao"
-          element={
-            <ProtectedRoute>
-              <NovaPublicacao />
-            </ProtectedRoute>
-          }
-        />
+          {/* 2.2.2. cadastros */}
+          <Route path="noticia/nova" element={<NovaNoticia />} />
+          <Route path="evento/novo" element={<NovoEvento />} />
+          <Route path="publicacao/nova" element={<NovaPublicacao />} />
+        </Route>
       </Routes>
 
       {!isAdminRoute && <Footer />}
