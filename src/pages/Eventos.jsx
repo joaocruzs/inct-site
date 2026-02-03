@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Container from "../components/Container";
-import PageTitle from "../components/PageTitle";
-import FilterSidebar from "../components/FilterSidebar";
-import ListaEvento from "../components/ListaEvento";
+import Container from "../components/general/Container";
+import PageTitle from "../components/general/PageTitle";
+import FilterSidebar from "../components/general/FilterSidebar";
+import ListaEvento from "../components/lists/ListaEvento";
 
 import eventos from "../data/eventos.json";
 

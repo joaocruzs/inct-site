@@ -1,5 +1,5 @@
-import Section from "../components/Section";
-import CardParceiro from "../components/CardParceiro";
+import Section from "../components/general/Section";
+import CardParceiro from "../components/cards/CardParceiro";
 import { useRef, useEffect, useState } from "react";
 
 import parceiros from "../data/parceiros.json";

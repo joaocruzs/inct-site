@@ -5,7 +5,7 @@
     "autores": "Autor A, Autor B, Autor C",
     "ano": 2024,
     "link": "https://doi.org/10.1016/j.nano.2024.123456",
-    "laboratorio": "LAPGENIC",
+    "post_img": "banners/plataforma.png",
     "tags": ["siRNA", "Nanomedicina", "Drug Delivery"]
   },
   {
@@ -14,7 +14,7 @@
     "autores": "Autor D, Autor E",
     "ano": 2023,
     "link": "https://doi.org/10.1000/crispr.2023.987654",
-    "laboratorio": "INCT",
+    "post_img": "banners/plataforma.png",
     "tags": ["CRISPR", "Oncologia Translacional"]
   }
 ]

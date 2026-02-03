@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Section from "../components/Section";
-import CardNoticia from "../components/CardNoticia";
-import ListaPublicacao from "../components/ListaPublicacao";
+import Section from "../components/general/Section";
+import CardNoticia from "../components/cards/CardNoticia";
+import ListaPublicacao from "../components/lists/ListaPublicacao";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 import noticias from "../data/noticias.json";

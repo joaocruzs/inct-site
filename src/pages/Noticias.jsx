@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Container from "../components/Container";
-import PageTitle from "../components/PageTitle";
-import FilterSidebar from "../components/FilterSidebar";
-import ListaNoticia from "../components/ListaNoticia";
+import Container from "../components/general/Container";
+import PageTitle from "../components/general/PageTitle";
+import FilterSidebar from "../components/general/FilterSidebar";
+import ListaNoticia from "../components/lists/ListaNoticia";
 
 import noticias from "../data/noticias.json";
 

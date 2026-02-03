@@ -33,7 +33,7 @@ export default function Footer() {
 
       {/* 4. Linha inferior */}
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} INCT OncoTTGen — Todos os direitos reservados.</p>
+        <p>@ {new Date().getFullYear()} INCT OncoTTGen — Todos os direitos reservados.</p>
         <p className="footer-credit">Desenvolvido pela equipe INCT OncoTTGen</p>
       </div>
     </footer>

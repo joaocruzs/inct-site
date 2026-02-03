@@ -1,5 +1,5 @@
-import Section from "../components/Section";
-import CardMembro from "../components/CardMembro";
+import Section from "../components/general/Section";
+import CardMembro from "../components/cards/CardMembro";
 import { useRef, useEffect, useState } from "react";
 
 import equipe from "../data/pesquisadores.json";

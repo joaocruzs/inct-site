@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Section from "../components/Section";
+import Section from "../components/general/Section";
 
 export default function Lapgenic() {
   return (

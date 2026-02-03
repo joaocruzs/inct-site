@@ -1,6 +1,6 @@
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-export default function PublicacaoList({ titulo, autores, ano, link }) {
+export default function ListaPublicacao({ titulo, autores, ano, link }) {
   return (
     <article className="publicacao-list">
       <div className="publicacao-list-content">

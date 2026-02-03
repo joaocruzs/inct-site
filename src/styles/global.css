@@ -1335,3 +1335,151 @@ footer {
 ::-webkit-scrollbar-thumb:hover {
   background: #4b5563;
 }
+
+/* G. ADMIN ============================== */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6f8;
+  font-family: system-ui, sans-serif;
+}
+
+.admin-menu {
+  width: 240px;
+  background: #0b1e3a;
+  color: white;
+  padding: 24px 18px;
+}
+
+.admin-menu-title {
+  margin-bottom: 30px;
+}
+
+.admin-menu-title strong {
+  font-size: 20px;
+  display: block;
+}
+
+.admin-menu-title span {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.admin-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.admin-menu a.active,
+.admin-menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.menu-section {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+.admin-content {
+  flex: 1;
+  padding: 30px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.admin-header h1 {
+  font-size: 26px;
+}
+
+.admin-logout {
+  background: #c62828;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-logout:hover {
+  opacity: 0.9;
+}
+
+.admin-body {
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* H. FORMULÁRIOS ======================= */
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.admin-form label {
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.admin-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-tags button {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #003f91;
+  background: white;
+  color: #003f91;
+  cursor: pointer;
+}
+
+.admin-tags button.active {
+  background: #003f91;
+  color: white;
+}
+
+.admin-submit {
+  margin-top: 20px;
+  background: #003f91;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.admin-submit:hover {
+  opacity: 0.9;
+}
