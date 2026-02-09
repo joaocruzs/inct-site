@@ -1,16 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "../components/general/Container";
 import PageTitle from "../components/general/PageTitle";
 import FilterSidebar from "../components/general/FilterSidebar";
 import ListaNoticia from "../components/lists/ListaNoticia";
 
-import noticias from "../data/noticias.json";
+import { getNoticias } from "../services/noticias.service";
 
 export default function Noticias() {
-  const [filtradas, setFiltradas] = useState(noticias);
+  const [noticias, setNoticias] = useState([]);
+  const [filtradas, setFiltradas] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [erro, setErro] = useState(false);
 
+  /* 1. BUSCA INICIAL (SERVICE) */
+  useEffect(() => {
+    getNoticias()
+      .then((data) => {
+        setNoticias(data);
+        setFiltradas(data);
+      })
+      .catch(() => setErro(true))
+      .finally(() => setLoading(false));
+  }, []);
+
+  /* 2. FILTROS */
   function aplicarFiltros(filtros) {
-    let resultado = noticias;
+    let resultado = [...noticias];
 
     if (filtros.laboratorio) {
       resultado = resultado.filter(
@@ -31,8 +46,8 @@ export default function Noticias() {
     <Container>
       <PageTitle>Notícias</PageTitle>
 
-      {/* 1. FILTROS DE BUSCA */}
       <div className="page-with-sidebar">
+        {/* 1. FILTROS */}
         <FilterSidebar
           periodos={[
             { label: "Últimos 7 dias", value: "7d" },
@@ -43,11 +58,16 @@ export default function Noticias() {
           tags={["CRISPR", "siRNA", "Nanotecnologia"]}
           onApply={aplicarFiltros}
         />
-        {/* 2. LISTA DE NOTÍCIAS */}
+
+        {/* 2. LISTA */}  
         <div className="page-content">
-          {filtradas.map((n, i) => (
-            <ListaNoticia key={i} {...n} />
-          ))}
+          {loading && <p>Carregando notícias...</p>}
+          {erro && <p>Erro ao carregar notícias.</p>}
+
+          {!loading &&
+            filtradas.map((n) => (
+              <ListaNoticia key={n._id} {...n} />
+            ))}
         </div>
       </div>
     </Container>

@@ -9,7 +9,9 @@ import Sobre from "./pages/Sobre";
 import Documentos from "./pages/Documentos";
 import Plataforma from "./pages/Plataforma";
 import Noticias from "./pages/Noticias";
+import Noticia from "./pages/Noticia";
 import Eventos from "./pages/Eventos";
+import Evento from "./pages/Evento";
 import Publicacoes from "./pages/Publicacoes";
 import Comite from "./pages/Comite";
 import Pesquisadores from "./pages/Pesquisadores";
@@ -46,8 +48,12 @@ export default function App() {
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/documentos" element={<Documentos />} />
         <Route path="/plataforma" element={<Plataforma />} />
+        
         <Route path="/noticias" element={<Noticias />} />
+        <Route path="/noticias/:id" element={<Noticia />} />
         <Route path="/eventos" element={<Eventos />} />
+        <Route path="/eventos/:id" element={<Evento />} />
+        
         <Route path="/publicacoes" element={<Publicacoes />} />
         <Route path="/comite" element={<Comite />} />
         <Route path="/pesquisadores" element={<Pesquisadores />} />
@@ -67,9 +73,7 @@ export default function App() {
           }
         >
           {/* 2.2.1. dashboard */}
-          <Route index element={<DashboardAdmin />} />
-
-          {/* 2.2.2. cadastros */}
+          <Route path="dashboard" element={<DashboardAdmin />} />
           <Route path="noticia/nova" element={<NovaNoticia />} />
           <Route path="evento/novo" element={<NovoEvento />} />
           <Route path="publicacao/nova" element={<NovaPublicacao />} />

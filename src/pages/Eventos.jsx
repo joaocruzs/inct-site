@@ -1,17 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "../components/general/Container";
 import PageTitle from "../components/general/PageTitle";
 import FilterSidebar from "../components/general/FilterSidebar";
 import ListaEvento from "../components/lists/ListaEvento";
 
-import eventos from "../data/eventos.json";
+import { getEventos } from "../services/eventos.service";
 
 export default function Eventos() {
-  const [filtrados, setFiltrados] = useState(eventos);
+  const [eventos, setEventos] = useState([]);
+  const [filtrados, setFiltrados] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [erro, setErro] = useState(false);
 
+  /* ===============================
+     BUSCA INICIAL (SERVICE)
+  =============================== */
+  useEffect(() => {
+    getEventos()
+      .then((data) => {
+        setEventos(data);
+        setFiltrados(data);
+      })
+      .catch(() => setErro(true))
+      .finally(() => setLoading(false));
+  }, []);
+
+  /* ===============================
+     FILTROS
+  =============================== */
   function aplicarFiltros(filtros) {
-    let resultado = eventos;
+    let resultado = [...eventos];
 
+    /* período */
     if (filtros.periodo === "futuros") {
       const hoje = new Date();
       resultado = resultado.filter(
@@ -19,6 +39,14 @@ export default function Eventos() {
       );
     }
 
+    if (filtros.periodo === "passados") {
+      const hoje = new Date();
+      resultado = resultado.filter(
+        (e) => new Date(e.dataFim || e.dataInicio) < hoje
+      );
+    }
+
+    /* laboratório */
     if (filtros.laboratorio) {
       resultado = resultado.filter(
         (e) => e.laboratorio === filtros.laboratorio
@@ -32,8 +60,10 @@ export default function Eventos() {
     <Container>
       <PageTitle>Eventos</PageTitle>
 
-      {/* 1. FILTROS DE BUSCA */}
       <div className="page-with-sidebar">
+        {/* ===============================
+            FILTROS
+        =============================== */}
         <FilterSidebar
           periodos={[
             { label: "Próximos eventos", value: "futuros" },
@@ -44,11 +74,17 @@ export default function Eventos() {
           onApply={aplicarFiltros}
         />
 
-        {/* 2. LISTA DE EVENTOS */}
+        {/* ===============================
+            LISTA
+        =============================== */}
         <div className="page-content">
-          {filtrados.map((e, i) => (
-            <ListaEvento key={i} {...e} />
-          ))}
+          {loading && <p>Carregando eventos...</p>}
+          {erro && <p>Erro ao carregar eventos.</p>}
+
+          {!loading &&
+            filtrados.map((e) => (
+              <ListaEvento key={e._id} {...e} />
+            ))}
         </div>
       </div>
     </Container>

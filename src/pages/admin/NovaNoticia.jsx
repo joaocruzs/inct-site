@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createNoticia } from "../../services/noticias.service";
 
 export default function NovaNoticia() {
   const [form, setForm] = useState({
@@ -11,6 +12,10 @@ export default function NovaNoticia() {
     tags: [],
     publicado: false
   });
+
+  const [loading, setLoading] = useState(false);
+  const [erro, setErro] = useState("");
+  const [sucesso, setSucesso] = useState(false);
 
   const TAGS = ["CRISPR", "Terapia Gênica", "Oncologia", "Nanotecnologia"];
   const LABS = ["INCT", "LAPGENIC"];
@@ -32,18 +37,45 @@ export default function NovaNoticia() {
     }));
   }
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setErro("");
+    setSucesso(false);
+    setLoading(true);
+
+    try {
+      await createNoticia(form);
+      setSucesso(true);
+      setForm({
+        titulo: "",
+        resumo: "",
+        conteudo: "",
+        imagem: "",
+        data: "",
+        laboratorio: "",
+        tags: [],
+        publicado: false
+      });
+    } catch {
+      setErro("Erro ao criar notícia.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="admin-page">
       <h1>Nova Notícia</h1>
 
-      <form className="admin-form">
+      <form className="admin-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Título</label>
           <input
             name="titulo"
-            maxLength={160}
-            placeholder="Título da notícia"
+            value={form.titulo}
             onChange={handleChange}
+            maxLength={160}
+            required
           />
           <small>{form.titulo.length}/160</small>
         </div>
@@ -52,10 +84,11 @@ export default function NovaNoticia() {
           <label>Resumo</label>
           <textarea
             name="resumo"
+            value={form.resumo}
+            onChange={handleChange}
             maxLength={280}
             rows={3}
-            placeholder="Resumo curto para listagem"
-            onChange={handleChange}
+            required
           />
           <small>{form.resumo.length}/280</small>
         </div>
@@ -64,8 +97,8 @@ export default function NovaNoticia() {
           <label>Conteúdo completo</label>
           <textarea
             name="conteudo"
+            value={form.conteudo}
             rows={8}
-            placeholder="Texto completo da notícia"
             onChange={handleChange}
           />
         </div>
@@ -74,22 +107,36 @@ export default function NovaNoticia() {
           <label>Imagem (URL)</label>
           <input
             name="imagem"
-            placeholder="https://..."
+            value={form.imagem}
             onChange={handleChange}
+            placeholder="https://..."
           />
         </div>
 
         <div className="form-group">
           <label>Data de publicação</label>
-          <input type="date" name="data" onChange={handleChange} />
+          <input
+            type="date"
+            name="data"
+            value={form.data}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <div className="form-group">
           <label>Laboratório</label>
-          <select name="laboratorio" onChange={handleChange}>
+          <select
+            name="laboratorio"
+            value={form.laboratorio}
+            onChange={handleChange}
+            required
+          >
             <option value="">Selecione</option>
             {LABS.map((lab) => (
-              <option key={lab}>{lab}</option>
+              <option key={lab} value={lab}>
+                {lab}
+              </option>
             ))}
           </select>
         </div>
@@ -114,13 +161,17 @@ export default function NovaNoticia() {
           <input
             type="checkbox"
             name="publicado"
+            checked={form.publicado}
             onChange={handleChange}
           />
           Publicar imediatamente
         </label>
 
-        <button type="button" className="btn-primary">
-          Salvar Notícia
+        {erro && <p className="error">{erro}</p>}
+        {sucesso && <p className="success">Notícia criada com sucesso!</p>}
+
+        <button type="submit" disabled={loading}>
+          {loading ? "Salvando..." : "Salvar Notícia"}
         </button>
       </form>
     </div>

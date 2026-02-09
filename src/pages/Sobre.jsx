@@ -26,12 +26,12 @@ export default function Sobre() {
         />
 
         <div className="mural-container">
-          <Link to="/publicacoes" className="mural-card">
-            <span className="mural-num">Publicações</span>
-          </Link>
-
           <Link to="/noticias" className="mural-card">
             <span className="mural-num">Notícias</span>
+          </Link>
+          
+          <Link to="/publicacoes" className="mural-card">
+            <span className="mural-num">Publicações</span>
           </Link>
 
           <Link to="/eventos" className="mural-card">
