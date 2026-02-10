@@ -1,6 +1,6 @@
 import { FaExternalLinkAlt } from "react-icons/fa";
 
-export default function ListaPublicacao({ titulo, autores, ano, link }) {
+export default function ListaPublicacao({ titulo, autores, ano, link, tags }) {
   return (
     <article className="publicacao-list">
       <div className="publicacao-list-content">
@@ -10,8 +10,17 @@ export default function ListaPublicacao({ titulo, autores, ano, link }) {
         <p className="pub-autores">{autores}</p>
 
         <a href={link} target="_blank" rel="noreferrer">
-          DOI <FaExternalLinkAlt />
+          Acessar <FaExternalLinkAlt />
         </a>
+        {console.log("LINK:", link)}
+
+        <div className="pub-tags">
+          {tags.map((tag, index) => (
+            <span key={index} className="pub-tag">
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </article>
   );

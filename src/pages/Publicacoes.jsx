@@ -27,8 +27,8 @@ export default function Publicacoes() {
 
       {/* 2. LISTA DE PUBLICAÇÕES */}
       <div className="page-content">
-        {publicacoes.map((pub) => (
-          <ListaPublicacao key={pub._id} {...pub} />
+        {publicacoes.map((p) => (
+          <ListaPublicacao key={p._id} {...p} />
         ))}
       </div>
     </Container>
