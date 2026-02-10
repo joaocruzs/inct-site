@@ -1,3 +1,6 @@
+import "./AdminLayout";
+import "../../styles/admin.css";
+
 import { Outlet } from "react-router-dom";
 import AdminMenu from "./AdminMenu";
 

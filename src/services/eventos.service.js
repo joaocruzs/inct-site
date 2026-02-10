@@ -16,18 +16,6 @@ let MOCK_EVENTOS = [
     "local": "Teresina - PI",
     "laboratorio": "INCT",
     "tags": ["Simpósio", "Oncologia", "Terapia Gênica"]
-  },
-  {
-    "id": "evento-002",
-    "titulo": "Título do Evento 2",
-    "resumo": "Seminário técnico promovido pelo LAPGENIC sobre avaliação toxicogenética de xenobióticos.",
-    "conteudo": "Descrição detalhada do seminário...",
-    "imagem": "banners/inct.png",
-    "dataInicio": "2024-06-05",
-    "dataFim": "2024-06-05",
-    "local": "Teresina - PI",
-    "laboratorio": "LAPGENIC",
-    "tags": ["Toxicogenética", "Xenobióticos"]
   }
 ]
 

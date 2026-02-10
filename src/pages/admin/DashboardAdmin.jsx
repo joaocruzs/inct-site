@@ -33,73 +33,101 @@ export default function DashboardAdmin() {
   }, []);
 
   return (
-    <AdminLayout>
-      <div className="admin-dashboard">
-        <header className="admin-dashboard-header">
-          <h1>Painel Administrativo</h1>
-          <p>Gerencie publicações, notícias e eventos</p>
-        </header>
+    <div className="admin-dashboard">
 
-        {/* CARDS DE RESUMO */}
-        <section className="admin-cards">
-          <div className="admin-card">
-            <h3>Publicações</h3>
-            <strong>{publicacoes.length}</strong>
-            <Link to="/admin/publicacao">Nova publicação</Link>
-          </div>
+      {/* HEADER */}
+      <header className="admin-dashboard-header">
+        <h1>Painel Administrativo</h1>
+        <p>Gerencie notícias, eventos e publicações do INCT</p>
+      </header>
 
-          <div className="admin-card">
-            <h3>Notícias</h3>
-            <strong>{noticias.length}</strong>
-            <Link to="/admin/noticia">Nova notícia</Link>
-          </div>
+      {/* CARDS DE RESUMO */}
+      <section className="admin-cards">
+        <div className="admin-card">
+          <h3>Publicações</h3>
+          <strong>{loading ? "…" : publicacoes.length}</strong>
+          <Link to="/admin/publicacao/nova">Nova publicação</Link>
+        </div>
 
-          <div className="admin-card">
-            <h3>Eventos</h3>
-            <strong>{eventos.length}</strong>
-            <Link to="/admin/evento">Novo evento</Link>
-          </div>
-        </section>
+        <div className="admin-card">
+          <h3>Notícias</h3>
+          <strong>{loading ? "…" : noticias.length}</strong>
+          <Link to="/admin/noticia/nova">Nova notícia</Link>
+        </div>
 
-        {/* AÇÕES RÁPIDAS */}
-        <section className="admin-actions">
-          <h2>Ações rápidas</h2>
+        <div className="admin-card">
+          <h3>Eventos</h3>
+          <strong>{loading ? "…" : eventos.length}</strong>
+          <Link to="/admin/evento/novo">Novo evento</Link>
+        </div>
+      </section>
 
-          <div className="admin-actions-grid">
-            <Link to="/admin/publicacao" className="admin-action-btn">
-              ➕ Nova Publicação
-            </Link>
+      {/* LISTA RECENTE */}
+      <section className="admin-recent">
+        <h2>Últimas Notícias</h2>
 
-            <Link to="/admin/noticia" className="admin-action-btn">
-              📰 Nova Notícia
-            </Link>
+        {loading && <p className="muted">Carregando dados…</p>}
 
-            <Link to="/admin/evento" className="admin-action-btn">
-              📅 Novo Evento
-            </Link>
-          </div>
-        </section>
+        {!loading && noticias.length === 0 && (
+          <p className="muted">Nenhuma notícia cadastrada.</p>
+        )}
 
-        {/* LISTA RECENTE */}
-        <section className="admin-recent">
-          <h2>Últimas publicações</h2>
-
-          {loading && <p>Carregando dados...</p>}
-
-          {!loading && publicacoes.length === 0 && (
-            <p className="muted">Nenhuma publicação encontrada.</p>
-          )}
-
+        {!loading && noticias.length > 0 && (
           <ul>
-            {publicacoes.slice(0, 5).map((p) => (
-              <li key={p._id}>
-                <span>{p.titulo}</span>
-                <small>{p.ano}</small>
+            {noticias.slice(0, 5).map(noticia => (
+              <li key={noticia._id}>
+                <span>{noticia.titulo}</span>
+                <small>{noticia.data}</small>
               </li>
             ))}
           </ul>
-        </section>
-      </div>
-    </AdminLayout>
+        )}
+      </section>
+
+      {/* LISTA RECENTE */}
+      <section className="admin-recent">
+        <h2>Últimas publicações</h2>
+
+        {loading && <p className="muted">Carregando dados…</p>}
+
+        {!loading && publicacoes.length === 0 && (
+          <p className="muted">Nenhuma publicação cadastrada.</p>
+        )}
+
+        {!loading && publicacoes.length > 0 && (
+          <ul>
+            {publicacoes.slice(0, 5).map(pub => (
+              <li key={pub._id}>
+                <span>{pub.titulo}</span>
+                <small>{pub.ano}</small>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      {/* LISTA RECENTE */}
+      <section className="admin-recent">
+        <h2>Últimos Eventos</h2>
+
+        {loading && <p className="muted">Carregando dados…</p>}
+
+        {!loading && eventos.length === 0 && (
+          <p className="muted">Nenhum evento cadastrado.</p>
+        )}
+
+        {!loading && eventos.length > 0 && (
+          <ul>
+            {publicacoes.slice(0, 5).map(pub => (
+              <li key={pub._id}>
+                <span>{pub.titulo}</span>
+                <small>{pub.ano}</small>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+    </div>
   );
 }

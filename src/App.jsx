@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Header from "./components/general/Header";
 import Footer from "./components/general/Footer";
@@ -73,6 +73,9 @@ export default function App() {
           }
         >
           {/* 2.2.1. dashboard */}
+          <Route index element={<Navigate to="dashboard" />} />
+
+          {/* 2.2.2. outras rotas protegidas */}
           <Route path="dashboard" element={<DashboardAdmin />} />
           <Route path="noticia/nova" element={<NovaNoticia />} />
           <Route path="evento/novo" element={<NovoEvento />} />

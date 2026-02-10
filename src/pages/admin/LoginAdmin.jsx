@@ -42,9 +42,10 @@ export default function LoginAdmin() {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
-
-        <button type="submit">Entrar</button>
-        <Link to="/home">Sair</Link>
+        <div className="admin-login-buttons">
+          <button type="submit">Entrar</button>
+          <Link to="/home">Sair</Link>
+        </div>
       </form>
     </div>
   );
