@@ -1758,6 +1758,7 @@ footer {
   font-weight: 700;
   color: #0a2540;
   margin-bottom: 16px;
+  text-align: justify;
 }
 
 /* META (data, local, laboratório) */
@@ -1781,6 +1782,7 @@ footer {
   font-size: 17px;
   line-height: 1.75;
   color: #1f2937;
+  text-align: justify;
 }
 
 /* PARÁGRAFOS */

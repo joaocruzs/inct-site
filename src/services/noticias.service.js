@@ -10,7 +10,7 @@ let MOCK_NOTICIAS = [
     "titulo": "Jornalismo: Piauí se destaca no desenvolvimento de pesquisas avançadas para o tratamento do câncer",
     "resumo": "O INCT em destaque na mídia!",
     "conteudo": "O Instituto Nacional de Ciência e Tecnologia (INCT) ONCOTTGEN foi destaque no Cidade Verde – Viva Educação pelo papel fundamental no desenvolvimento de pesquisas avançadas para o tratamento do câncer, colocando o Piauí no cenário nacional da ciência e inovação.",
-    "imagem": "https://youtu.be/pOMuVEmw0x0",
+    "imagem": "banners/noticia1.jpg",
     "data": "2026-02-08",
     "laboratorio": "",
     "tags": ["CRISPR", "Terapia Gênica", "Oncologia"],
