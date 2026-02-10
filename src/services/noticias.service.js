@@ -7,46 +7,14 @@
 let MOCK_NOTICIAS = [
   {
     "id": "noticia-001",
-    "titulo": "1 Pesquisa do INCT avança no uso de CRISPR contra tumores cerebrais",
-    "resumo": "Estudo conduzido por pesquisadores do INCT-OncoTTGen.",
-    "conteudo": "Texto completo da notícia...",
-    "imagem": "banners/inct.png",
-    "data": "2026-02-01",
-    "laboratorio": "LAPGENIC",
+    "titulo": "Jornalismo: Piauí se destaca no desenvolvimento de pesquisas avançadas para o tratamento do câncer",
+    "resumo": "O INCT em destaque na mídia!",
+    "conteudo": "O Instituto Nacional de Ciência e Tecnologia (INCT) ONCOTTGEN foi destaque no Cidade Verde – Viva Educação pelo papel fundamental no desenvolvimento de pesquisas avançadas para o tratamento do câncer, colocando o Piauí no cenário nacional da ciência e inovação.",
+    "imagem": "https://youtu.be/pOMuVEmw0x0",
+    "data": "2026-02-08",
+    "laboratorio": "",
     "tags": ["CRISPR", "Terapia Gênica", "Oncologia"],
-    "publicado": true
-  },
-  {
-    "id": "noticia-002",
-    "titulo": "2 INCT-OncoTTGen promove workshop internacional em terapias gênicas",
-    "resumo": "Evento reuniu pesquisadores nacionais e internacionais.",
-    "conteudo": "Texto completo da notícia...",
-    "imagem": "banners/inct.png",
-    "data": "2025-04-22",
-    "laboratorio": "INCT",
-    "tags": ["Workshop", "siRNA", "Pesquisa Translacional"],
-    "publicado": true
-  },
-  {
-    "id": "noticia-003",
-    "titulo": "3 Pesquisa do INCT avança no uso de CRISPR contra tumores cerebrais",
-    "resumo": "Estudo conduzido por pesquisadores do INCT-OncoTTGen.",
-    "conteudo": "Texto completo da notícia...",
-    "imagem": "banners/inct.png",
-    "data": "2026-02-01",
-    "laboratorio": "LAPGENIC",
-    "tags": ["CRISPR", "Terapia Gênica", "Oncologia"],
-    "publicado": true
-  },
-  {
-    "id": "noticia-004",
-    "titulo": "4 INCT-OncoTTGen promove workshop internacional em terapias gênicas",
-    "resumo": "Evento reuniu pesquisadores nacionais e internacionais.",
-    "conteudo": "Texto completo da notícia...",
-    "imagem": "banners/inct.png",
-    "data": "2025-04-22",
-    "laboratorio": "INCT",
-    "tags": ["Workshop", "siRNA", "Pesquisa Translacional"],
+    "link": "https://cidadeverde.com/cvplay/v/110660/piaui-se-destaca-no-desenvolvimento-de-pesquisas-avancadas-para-o-tratamento-do-cancer",
     "publicado": true
   }
 ]
@@ -62,6 +30,7 @@ function normalizarNoticia(n) {
     data: n.data,
     laboratorio: n.laboratorio,
     tags: Array.isArray(n.tags) ? n.tags : [],
+    link: n.link,
     publicado: Boolean(n.publicado)
   };
 }

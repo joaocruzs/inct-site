@@ -38,6 +38,10 @@ export default function Noticia() {
           className="conteudo-texto"
           dangerouslySetInnerHTML={{ __html: noticia.conteudo }}
         />
+        <a href={noticia.link} target="_blank" rel="noopener noreferrer">
+          Leia a notícia original
+        </a>
+        
       </article>
     </Container>
   );
