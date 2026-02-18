@@ -55,7 +55,7 @@ export default function NovoEvento() {
         laboratorio: "",
         tags: []
       });
-    } catch {
+    } catch (erro) {
       setErro("Erro ao criar evento.");
     } finally {
       setLoading(false);

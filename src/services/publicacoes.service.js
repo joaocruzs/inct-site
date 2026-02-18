@@ -54,36 +54,28 @@ export async function getPublicacaoById(id) {
 export async function createPublicacao(publicacao) {
   const res = await fetch(`${BASE_URL}/new/publicacao`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(publicacao)
   });
 
-  if (!res.ok) {
-    throw new Error("Erro ao criar publicação");
-  }
+  if (!res.ok) throw new Error("Erro ao criar publicação");
 
   const json = await res.json();
-  return normalizarPublicacao(json.data);
+  return json.data ? normalizarPublicacao(json.data) : json;
 }
 
 /* 4. ATUALIZAR (Admin) */
 export async function updatePublicacao(id, publicacao) {
   const res = await fetch(`${BASE_URL}/update/${id}`, {
     method: "PATCH",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(publicacao)
   });
 
-  if (!res.ok) {
-    throw new Error("Erro ao atualizar publicação");
-  }
+  if (!res.ok) throw new Error("Erro ao atualizar publicação");
 
   const json = await res.json();
-  return normalizarPublicacao(json.data);
+  return json.data ? normalizarPublicacao(json.data) : json; 
 }
 
 /* 5. DELETAR (Admin) */

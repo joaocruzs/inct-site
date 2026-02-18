@@ -7,19 +7,31 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 import { getNoticias } from "../services/noticias.service";
 import { getPublicacoes } from "../services/publicacoes.service";
-import destaques from "../data/destaques.json";
+import { getDestaques } from "../services/destaques.service";
 
 export default function Home() {
-  /* 1. CARROSSEL DE DESTAQUES */
+/* 1. CARROSSEL DE DESTAQUES */
+  const [destaques, setDestaques] = useState([]);
+  const [loadingDestaques, setLoadingDestaques] = useState(true);
+  const [erroDestaques, setErroDestaques] = useState(false);
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    getDestaques()
+      .then((data) => setDestaques(data))
+      .catch(() => setErroDestaques(true))
+      .finally(() => setLoadingDestaques(false));
+  }, []);
+
   const total = destaques.length;
 
   useEffect(() => {
     if (!total) return;
-    const timer = setInterval(
-      () => setIndex((i) => (i + 1) % total),
-      7000
-    );
+
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % total);
+    }, 7000);
+
     return () => clearInterval(timer);
   }, [total]);
 
@@ -69,52 +81,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. CARROSSEL DE DESTAQUES */} 
+      {/* 2. CARROSSEL DE DESTAQUES */}
       <Section>
-        <div className="carrossel-destaques">
-          <div className="carrossel-window">
-            <div
-              className="carrossel-track"
-              style={{ transform: `translateX(-${index * 100}%)` }}
-            >
-              {destaques.map((item, i) => (
-                <div className="carrossel-slide destaque" key={i}>
-                  <img src={item.imagem} alt="" />
+        {loadingDestaques && <p>Carregando destaques...</p>}
+        {erroDestaques && <p>Erro ao carregar destaques.</p>}
 
-                  <div className="destaque-content">
-                    <h3>{item.titulo}</h3>
-                    {item.subtitulo && <p>{item.subtitulo}</p>}
+        {!loadingDestaques && !erroDestaques && total > 0 && (
+          <div className="carrossel-destaques">
+            <div className="carrossel-window">
+              <div
+                className="carrossel-track"
+                style={{ transform: `translateX(-${index * 100}%)` }}
+              >
+                {destaques.map((item) => (
+                  <div className="carrossel-slide destaque" key={item._id}>
+                    <img src={item.imagem} alt={item.titulo} />
 
-                    {item.link &&
-                      (item.externo ? (
-                        <a href={item.link} target="_blank" rel="noreferrer">
-                          Acessar <FaExternalLinkAlt />
-                        </a>
-                      ) : (
-                        <Link to={item.link}>Saiba mais</Link>
-                      ))}
+                    <div className="destaque-content">
+                      <h3>{item.titulo}</h3>
+                      {item.subtitulo && <p>{item.subtitulo}</p>}
+
+                      {item.link &&
+                        (item.externo ? (
+                          <a href={item.link} target="_blank" rel="noreferrer">
+                            Acessar <FaExternalLinkAlt />
+                          </a>
+                        ) : (
+                          <Link to={item.link}>Saiba mais</Link>
+                        ))}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="carrossel-controls">
-            <button onClick={prev} className="carrossel-arrow">‹</button>
-
-            <div className="carrossel-dots">
-              {destaques.map((_, i) => (
-                <span
-                  key={i}
-                  className={`dot ${i === index ? "active" : ""}`}
-                  onClick={() => setIndex(i)}
-                />
-              ))}
+                ))}
+              </div>
             </div>
 
-            <button onClick={next} className="carrossel-arrow">›</button>
+            <div className="carrossel-controls">
+              <button onClick={prev} className="carrossel-arrow">‹</button>
+
+              <div className="carrossel-dots">
+                {destaques.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`dot ${i === index ? "active" : ""}`}
+                    onClick={() => setIndex(i)}
+                  />
+                ))}
+              </div>
+
+              <button onClick={next} className="carrossel-arrow">›</button>
+            </div>
           </div>
-        </div>
+        )}
       </Section>
 
       {/* 3. ÚLTIMAS NOTÍCIAS */}

@@ -56,7 +56,7 @@ export default function NovaNoticia() {
         tags: [],
         publicado: false
       });
-    } catch {
+    } catch (erro) {
       setErro("Erro ao criar notícia.");
     } finally {
       setLoading(false);

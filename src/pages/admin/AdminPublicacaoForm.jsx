@@ -84,6 +84,8 @@ export default function AdminPublicacaoForm() {
         ano: Number(form.ano)
       };
 
+      console.log("Payload enviado:", payload);
+
       if (isEdit) {
         await updatePublicacao(id, payload);
       } else {
@@ -91,12 +93,10 @@ export default function AdminPublicacaoForm() {
       }
 
       setSucesso(true);
+      setTimeout(() => navigate("/admin/publicacoes"), 1000);
 
-      setTimeout(() => {
-        navigate("/admin/publicacoes");
-      }, 1000);
-
-    } catch {
+    } catch (err) {
+      console.error("Erro capturado:", err);
       setErro("Erro ao salvar publicação.");
     } finally {
       setLoading(false);
