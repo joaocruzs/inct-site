@@ -34,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     getNoticias()
       .then((data) => {
-        setNoticias(data.slice(0, 8));
+        setNoticias(data.slice(0, 4));
       })
       .catch(() => setErroNoticias(true))
       .finally(() => setLoadingNoticias(false));
@@ -49,7 +49,7 @@ export default function Home() {
     getPublicacoes()
       .then((data) => {
         const ordenadas = [...data].sort((a, b) => b.ano - a.ano);
-        setPublicacoes(ordenadas.slice(0, 4));
+        setPublicacoes(ordenadas.slice(0, 8));
       })
       .catch(() => setErroPublicacoes(true))
       .finally(() => setLoadingPublicacoes(false));

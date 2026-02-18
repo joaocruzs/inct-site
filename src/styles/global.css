@@ -123,6 +123,11 @@ img {
   min-width: 180px;
   z-index: 50;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+}
+
+.submenu-box.open {
+  display: flex;
 }
 
 .submenu-click:hover .submenu-box {
@@ -165,13 +170,19 @@ img {
 
 /* Menu Hambúrguer */
 .menu-btn {
-  display: none;
-  background: none;
-  border: none;
+  font-size: 26px;
   cursor: pointer;
-  padding: 8px;
-  z-index: 1001;
-  position: relative;
+  display: none;
+  transition: color 0.3s ease;
+  color: #222;
+}
+
+.header-transparent .menu-btn {
+  color: #fff;
+}
+
+.menu-btn.open {
+  color: #222;
 }
 
 .hamburger {
@@ -821,7 +832,9 @@ img {
   padding: 4px 12px;
   border-radius: 20px;
   font-size: 13px;
-  margin-right: 8px;
+  margin-right: 7px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 .evento-list {
@@ -1351,113 +1364,59 @@ footer {
   }
 }
 
+/* ==========================================
+   COR DO ÍCONE HAMBURGER — CONTEXTUAL
+========================================== */
+
+/* Estado padrão (páginas internas) */
+.header .hamburger span {
+  background: #222;
+}
+
+/* Home (header transparente sobre banner escuro) */
+.header-transparent .hamburger span {
+  background: #fff;
+}
+
+/* Quando menu está aberto (painel lateral branco) */
+.menu-btn.open .hamburger span {
+  background: #222;
+}
+
 /* Mobile e Tablets pequenos (max-width: 820px) */
 @media (max-width: 820px) {
-  /* Menu Mobile */
   .menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    z-index: 1100;
   }
 
   .nav-links {
     position: fixed;
-    right: -100%;
     top: 0;
-    width: 320px;
-    max-width: 85%;
+    right: -100%;
     height: 100vh;
-    background: white;
+    width: 270px;
+    background: #fff;
+    display: flex;
     flex-direction: column;
-    gap: 0;
-    padding: 80px 0 30px;
-    border-left: 1px solid #ddd;
-    box-shadow: -3px 0 20px rgba(0, 0, 0, 0.2);
-    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    padding: 70px 20px 40px 20px;
+    gap: 14px;
+    transition: right 0.3s ease;
     overflow-y: auto;
-    z-index: 999;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-links a,
+  .submenu-title {
+    font-size: 15px;
+    padding: 6px 0;
   }
 
   .nav-links.open {
     right: 0;
   }
 
-  .nav-links a {
-    width: 100%;
-    padding: 16px 28px;
-    border-bottom: 1px solid #f0f0f0;
-    color: #222 !important;
-    transition: background 0.2s, padding-left 0.2s;
-  }
-
-  .nav-links a:hover {
-    background: #f5f7fa;
-    padding-left: 35px;
-    opacity: 1;
-  }
-
-  .submenu-click {
-    width: 100%;
-  }
-
-  .submenu-title {
-    width: 100%;
-    padding: 16px 28px;
-    border-bottom: 1px solid #f0f0f0;
-    color: #222 !important;
-    transition: background 0.2s;
-  }
-
-  .submenu-title:hover {
-    background: #f5f7fa;
-  }
-
-  .submenu-click:hover .submenu-box {
-    display: none;
-  }
-
-  .submenu-box {
-    position: static;
-    border: none;
-    box-shadow: none;
-    background: #f8f9fa;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-  }
-
-  .submenu-box a {
-    padding: 14px 28px 14px 45px;
-    border-bottom: 1px solid #e5e7eb;
-    font-size: 15px;
-  }
-
-  .submenu-box a:last-child {
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  .header-transparent .nav-links {
-    background: white;
-  }
-
-  .header-transparent .nav-links a,
-  .header-transparent .submenu-title {
-    color: #222 !important;
-  }
-
-  .header-transparent .submenu-box {
-    background: #f8f9fa;
-  }
-
-  .social-links {
-    justify-content: center;
-    margin: 20px 0 0;
-    padding-top: 20px;
-    border-top: 1px solid #f0f0f0;
-    width: 100%;
-  }
-
-  /* Overlay para fechar menu */
+  /* Overlay escuro ao abrir o menu */
   .nav-links.open::before {
     content: '';
     position: fixed;
@@ -1465,8 +1424,136 @@ footer {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.45);
     z-index: -1;
+  }
+
+  /* ── Links diretos (sem submenu) ─────────────── */
+  .nav-links > a {
+    width: 100%;
+    padding: 13px 24px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #1e293b !important;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, padding-left 0.2s;
+    display: block;
+  }
+
+  .nav-links > a:hover {
+    background: #f1f5f9;
+    padding-left: 32px;
+    opacity: 1;
+  }
+
+  /* ── Bloco de submenu ────────────────────────── */
+  .submenu-click {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /*
+    O título do grupo vira SEPARADOR DE TÓPICO:
+    não é clicável, apenas um rótulo de seção.
+  */
+  .submenu-title {
+    width: 100%;
+    padding: 18px 24px 6px;
+    color: #003f91 !important;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+    background: transparent;
+    border-bottom: none;
+
+    /* linha decorativa acima do grupo */
+    border-top: 1px solid #e2e8f0;
+    margin-top: 4px;
+  }
+
+  /* Remove a linha do primeiro grupo (evita dupla borda no topo) */
+  .submenu-click:first-child .submenu-title {
+    border-top: none;
+    margin-top: 0;
+  }
+
+  /*
+    Submenu sempre visível (lista expandida permanentemente)
+    — sem hover, sem toggle
+  */
+  .submenu-click:hover .submenu-box {
+    display: flex; /* mantém o comportamento, mas é sempre flex */
+  }
+
+  .submenu-box {
+    position: static;
+    display: flex !important;        /* sempre aberto */
+    flex-direction: column;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    min-width: unset;
+  }
+
+  .submenu-box a {
+    padding: 11px 24px 11px 36px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #334155;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, padding-left 0.2s;
+
+    /* marcador lateral sutil */
+    border-left: 3px solid transparent;
+  }
+
+  .submenu-box a:last-child {
+    border-bottom: 1px solid #e2e8f0; /* fecha o grupo com linha mais forte */
+  }
+
+  .submenu-box a:hover {
+    background: #f1f5f9;
+    color: #003f91;
+    padding-left: 42px;
+    border-left-color: #003f91;
+  }
+
+  /* ── Links sociais no rodapé do painel ───────── */
+  .social-links {
+    justify-content: center;
+    margin: 20px 0 0;
+    padding: 20px 24px 0;
+    border-top: 1px solid #e2e8f0;
+    width: 100%;
+  }
+
+  /* ── Garante cores corretas no header transparente ── */
+  .header-transparent .nav-links {
+    background: #fff;
+  }
+
+  .header-transparent .nav-links > a,
+  .header-transparent .submenu-title,
+  .header-transparent .submenu-box a {
+    color: inherit !important; /* herda as regras acima, não usa branco */
+  }
+
+  .header-transparent .submenu-box {
+    background: transparent;
+  }
+
+  /* Garante herança correta da cor no mobile */
+  .header .menu-btn .hamburger span {
+    background: inherit;
   }
 }
 

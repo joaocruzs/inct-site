@@ -2,7 +2,7 @@ const BASE_URL = "https://publicacoes-inct-api.vercel.app";
 
 /* 0. NORMALIZAÇÃO */
 function normalizarPublicacao(p) {
-  let link = p.link || "";
+  let link = p.link || p.date || "";
 
   // garante protocolo
   if (link && !link.startsWith("http://") && !link.startsWith("https://")) {
@@ -16,10 +16,13 @@ function normalizarPublicacao(p) {
     ano: p.content || p.ano,
     link,
     post_img: p.post_img || "",
-    tags: Array.isArray(p.tags) ? p.tags : []
+    tags: Array.isArray(p.tags)
+      ? p.tags
+      : typeof p.tags === "string"
+        ? [p.tags]
+        : []
   };
 }
-
 
 /* 1. BUSCAR (home e publicacoes) */
 export async function getPublicacoes() {

@@ -18,12 +18,16 @@ import Pesquisadores from "./pages/Pesquisadores";
 import Parceiros from "./pages/Parceiros";
 import Lapgenic from "./pages/Lapgenic";
 
-/* 2. PRIVADO */
+/* 2. ADMIN */
 import LoginAdmin from "./pages/admin/LoginAdmin";
 import DashboardAdmin from "./pages/admin/DashboardAdmin";
-import NovaNoticia from "./pages/admin/NovaNoticia";
-import NovoEvento from "./pages/admin/NovoEvento";
-import NovaPublicacao from "./pages/admin/NovaPublicacao";
+
+import AdminPublicacoesPage from "./pages/admin/AdminPublicacoesPage";
+import AdminPublicacaoForm from "./pages/admin/AdminPublicacaoForm";
+import AdminNoticiasPage from "./pages/admin/AdminNoticiasPage";
+import AdminNoticiaForm from "./pages/admin/AdminNoticiaForm";
+import AdminEventosPage from "./pages/admin/AdminEventosPage";
+import AdminEventoForm from "./pages/admin/AdminEventoForm";
 
 import AdminLayout from "./components/admin/AdminLayout";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
@@ -31,11 +35,7 @@ import ProtectedRoute from "./components/admin/ProtectedRoute";
 export default function App() {
   const { pathname } = useLocation();
 
-  const isHome =
-    pathname === "/" ||
-    pathname === "/#/" ||
-    pathname === "/inct-site/#/";
-
+  const isHome = pathname === "/";
   const isAdminRoute = pathname.startsWith("/admin");
 
   return (
@@ -43,27 +43,36 @@ export default function App() {
       {!isAdminRoute && <Header transparent={isHome} />}
 
       <Routes>
-        {/* 1. ROTAS (público) */}
+
+        {/* ===================== */}
+        {/* 1. ROTAS PÚBLICAS */}
+        {/* ===================== */}
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
         <Route path="/documentos" element={<Documentos />} />
         <Route path="/plataforma" element={<Plataforma />} />
-        
+
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/noticias/:id" element={<Noticia />} />
+
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/eventos/:id" element={<Evento />} />
-        
+
         <Route path="/publicacoes" element={<Publicacoes />} />
+
         <Route path="/comite" element={<Comite />} />
         <Route path="/pesquisadores" element={<Pesquisadores />} />
         <Route path="/parceiros" element={<Parceiros />} />
         <Route path="/lapgenic" element={<Lapgenic />} />
 
-        {/* 2.1 ROTA (privado) */}
+        {/* ===================== */}
+        {/* 2. LOGIN ADMIN */}
+        {/* ===================== */}
         <Route path="/admin/login" element={<LoginAdmin />} />
 
-        {/* 2.2. ROTAS ADMIN (protegidas) */}
+        {/* ===================== */}
+        {/* 3. ROTAS ADMIN PROTEGIDAS */}
+        {/* ===================== */}
         <Route
           path="/admin"
           element={
@@ -72,15 +81,28 @@ export default function App() {
             </ProtectedRoute>
           }
         >
-          {/* 2.2.1. dashboard */}
+          {/* Redireciona /admin → /admin/dashboard */}
           <Route index element={<Navigate to="dashboard" />} />
 
-          {/* 2.2.2. outras rotas protegidas */}
           <Route path="dashboard" element={<DashboardAdmin />} />
-          <Route path="noticia/nova" element={<NovaNoticia />} />
-          <Route path="evento/novo" element={<NovoEvento />} />
-          <Route path="publicacao/nova" element={<NovaPublicacao />} />
+
+          {/* ===== NOTÍCIAS ADMIN ===== */}
+          <Route path="noticias" element={<AdminNoticiasPage />} />
+          <Route path="noticias/nova" element={<AdminNoticiaForm />} />
+          <Route path="noticias/editar/:id" element={<AdminNoticiaForm />} />
+
+          {/* ===== PUBLICAÇÕES ADMIN ===== */}
+          <Route path="publicacoes" element={<AdminPublicacoesPage />} />
+          <Route path="publicacoes/nova" element={<AdminPublicacaoForm />} />
+          <Route path="publicacoes/editar/:id" element={<AdminPublicacaoForm />} />
+
+          {/* ===== EVENTOS ADMIN ===== */}
+          <Route path="eventos" element={<AdminEventosPage />} />
+          <Route path="eventos/nova" element={<AdminEventoForm />} />
+          <Route path="eventos/editar/:id" element={<AdminEventoForm />} />
+
         </Route>
+
       </Routes>
 
       {!isAdminRoute && <Footer />}

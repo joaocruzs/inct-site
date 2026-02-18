@@ -1,7 +1,16 @@
-import { useState } from "react";
-import { createPublicacao } from "../../services/publicacoes.service";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  createPublicacao,
+  updatePublicacao,
+  getPublicacaoById
+} from "../../services/publicacoes.service";
 
-export default function NovaPublicacao() {
+export default function AdminPublicacaoForm() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const isEdit = Boolean(id);
+
   const [form, setForm] = useState({
     titulo: "",
     autores: "",
@@ -21,6 +30,33 @@ export default function NovaPublicacao() {
     "Nanotecnologia",
     "Terapia Gênica"
   ];
+
+  /* 🔹 Carrega dados se for edição */
+  useEffect(() => {
+    async function fetchData() {
+      if (!isEdit) return;
+
+      try {
+        setLoading(true);
+        const data = await getPublicacaoById(id);
+
+        setForm({
+          titulo: data.titulo || "",
+          autores: data.autores || "",
+          ano: data.ano || "",
+          link: data.link || "",
+          post_img: data.post_img || "",
+          tags: data.tags || []
+        });
+      } catch {
+        setErro("Erro ao carregar publicação.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [id, isEdit]);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -43,22 +79,25 @@ export default function NovaPublicacao() {
     setLoading(true);
 
     try {
-      await createPublicacao({
+      const payload = {
         ...form,
         ano: Number(form.ano)
-      });
+      };
+
+      if (isEdit) {
+        await updatePublicacao(id, payload);
+      } else {
+        await createPublicacao(payload);
+      }
 
       setSucesso(true);
-      setForm({
-        titulo: "",
-        autores: "",
-        ano: "",
-        link: "",
-        post_img: "",
-        tags: []
-      });
-    } catch (err) {
-      setErro("Erro ao criar publicação.");
+
+      setTimeout(() => {
+        navigate("/admin/publicacoes");
+      }, 1000);
+
+    } catch {
+      setErro("Erro ao salvar publicação.");
     } finally {
       setLoading(false);
     }
@@ -66,10 +105,10 @@ export default function NovaPublicacao() {
 
   return (
     <div className="admin-page">
-      <h1>Nova Publicação</h1>
+      <h1>{isEdit ? "Editar Publicação" : "Nova Publicação"}</h1>
 
       <form className="admin-form" onSubmit={handleSubmit}>
-        {/* TÍTULO */}
+        
         <div className="form-group">
           <label>Título</label>
           <input
@@ -82,7 +121,6 @@ export default function NovaPublicacao() {
           <small>{form.titulo.length}/150</small>
         </div>
 
-        {/* AUTORES */}
         <div className="form-group">
           <label>Autores</label>
           <input
@@ -94,7 +132,6 @@ export default function NovaPublicacao() {
           />
         </div>
 
-        {/* ANO */}
         <div className="form-group">
           <label>Ano</label>
           <input
@@ -108,7 +145,6 @@ export default function NovaPublicacao() {
           />
         </div>
 
-        {/* LINK */}
         <div className="form-group">
           <label>Link (DOI ou URL)</label>
           <input
@@ -120,7 +156,6 @@ export default function NovaPublicacao() {
           />
         </div>
 
-        {/* IMAGEM */}
         <div className="form-group">
           <label>Imagem (URL)</label>
           <input
@@ -131,7 +166,6 @@ export default function NovaPublicacao() {
           />
         </div>
 
-        {/* TAGS */}
         <div className="form-group">
           <label>Tags</label>
           <div className="tag-selector">
@@ -148,12 +182,21 @@ export default function NovaPublicacao() {
           </div>
         </div>
 
-        {/* STATUS */}
         {erro && <p className="error">{erro}</p>}
-        {sucesso && <p className="success">Publicação criada com sucesso!</p>}
+        {sucesso && (
+          <p className="success">
+            {isEdit
+              ? "Publicação atualizada com sucesso!"
+              : "Publicação criada com sucesso!"}
+          </p>
+        )}
 
         <button type="submit" disabled={loading}>
-          {loading ? "Salvando..." : "Salvar Publicação"}
+          {loading
+            ? "Salvando..."
+            : isEdit
+              ? "Atualizar Publicação"
+              : "Salvar Publicação"}
         </button>
       </form>
     </div>

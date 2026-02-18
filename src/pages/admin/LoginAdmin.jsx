@@ -25,7 +25,7 @@ export default function LoginAdmin() {
   return (
     <div className="admin-login">
       <form onSubmit={handleSubmit}>
-        <h1>Login Admin</h1>
+        <h1>Ambiente Administrativo</h1>
 
         {erro && <p className="erro">Credenciais inválidas</p>}
 
@@ -42,9 +42,9 @@ export default function LoginAdmin() {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
         />
-        <div className="admin-login-buttons">
+        <div>
           <button type="submit">Entrar</button>
-          <Link to="/home">Sair</Link>
+          <Link to="/">Sair</Link>
         </div>
       </form>
     </div>

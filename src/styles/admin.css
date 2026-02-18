@@ -78,10 +78,39 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.admin-login-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+.admin-login input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+.admin-login button {
+  background: #003f91;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-block: 20px;
+}
+
+.admin-login :link {
+  font-family: 'Courier New', Courier, monospace;
+  color: #003f91;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 20px;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: background 0.2s;
 }
 
 .admin-logout {
@@ -341,4 +370,72 @@
   color: #999;
   font-style: italic;
   margin-top: 10px;
+}
+
+/* AdminPUblicaçõesPage */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.admin-table {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.admin-cell.title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 70%;
+}
+
+.admin-meta {
+  font-size: 13px;
+  color: #777;
+}
+
+.admin-cell.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-btn {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.admin-btn.primary {
+  background: #222;
+  color: #fff;
+}
+
+.admin-btn.edit {
+  background: #f1f1f1;
+}
+
+.admin-btn.delete {
+  background: #ffe5e5;
+  color: #c00;
+}
+
+.admin-btn:hover {
+  opacity: 0.85;
 }

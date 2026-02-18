@@ -46,19 +46,19 @@ export default function DashboardAdmin() {
         <div className="admin-card">
           <h3>Publicações</h3>
           <strong>{loading ? "…" : publicacoes.length}</strong>
-          <Link to="/admin/publicacao/nova">Nova publicação</Link>
+          <Link to="/admin/publicacoes">Lista de publicações</Link>
         </div>
-
+      
         <div className="admin-card">
           <h3>Notícias</h3>
           <strong>{loading ? "…" : noticias.length}</strong>
-          <Link to="/admin/noticia/nova">Nova notícia</Link>
+          <Link to="/admin/noticias">Lista de notícias</Link>
         </div>
 
         <div className="admin-card">
           <h3>Eventos</h3>
           <strong>{loading ? "…" : eventos.length}</strong>
-          <Link to="/admin/evento/novo">Novo evento</Link>
+          <Link to="/admin/eventos">Lista de Eventos</Link>
         </div>
       </section>
 
@@ -74,10 +74,10 @@ export default function DashboardAdmin() {
 
         {!loading && noticias.length > 0 && (
           <ul>
-            {noticias.slice(0, 5).map(noticia => (
-              <li key={noticia._id}>
-                <span>{noticia.titulo}</span>
-                <small>{noticia.data}</small>
+            {noticias.slice(0, 5).map(n => (
+              <li key={n._id}>
+                <span>{n.titulo}</span>
+                <small>{n.data}</small>
               </li>
             ))}
           </ul>
@@ -96,10 +96,10 @@ export default function DashboardAdmin() {
 
         {!loading && publicacoes.length > 0 && (
           <ul>
-            {publicacoes.slice(0, 5).map(pub => (
-              <li key={pub._id}>
-                <span>{pub.titulo}</span>
-                <small>{pub.ano}</small>
+            {publicacoes.slice(0, 5).map(p => (
+              <li key={p._id}>
+                <span>{p.titulo}</span>
+                <small>{p.ano}</small>
               </li>
             ))}
           </ul>
@@ -118,10 +118,10 @@ export default function DashboardAdmin() {
 
         {!loading && eventos.length > 0 && (
           <ul>
-            {publicacoes.slice(0, 5).map(pub => (
-              <li key={pub._id}>
-                <span>{pub.titulo}</span>
-                <small>{pub.ano}</small>
+            {eventos.slice(0, 5).map(e => (
+              <li key={e._id}>
+                <span>{e.titulo}</span>
+                <small>{e.data}</small>
               </li>
             ))}
           </ul>

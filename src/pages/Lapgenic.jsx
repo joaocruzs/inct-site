@@ -4,7 +4,7 @@ import Section from "../components/general/Section";
 export default function Lapgenic() {
   return (
     <div>
-      {/* 1. MURAL
+      {/* 1. MURAL 
       <div className="mural">
         <img
           src="banners/banner.gif"
@@ -25,7 +25,8 @@ export default function Lapgenic() {
             <span className="mural-num">Eventos</span>
           </Link>
         </div>
-      </div>*/}
+      </div>
+      */}
 
       {/* 2. APRESENTAÇÃO */}
       <Section title="Sobre o Laboratório">
@@ -61,26 +62,22 @@ export default function Lapgenic() {
 
       {/* 3. ENDEREÇO E CONTATO */}
       <Section title="Endereço e Contato">
-        <div className="split-about">
-          <div className="prose max-w-none">
-            <p>
-              <strong>Endereço:</strong>
-              <br />
-              Av. Universitária
-              <br />
-              Teresina – PI – s/n
-              <br />
-              CEP 64049-550
-            </p>
+        <div className="prose max-w-none">
+          <p>
+            <strong>Endereço:</strong>
+            <br />
+            Av. Universitária
+            <br />
+            Teresina – PI – s/n
+            <br />
+            CEP 64049-550
+          </p>
 
-            <p>
-              <strong>Responsável:</strong> João Marcelo de Castro Sousa
-              <br />
-              <strong>Telefone:</strong> (86) 98100-6336
-            </p>
-          </div>
-
-          <div> <img src="banners/lapgenic.png"/> </div>
+          <p>
+            <strong>Responsável:</strong> João Marcelo de Castro Sousa
+            <br />
+            <strong>Telefone:</strong> (86) 98100-6336
+          </p>
         </div>
       </Section>
     </div>
