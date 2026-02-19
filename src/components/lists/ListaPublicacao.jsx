@@ -8,7 +8,7 @@ export default function ListaPublicacao({ titulo, autores, ano, link, tags }) {
 
         <h3>{titulo}</h3>
         <p className="pub-autores">{autores}</p>
-
+        {/*
         <div className="pub-tags">
           {tags.map((tag, index) => (
             <span key={index} className="pub-tag">
@@ -16,7 +16,7 @@ export default function ListaPublicacao({ titulo, autores, ano, link, tags }) {
             </span>
           ))}
         </div>
-        
+        */}
         {link && (
           <a href={link} target="_blank" rel="noopener noreferrer">
             Acessar <FaExternalLinkAlt />

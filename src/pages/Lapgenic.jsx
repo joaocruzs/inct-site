@@ -30,7 +30,7 @@ export default function Lapgenic() {
       {/* 2. APRESENTAÇÃO */}
       <Section title="Sobre o Laboratório">
         <div className="split-about">
-          <div> <img src="labs/LAPGENIC.png"/> </div>
+          <div><img src="imagens/labs/LAPGENIC.png" /> </div>
 
           <div className="prose max-w-none space-y-6">
             <p>

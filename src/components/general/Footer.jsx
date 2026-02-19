@@ -1,4 +1,5 @@
 import { FaYoutube, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -7,7 +8,9 @@ export default function Footer() {
 
         {/* 1. Logo e Nome */}
         <div className="footer-col">
-          <img src="banners/logo.png" alt="Logo INCT" className="footer-logo" />
+          <Link to="/">
+            <img src="logo.png" className="footer-logo" />
+          </Link>
           <p className="footer-slogan">
             Instituto Nacional de Ciência e Tecnologia em Oncologia Translacional e Terapias Gênicas
           </p>
