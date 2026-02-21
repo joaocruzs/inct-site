@@ -72,6 +72,7 @@ export default function AdminPublicacoesPage() {
               </div>
 
               <div className="admin-cell actions">
+                {/*
                 <button
                   className="admin-btn edit"
                   onClick={() =>
@@ -80,7 +81,7 @@ export default function AdminPublicacoesPage() {
                 >
                   Editar
                 </button>
-
+                */}
                 <button
                   className="admin-btn delete"
                   onClick={() => handleDelete(p._id)}
