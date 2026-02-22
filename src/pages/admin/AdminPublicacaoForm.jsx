@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
-  createPublicacao,
-  updatePublicacao,
-  getPublicacaoById
-} from "../../services/publicacoes.service";
+  createArtigo,
+  updateArtigo,
+  getArtigoById
+} from "../../services/artigos.service";
 
 export default function AdminPublicacaoForm() {
   const navigate = useNavigate();
@@ -38,7 +38,7 @@ export default function AdminPublicacaoForm() {
 
       try {
         setLoading(true);
-        const data = await getPublicacaoById(id);
+        const data = await getArtigoById(id);
 
         setForm({
           titulo: data.titulo || "",
@@ -87,9 +87,9 @@ export default function AdminPublicacaoForm() {
       console.log("Payload enviado:", payload);
 
       if (isEdit) {
-        await updatePublicacao(id, payload);
+        await updateArtigo(id, payload);
       } else {
-        await createPublicacao(payload);
+        await createArtigo(payload);
       }
 
       setSucesso(true);

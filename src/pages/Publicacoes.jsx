@@ -4,7 +4,7 @@ import PageTitle from "../components/general/PageTitle";
 import FilterSidebar from "../components/general/FilterSidebar";
 import ListaPublicacao from "../components/lists/ListaPublicacao";
 
-import { getPublicacoes } from "../services/publicacoes.service";
+import { getArtigos } from "../services/artigos.service";
 
 export default function Publicacoes() {
   const [publicacoes, setPublicacoes] = useState([]);
@@ -12,7 +12,7 @@ export default function Publicacoes() {
   const [erro, setErro] = useState(false);
 
   useEffect(() => {
-    getPublicacoes()
+    getArtigos()
       .then((data) => setPublicacoes(data))
       .catch(() => setErro(true))
       .finally(() => setLoading(false));

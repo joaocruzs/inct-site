@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  getPublicacoes,
-  deletePublicacao
-} from "../../services/publicacoes.service";
+  getArtigos,
+  deleteArtigo
+} from "../../services/artigos.service";
 
 export default function AdminPublicacoesPage() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function AdminPublicacoesPage() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await getPublicacoes();
+        const data = await getArtigos();
         setPublicacoes(data);
       } catch {
         setErro("Erro ao carregar publicações.");
@@ -34,10 +34,10 @@ export default function AdminPublicacoesPage() {
     if (!confirm) return;
 
     try {
-      await deletePublicacao(id);
+      await deleteArtigo(id);
       setPublicacoes((prev) => prev.filter((p) => p._id !== id));
     } catch {
-      alert("Erro ao excluir publicação.");
+      alert("Erro ao excluir artigo.");
     }
   }
 
