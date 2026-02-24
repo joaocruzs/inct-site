@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { getPublicacoes } from "../../services/publicacoes.service";
+import { getArtigos } from "../../services/artigos.service";
 import { getNoticias } from "../../services/noticias.service";
 import { getEventos } from "../../services/eventos.service";
 
@@ -16,7 +16,7 @@ export default function DashboardAdmin() {
     async function carregarDados() {
       try {
         const [pubs, nots, evs] = await Promise.all([
-          getPublicacoes().catch(() => []),
+          getArtigos().catch(() => []),
           getNoticias().catch(() => []),
           getEventos().catch(() => [])
         ]);

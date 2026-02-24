@@ -6,7 +6,7 @@ import ListaPublicacao from "../components/lists/ListaPublicacao";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 import { getNoticias } from "../services/noticias.service";
-import { getPublicacoes } from "../services/publicacoes.service";
+import { getArtigos } from "../services/artigos.service";
 import destaques from "../data/destaques.json";
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
   const [erroPublicacoes, setErroPublicacoes] = useState(false);
 
   useEffect(() => {
-    getPublicacoes()
+    getArtigos()
       .then((data) => {
         const ordenadas = [...data].sort((a, b) => b.ano - a.ano);
         setPublicacoes(ordenadas.slice(0, 8));
