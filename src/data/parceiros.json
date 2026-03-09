@@ -78,6 +78,13 @@
   },
  {
     "categoria": "Instituições Parceiras",
+    "nome": "FAPEPI",
+    "descricao": "",
+    "imagem": "imagens/nacionais/FAPEPI.png",
+    "link": "https://www.fapepi.pi.gov.br/"
+  },
+  {
+    "categoria": "Instituições Parceiras",
     "nome": "A. C. Camargo Cancer Center",
     "descricao": "",
     "imagem": "imagens/nacionais/ACC.png",
