@@ -76,10 +76,17 @@
     "imagem": "imagens/internacionais/USC.png",
     "link": "https://www.usc.gal/gl"
   },
- {
+   {
+    "categoria": "Instituições Parceiras",
+    "nome": "CNPq",
+    "descricao": "Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+    "imagem": "imagens/nacionais/CNPQ.png",
+    "link": "https://www.gov.br/cnpq/pt-br"
+  },
+{
     "categoria": "Instituições Parceiras",
     "nome": "FAPEPI",
-    "descricao": "",
+    "descricao": "Fundação de Amparo à Pesquisa do Piauí",
     "imagem": "imagens/nacionais/FAPEPI.png",
     "link": "https://www.fapepi.pi.gov.br/"
   },
