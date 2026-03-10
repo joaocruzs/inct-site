@@ -1,7 +1,12 @@
-import { useState } from "react";
-import { createNoticia } from "../../services/noticias.service";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { createNoticia, updateNoticia, getNoticiaById } from "../../services/noticias.service";
 
-export default function NovaNoticia() {
+export default function NoticiaForm() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const isEditing = !!id;
+
   const [form, setForm] = useState({
     titulo: "",
     resumo: "",
@@ -19,6 +24,30 @@ export default function NovaNoticia() {
 
   const TAGS = ["CRISPR", "Terapia Gênica", "Oncologia", "Nanotecnologia"];
   const LABS = ["INCT", "LAPGENIC"];
+
+  // Carregar dados se estiver editando
+  useEffect(() => {
+    if (isEditing) {
+      async function loadNoticia() {
+        try {
+          const noticia = await getNoticiaById(id);
+          setForm({
+            titulo: noticia.titulo || "",
+            resumo: noticia.resumo || "",
+            conteudo: noticia.conteudo || "",
+            imagem: noticia.imagem || "",
+            data: noticia.data || "",
+            laboratorio: noticia.laboratorio || "",
+            tags: noticia.tags || [],
+            publicado: noticia.publicado || false
+          });
+        } catch {
+          setErro("Erro ao carregar notícia");
+        }
+      }
+      loadNoticia();
+    }
+  }, [id, isEditing]);
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
@@ -44,20 +73,26 @@ export default function NovaNoticia() {
     setLoading(true);
 
     try {
-      await createNoticia(form);
-      setSucesso(true);
-      setForm({
-        titulo: "",
-        resumo: "",
-        conteudo: "",
-        imagem: "",
-        data: "",
-        laboratorio: "",
-        tags: [],
-        publicado: false
-      });
+      if (isEditing) {
+        await updateNoticia(id, form);
+        setSucesso(true);
+        setTimeout(() => navigate("/admin/noticias"), 2000);
+      } else {
+        await createNoticia(form);
+        setSucesso(true);
+        setForm({
+          titulo: "",
+          resumo: "",
+          conteudo: "",
+          imagem: "",
+          data: "",
+          laboratorio: "",
+          tags: [],
+          publicado: false
+        });
+      }
     } catch (erro) {
-      setErro("Erro ao criar notícia.");
+      setErro(isEditing ? "Erro ao atualizar notícia." : "Erro ao criar notícia.");
     } finally {
       setLoading(false);
     }
@@ -65,7 +100,7 @@ export default function NovaNoticia() {
 
   return (
     <div className="admin-page">
-      <h1>Nova Notícia</h1>
+      <h1>{isEditing ? "Editar Notícia" : "Nova Notícia"}</h1>
 
       <form className="admin-form" onSubmit={handleSubmit}>
         <div className="form-group">
@@ -168,10 +203,14 @@ export default function NovaNoticia() {
         </label>
 
         {erro && <p className="error">{erro}</p>}
-        {sucesso && <p className="success">Notícia criada com sucesso!</p>}
+        {sucesso && (
+          <p className="success">
+            {isEditing ? "Notícia atualizada com sucesso!" : "Notícia criada com sucesso!"}
+          </p>
+        )}
 
         <button type="submit" disabled={loading}>
-          {loading ? "Salvando..." : "Salvar Notícia"}
+          {loading ? "Salvando..." : (isEditing ? "Atualizar Notícia" : "Salvar Notícia")}
         </button>
       </form>
     </div>

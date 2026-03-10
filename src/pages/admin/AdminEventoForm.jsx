@@ -1,7 +1,12 @@
-import { useState } from "react";
-import { createEvento } from "../../services/eventos.service";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { createEvento, updateEvento, getEventoById } from "../../services/eventos.service";
 
-export default function NovoEvento() {
+export default function AdminEventoForm() {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const isEditing = Boolean(id);
+
   const [form, setForm] = useState({
     titulo: "",
     resumo: "",
@@ -15,11 +20,40 @@ export default function NovoEvento() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [loadingData, setLoadingData] = useState(isEditing);
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState(false);
 
   const TAGS = ["Simpósio", "Congresso", "Workshop", "Oncologia"];
   const LABS = ["INCT", "LAPGENIC"];
+
+  // Carrega dados quando estiver editando
+  useEffect(() => {
+    if (isEditing && id) {
+      async function loadEvento() {
+        try {
+          setLoadingData(true);
+          const evento = await getEventoById(id);
+          setForm({
+            titulo: evento.titulo || "",
+            resumo: evento.resumo || "",
+            conteudo: evento.conteudo || "",
+            imagem: evento.imagem || "",
+            dataInicio: evento.dataInicio ? evento.dataInicio.split('T')[0] : "",
+            dataFim: evento.dataFim ? evento.dataFim.split('T')[0] : "",
+            local: evento.local || "",
+            laboratorio: evento.laboratorio || "",
+            tags: evento.tags || []
+          });
+        } catch (error) {
+          setErro("Erro ao carregar evento");
+        } finally {
+          setLoadingData(false);
+        }
+      }
+      loadEvento();
+    }
+  }, [isEditing, id]);
 
   function handleChange(e) {
     const { name, value } = e.target;
