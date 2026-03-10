@@ -1415,29 +1415,6 @@ img {
   flex-shrink: 0;
 }
 
-.footer-contato {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-bottom: 25px;
-}
-
-.footer-contato p {
-  color: #e2e8f0;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 8px;
-}
-
-.footer-contato svg {
-  color: #fbbf24;
-  font-size: 16px;
-}
-
-
-
 .footer-apoio {
   margin-top: 15px;
   padding: 12px;
@@ -1463,10 +1440,6 @@ img {
   background: rgba(0, 0, 0, 0.3);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 25px 0;
-}
-
-.footer-bottom-content {
-  text-align: center;
 }
 
 .footer-bottom p {

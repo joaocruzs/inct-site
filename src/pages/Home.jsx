@@ -55,6 +55,19 @@ export default function Home() {
       .finally(() => setLoadingPublicacoes(false));
   }, []);
 
+  /* 4. CARREGAMENTO DO WIDGET BEHOLD */
+  useEffect(() => {
+    // Verifica se o script já foi carregado
+    const existingScript = document.querySelector('script[src="https://w.behold.so/widget.js"]');
+    if (existingScript) return;
+
+    // Cria e adiciona o script
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = "https://w.behold.so/widget.js";
+    document.head.appendChild(script);
+  }, []);
+
 
 
   return (
@@ -92,12 +105,6 @@ export default function Home() {
       <Section>
         <div className="behold-container">
           <behold-widget feed-id="xcpomBbDoQRWf24Momyt"></behold-widget>
-          <script>
-            {(() => {
-              const d=document,s=d.createElement("script");s.type="module";
-              s.src="https://w.behold.so/widget.js";d.head.append(s);
-            })()}
-          </script>
         </div>
       </Section>
 
