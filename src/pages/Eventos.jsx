@@ -91,7 +91,7 @@ export default function Eventos() {
           {erro && <p>Erro ao carregar eventos.</p>}
 
           {!loading && !erro && filtrados.length === 0 && (
-            <p>🎪 Nenhum evento encontrado com os filtros aplicados.</p>
+            <p>Nenhum evento encontrado com os filtros aplicados.</p>
           )}
 
           {!loading &&
