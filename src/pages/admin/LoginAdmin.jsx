@@ -6,19 +6,20 @@ import { Link } from "react-router-dom";
 export default function LoginAdmin() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [erro, setErro] = useState(false);
+  const [erro, setErro] = useState("");
 
   const navigate = useNavigate();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    setErro("");
 
-    const ok = loginAdmin({ email, senha });
+    const sucesso = await loginAdmin({ email, senha });
 
-    if (ok) {
+    if (sucesso) {
       navigate("/admin");
     } else {
-      setErro(true);
+      setErro("Credenciais inválidas");
     }
   }
 
@@ -27,13 +28,14 @@ export default function LoginAdmin() {
       <form onSubmit={handleSubmit}>
         <h1>Ambiente Administrativo</h1>
 
-        {erro && <p className="erro">Credenciais inválidas</p>}
+        {erro && <p className="erro">{erro}</p>}
 
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
         <input
@@ -41,6 +43,7 @@ export default function LoginAdmin() {
           placeholder="Senha"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
+          required
         />
         <div>
           <button type="submit">Entrar</button>

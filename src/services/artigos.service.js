@@ -1,5 +1,16 @@
 const BASE_URL = "https://publicacoes-inct-api.vercel.app";
 
+/* HELPER: Headers com autenticação */
+function getAuthHeaders() {
+  const token = localStorage.getItem("admin_token");
+
+  
+  return {
+    "Content-Type": "application/json",
+    ...(token && { "Authorization": `Bearer ${token}` })
+  };
+}
+
 /* 0. NORMALIZAÇÃO */
 function normalizarArtigo(p) {
   let link = p.link || p.url || "";
@@ -54,11 +65,14 @@ export async function getArtigoById(id) {
 export async function createArtigo(artigo) {
   const res = await fetch(`${BASE_URL}/artigos`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: getAuthHeaders(),
     body: JSON.stringify(artigo)
   });
 
-  if (!res.ok) throw new Error("Erro ao criar artigo");
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao criar artigo"}`);
+  }
 
   const json = await res.json();
   return json.data ? normalizarArtigo(json.data) : json;
@@ -68,7 +82,7 @@ export async function createArtigo(artigo) {
 export async function updateArtigo(id, artigo) {
   const res = await fetch(`${BASE_URL}/artigos/${id}`, {
     method: "PATCH",
-    headers: { "Content-Type": "application/json" },
+    headers: getAuthHeaders(),
     body: JSON.stringify(artigo)
   });
 
@@ -81,24 +95,12 @@ export async function updateArtigo(id, artigo) {
 /* 5. DELETAR (Admin) */
 export async function deleteArtigo(id) {
   const res = await fetch(`${BASE_URL}/artigos/${id}`, {
-    method: "DELETE"
+    method: "DELETE",
+    headers: getAuthHeaders()
   });
 
   if (!res.ok) {
     throw new Error("Erro ao deletar artigo");
-  }
-
-  return true;
-}
-
-/* 6. DELETAR TODOS (Admin) */
-export async function deleteAllArtigos() {
-  const res = await fetch(`${BASE_URL}/artigos`, {
-    method: "DELETE"
-  });
-
-  if (!res.ok) {
-    throw new Error("Erro ao deletar todos os artigos");
   }
 
   return true;

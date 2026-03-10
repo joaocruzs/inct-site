@@ -21,8 +21,13 @@ export default function AdminMenu() {
         <NavLink to="/admin/dashboard">Dashboard</NavLink>
 
         <span className="menu-section">Conteúdo</span>
-        <NavLink to="/admin/noticias/nova">Nova Notícia</NavLink>
+        <NavLink to="/admin/publicacoes">Publicações</NavLink>
         <NavLink to="/admin/publicacoes/nova">Nova Publicação</NavLink>
+        
+        <NavLink to="/admin/noticias">Notícias</NavLink>
+        <NavLink to="/admin/noticias/nova">Nova Notícia</NavLink>
+        
+        <NavLink to="/admin/eventos">Eventos</NavLink>
         <NavLink to="/admin/eventos/nova">Novo Evento</NavLink>
       </nav>
 
