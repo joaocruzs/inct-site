@@ -35,12 +35,11 @@ import ProtectedRoute from "./components/admin/ProtectedRoute";
 export default function App() {
   const { pathname } = useLocation();
 
-  const isHome = pathname === "/";
   const isAdminRoute = pathname.startsWith("/admin");
 
   return (
     <>
-      {!isAdminRoute && <Header transparent={isHome} />}
+      {!isAdminRoute && <Header />}
 
       <Routes>
 
