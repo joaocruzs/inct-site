@@ -79,16 +79,23 @@
    {
     "categoria": "Instituições Parceiras",
     "nome": "CNPq",
-    "descricao": "Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+    "descricao": "",
     "imagem": "imagens/nacionais/CNPQ.png",
     "link": "https://www.gov.br/cnpq/pt-br"
   },
 {
     "categoria": "Instituições Parceiras",
     "nome": "FAPEPI",
-    "descricao": "Fundação de Amparo à Pesquisa do Piauí",
+    "descricao": "",
     "imagem": "imagens/nacionais/FAPEPI.png",
     "link": "https://www.fapepi.pi.gov.br/"
+  },
+     {
+    "categoria": "Instituições Parceiras",
+    "nome": "CAPES",
+    "descricao": "",
+    "imagem": "imagens/nacionais/CAPES.png",
+    "link": "https://www.gov.br/capes/pt-br"
   },
   {
     "categoria": "Instituições Parceiras",
