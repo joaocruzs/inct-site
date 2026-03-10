@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Container from "../components/general/Container";
 import { getNoticiaById } from "../services/noticias.service";
+import { formatarConteudoNoticia } from "../utils/contentFormatter";
 
 export default function Noticia() {
   const { id } = useParams();
@@ -36,11 +37,9 @@ export default function Noticia() {
 
         <div
           className="conteudo-texto"
-          dangerouslySetInnerHTML={{ __html: noticia.conteudo }}
+          dangerouslySetInnerHTML={{ __html: formatarConteudoNoticia(noticia.conteudo) }}
         />
-        <a href={noticia.link} target="_blank" rel="noopener noreferrer">
-          Leia a notícia original
-        </a>
+
         
       </article>
     </Container>

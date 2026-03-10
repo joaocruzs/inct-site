@@ -1,23 +1,37 @@
 import { Link } from "react-router-dom";
 
-export default function ListaNoticia({
+export default function ListaEvento({
   _id,
   imagem,
   titulo,
   resumo,
-  data
+  dataInicio,
+  dataFim,
+  local
 }) {
+  const formatarData = (data) => {
+    return new Date(data).toLocaleDateString('pt-BR');
+  };
+
+  const formatarPeriodo = () => {
+    if (dataFim && dataFim !== dataInicio) {
+      return `${formatarData(dataInicio)} - ${formatarData(dataFim)}`;
+    }
+    return formatarData(dataInicio);
+  };
+
   return (
-    <Link to={`/noticias/${_id}`} className="special-link">
-      <article className="noticia-list">
+    <Link to={`/eventos/${_id}`} className="special-link">
+      <article className="evento-list">
         <img src={imagem} alt={titulo} />
 
-        <div className="noticia-list-content">
-          <span className="noticia-data">
-            {new Date(data).toLocaleDateString()}
+        <div className="evento-list-content">
+          <span className="evento-data">
+            {formatarPeriodo()}
           </span>
           <h3>{titulo}</h3>
           <p>{resumo}</p>
+          {local && <span className="evento-local">📍 {local}</span>}
         </div>
       </article>
     </Link>

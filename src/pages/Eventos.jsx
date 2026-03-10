@@ -4,7 +4,7 @@ import PageTitle from "../components/general/PageTitle";
 import FilterSidebar from "../components/general/FilterSidebar";
 import ListaEvento from "../components/lists/ListaEvento";
 
-import { getEventos } from "../services/eventos.service";
+import { getEventos, getEventosFuturos } from "../services/eventos.service";
 
 export default function Eventos() {
   const [eventos, setEventos] = useState([]);
@@ -28,32 +28,41 @@ export default function Eventos() {
   /* ===============================
      FILTROS
   =============================== */
-  function aplicarFiltros(filtros) {
-    let resultado = [...eventos];
+  async function aplicarFiltros(filtros) {
+    setLoading(true);
+    
+    try {
+      let resultado;
 
-    /* período */
-    if (filtros.periodo === "futuros") {
-      const hoje = new Date();
-      resultado = resultado.filter(
-        (e) => new Date(e.dataInicio) >= hoje
-      );
+      // Usar API para eventos futuros (mais eficiente)
+      if (filtros.periodo === "futuros") {
+        resultado = await getEventosFuturos();
+      } else {
+        resultado = [...eventos];
+        
+        // Filtro local para eventos passados
+        if (filtros.periodo === "passados") {
+          const hoje = new Date();
+          resultado = resultado.filter(
+            (e) => new Date(e.dataFim || e.dataInicio) < hoje
+          );
+        }
+      }
+
+      // Filtro por laboratório (sempre local)
+      if (filtros.laboratorio) {
+        resultado = resultado.filter(
+          (e) => e.laboratorio === filtros.laboratorio
+        );
+      }
+
+      setFiltrados(resultado);
+    } catch (error) {
+      console.error("Erro ao aplicar filtros:", error);
+      setErro(true);
+    } finally {
+      setLoading(false);
     }
-
-    if (filtros.periodo === "passados") {
-      const hoje = new Date();
-      resultado = resultado.filter(
-        (e) => new Date(e.dataFim || e.dataInicio) < hoje
-      );
-    }
-
-    /* laboratório */
-    if (filtros.laboratorio) {
-      resultado = resultado.filter(
-        (e) => e.laboratorio === filtros.laboratorio
-      );
-    }
-
-    setFiltrados(resultado);
   }
 
   return (
@@ -80,6 +89,10 @@ export default function Eventos() {
         <div className="page-content">
           {loading && <p>Carregando eventos...</p>}
           {erro && <p>Erro ao carregar eventos.</p>}
+
+          {!loading && !erro && filtrados.length === 0 && (
+            <p>Nenhum evento encontrado com os filtros aplicados.</p>
+          )}
 
           {!loading &&
             filtrados.map((e) => (

@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import {
-  FaYoutube,
-  FaLinkedin,
-  FaInstagram,
-  FaRegUserCircle,
   FaBars,
   FaTimes
 } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
 
 export default function Header({ transparent = false }) {
   const [open, setOpen] = useState(false);
@@ -97,20 +94,8 @@ export default function Header({ transparent = false }) {
           <NavLink to="/lapgenic" onClick={closeAll}>Lapgenic</NavLink>
 
           <div className="social-links">
-            <a href="https://www.youtube.com/@InstitutoNacionalONCOTTGEN" target="_blank" rel="noopener noreferrer">
-              <FaYoutube />
-            </a>
-
-            <a href="https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin />
-            </a>
-
-            <a href="https://www.instagram.com/inct.oncottgen/" target="_blank" rel="noopener noreferrer">
-              <FaInstagram />
-            </a>
-
             <NavLink to="/admin/login" onClick={closeAll}>
-              <FaRegUserCircle />
+              <FiUser />
             </NavLink>
           </div>
 

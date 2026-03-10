@@ -1,28 +1,19 @@
-/* =====================================================
-   noticias.service.js (MOCK)
-   Backend ainda não implementado
-===================================================== */
+const BASE_URL = "https://publicacoes-inct-api.vercel.app";
 
-/* MOCK DATA */
-let MOCK_NOTICIAS = [
-  {
-    "id": "noticia-001",
-    "titulo": "Jornalismo: Piauí se destaca no desenvolvimento de pesquisas avançadas para o tratamento do câncer",
-    "resumo": "O INCT em destaque na mídia!",
-    "conteudo": "O Instituto Nacional de Ciência e Tecnologia (INCT) ONCOTTGEN foi destaque no Cidade Verde – Viva Educação pelo papel fundamental no desenvolvimento de pesquisas avançadas para o tratamento do câncer, colocando o Piauí no cenário nacional da ciência e inovação.",
-    "imagem": "banners/noticia1.jpg",
-    "data": "2026-02-08",
-    "laboratorio": "",
-    "tags": ["CRISPR", "Terapia Gênica", "Oncologia"],
-    "link": "https://cidadeverde.com/cvplay/v/110660/piaui-se-destaca-no-desenvolvimento-de-pesquisas-avancadas-para-o-tratamento-do-cancer",
-    "publicado": true
-  }
-]
+/* HELPER: Headers com autenticação */
+function getAuthHeaders() {
+  const token = localStorage.getItem("admin_token");
+  
+  return {
+    "Content-Type": "application/json",
+    ...(token && { "Authorization": `Bearer ${token}` })
+  };
+}
 
 /* 0. NORMALIZAÇÃO */
 function normalizarNoticia(n) {
   return {
-    _id: n.id,
+    _id: n.id || n._id,
     titulo: n.titulo,
     resumo: n.resumo,
     conteudo: n.conteudo,
@@ -35,45 +26,101 @@ function normalizarNoticia(n) {
   };
 }
 
-/* 1. BUSCAR TODAS */
+/* 1. BUSCAR TODAS (Public) */
 export async function getNoticias() {
-  return MOCK_NOTICIAS
-    .filter((n) => n.publicado)
-    .map(normalizarNoticia);
+  const res = await fetch(`${BASE_URL}/noticias`);
+
+  if (!res.ok) {
+    throw new Error("Erro ao buscar notícias");
+  }
+
+  const json = await res.json();
+  
+  // API pode retornar: json.data ou json diretamente
+  const noticias = Array.isArray(json) ? json : (json.data || []);
+  
+  return noticias.map(normalizarNoticia);
 }
 
-/* 2. BUSCAR POR ID */
+/* 2. BUSCAR PUBLICADAS (Public) */
+export async function getNoticiasPublicadas() {
+  const res = await fetch(`${BASE_URL}/noticias/publicadas`);
+
+  if (!res.ok) {
+    throw new Error("Erro ao buscar notícias publicadas");
+  }
+
+  const json = await res.json();
+  
+  // API pode retornar: json.data ou json diretamente
+  const noticias = Array.isArray(json) ? json : (json.data || []);
+  
+  return noticias.map(normalizarNoticia);
+}
+
+/* 3. BUSCAR POR ID */
 export async function getNoticiaById(id) {
-  const noticia = MOCK_NOTICIAS.find((n) => n.id === id);
-  if (!noticia) {
+  const res = await fetch(`${BASE_URL}/noticias/${id}`);
+
+  if (!res.ok) {
     throw new Error("Notícia não encontrada");
   }
+
+  const json = await res.json();
+  
+  // API pode retornar: json.data ou json diretamente
+  const noticia = json.data || json;
+  
   return normalizarNoticia(noticia);
 }
 
-/* 3. CRIAR (ADMIN) */
+/* 4. CRIAR (ADMIN) */
 export async function createNoticia(noticia) {
-  const nova = {
-    ...noticia,
-    id: `noticia-${Date.now()}`
-  };
+  const res = await fetch(`${BASE_URL}/noticias`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: JSON.stringify(noticia)
+  });
 
-  MOCK_NOTICIAS.unshift(nova);
-  return normalizarNoticia(nova);
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao criar notícia"}`);
+  }
+
+  const json = await res.json();
+  return json.data ? normalizarNoticia(json.data) : json;
 }
 
-/* 4. ATUALIZAR (ADMIN) */
-export async function updateNoticia(id, dados) {
-  MOCK_NOTICIAS = MOCK_NOTICIAS.map((n) =>
-    n.id === id ? { ...n, ...dados } : n
-  );
+/* 5. ATUALIZAR (ADMIN) */
+export async function updateNoticia(id, noticia) {
+  const res = await fetch(`${BASE_URL}/noticias/${id}`, {
+    method: "PATCH",
+    headers: getAuthHeaders(),
+    body: JSON.stringify(noticia)
+  });
 
-  const atualizada = MOCK_NOTICIAS.find((n) => n.id === id);
-  return normalizarNoticia(atualizada);
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao atualizar notícia"}`);
+  }
+
+  const json = await res.json();
+  return json.data ? normalizarNoticia(json.data) : json;
 }
 
-/* 5. DELETAR (ADMIN) */
+/* 6. DELETAR (ADMIN) */
 export async function deleteNoticia(id) {
-  MOCK_NOTICIAS = MOCK_NOTICIAS.filter((n) => n.id !== id);
+  const res = await fetch(`${BASE_URL}/noticias/${id}`, {
+    method: "DELETE",
+    headers: getAuthHeaders()
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao deletar notícia"}`);
+  }
+
   return true;
 }
+
+

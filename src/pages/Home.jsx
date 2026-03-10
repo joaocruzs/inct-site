@@ -55,6 +55,21 @@ export default function Home() {
       .finally(() => setLoadingPublicacoes(false));
   }, []);
 
+  /* 4. CARREGAMENTO DO WIDGET BEHOLD */
+  useEffect(() => {
+    // Verifica se o script já foi carregado
+    const existingScript = document.querySelector('script[src="https://w.behold.so/widget.js"]');
+    if (existingScript) return;
+
+    // Cria e adiciona o script
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = "https://w.behold.so/widget.js";
+    document.head.appendChild(script);
+  }, []);
+
+
+
   return (
     <>
       {/* 1. HERO */}
@@ -69,7 +84,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. CARROSSEL DE DESTAQUES */} 
+
+      {/* 3. ÚLTIMAS NOTÍCIAS */}
+      <Section title="Últimas Notícias">
+        {loadingNoticias && <p>Carregando notícias...</p>}
+        {erroNoticias && <p>Erro ao carregar notícias.</p>}
+
+        <div className="news-grid">
+          {noticias.map((n) => (
+            <CardNoticia key={n._id} {...n} />
+          ))}
+        </div>
+
+        <div className="section-action">
+          <Link to="/noticias">Ver todas as notícias</Link>
+        </div>
+      </Section>
+
+      {/* 4. FEED SOCIAL */}
+      <Section>
+        <div className="behold-container">
+          <behold-widget feed-id="xcpomBbDoQRWf24Momyt"></behold-widget>
+        </div>
+      </Section>
+
+      {/* 5. ÚLTIMAS PUBLICAÇÕES */}
+      <Section title="Artigos Publicados">
+        {loadingPublicacoes && <p>Carregando publicações...</p>}
+        {erroPublicacoes && <p>Erro ao carregar publicações.</p>}
+        <div className="publicacoes-grid">
+          {publicacoes.map((p) => (
+            <ListaPublicacao key={p._id} {...p} />
+          ))}
+        </div>
+
+        <div className="section-action">
+          <Link to="/publicacoes">Ver todas as publicações</Link>
+        </div>
+      </Section>
+
+      {/* 6. CARROSSEL DE DESTAQUES */} 
       <Section>
         <div className="carrossel-destaques">
           <div className="carrossel-window">
@@ -114,38 +168,6 @@ export default function Home() {
 
             <button onClick={next} className="carrossel-arrow">›</button>
           </div>
-        </div>
-      </Section>
-
-      {/* 3. ÚLTIMAS NOTÍCIAS */}
-      <Section title="Últimas Notícias">
-        {loadingNoticias && <p>Carregando notícias...</p>}
-        {erroNoticias && <p>Erro ao carregar notícias.</p>}
-
-        <div className="news-grid">
-          {noticias.map((n) => (
-            <CardNoticia key={n._id} {...n} />
-          ))}
-        </div>
-
-        <div className="section-action">
-          <Link to="/noticias">Ver todas as notícias</Link>
-        </div>
-      </Section>
-
-      {/* 4. ÚLTIMAS PUBLICAÇÕES */}
-      <Section title="Publicações">
-        {loadingPublicacoes && <p>Carregando publicações...</p>}
-        {erroPublicacoes && <p>Erro ao carregar publicações.</p>}
-
-        <div className="publicacoes-grid">
-          {publicacoes.map((p) => (
-            <ListaPublicacao key={p._id} {...p} />
-          ))}
-        </div>
-
-        <div className="section-action">
-          <Link to="/publicacoes">Ver todas as publicações</Link>
         </div>
       </Section>
     </>

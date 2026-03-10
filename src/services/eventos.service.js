@@ -1,28 +1,19 @@
-/* =====================================================
-   eventos.service.js (MOCK)
-   Backend ainda não implementado
-===================================================== */
+const BASE_URL = "https://publicacoes-inct-api.vercel.app";
 
-/* MOCK DATA */
-let MOCK_EVENTOS = [
-  {
-    "id": "evento-001",
-    "titulo": "Título do Evento 1",
-    "resumo": "Evento científico voltado à discussão de avanços em oncologia translacional e terapias gênicas.",
-    "conteudo": "Programação completa do evento...",
-    "imagem": "banners/inct.png",
-    "dataInicio": "2024-09-12",
-    "dataFim": "2024-09-14",
-    "local": "Teresina - PI",
-    "laboratorio": "INCT",
-    "tags": ["Simpósio", "Oncologia", "Terapia Gênica"]
-  }
-]
+/* HELPER: Headers com autenticação */
+function getAuthHeaders() {
+  const token = localStorage.getItem("admin_token");
+  
+  return {
+    "Content-Type": "application/json",
+    ...(token && { "Authorization": `Bearer ${token}` })
+  };
+}
 
 /* 0. NORMALIZAÇÃO */
 function normalizarEvento(e) {
   return {
-    _id: e.id,
+    _id: e.id || e._id,
     titulo: e.titulo,
     resumo: e.resumo,
     conteudo: e.conteudo,
@@ -37,41 +28,93 @@ function normalizarEvento(e) {
 
 /* 1. BUSCAR TODOS */
 export async function getEventos() {
-  return MOCK_EVENTOS.map(normalizarEvento);
+  const res = await fetch(`${BASE_URL}/eventos`);
+
+  if (!res.ok) {
+    throw new Error("Erro ao buscar eventos");
+  }
+
+  const json = await res.json();
+  
+  // API pode retornar: json.data ou json diretamente  
+  const eventos = Array.isArray(json) ? json : (json.data || []);
+  
+  return eventos.map(normalizarEvento);
 }
 
-/* 2. BUSCAR POR ID */
+/* 2. BUSCAR EVENTOS FUTUROS */
+export async function getEventosFuturos() {
+  const res = await fetch(`${BASE_URL}/eventos/futuros`);
+
+  if (!res.ok) {
+    throw new Error("Erro ao buscar eventos futuros");
+  }
+
+  const json = await res.json();
+  
+  // API pode retornar: json.data ou json diretamente
+  const eventos = Array.isArray(json) ? json : (json.data || []);
+  
+  return eventos.map(normalizarEvento);
+}
+
+/* 3. BUSCAR POR ID */
 export async function getEventoById(id) {
-  const evento = MOCK_EVENTOS.find((e) => e.id === id);
-  if (!evento) {
+  const res = await fetch(`${BASE_URL}/eventos/${id}`);
+
+  if (!res.ok) {
     throw new Error("Evento não encontrado");
   }
-  return normalizarEvento(evento);
+
+  const json = await res.json();
+  return normalizarEvento(json.data);
 }
 
-/* 3. CRIAR (ADMIN) */
+/* 4. CRIAR (ADMIN) */
 export async function createEvento(evento) {
-  const novo = {
-    ...evento,
-    id: `evento-${Date.now()}`
-  };
+  const res = await fetch(`${BASE_URL}/eventos`, {
+    method: "POST",
+    headers: getAuthHeaders(),
+    body: JSON.stringify(evento)
+  });
 
-  MOCK_EVENTOS.unshift(novo);
-  return normalizarEvento(novo);
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao criar evento"}`);
+  }
+
+  const json = await res.json();
+  return json.data ? normalizarEvento(json.data) : json;
 }
 
-/* 4. ATUALIZAR (ADMIN) */
-export async function updateEvento(id, dados) {
-  MOCK_EVENTOS = MOCK_EVENTOS.map((e) =>
-    e.id === id ? { ...e, ...dados } : e
-  );
+/* 5. ATUALIZAR (ADMIN) */
+export async function updateEvento(id, evento) {
+  const res = await fetch(`${BASE_URL}/eventos/${id}`, {
+    method: "PATCH",
+    headers: getAuthHeaders(),
+    body: JSON.stringify(evento)
+  });
 
-  const atualizado = MOCK_EVENTOS.find((e) => e.id === id);
-  return normalizarEvento(atualizado);
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao atualizar evento"}`);
+  }
+
+  const json = await res.json();
+  return json.data ? normalizarEvento(json.data) : json;
 }
 
-/* 5. DELETAR (ADMIN) */
+/* 6. DELETAR (ADMIN) */
 export async function deleteEvento(id) {
-  MOCK_EVENTOS = MOCK_EVENTOS.filter((e) => e.id !== id);
+  const res = await fetch(`${BASE_URL}/eventos/${id}`, {
+    method: "DELETE",
+    headers: getAuthHeaders()
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao deletar evento"}`);
+  }
+
   return true;
 }
