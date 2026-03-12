@@ -91,6 +91,7 @@ export default function Header({ transparent = false }) {
             </div>
           </div>
 
+          <NavLink to="/apoio" onClick={closeAll}>Apoio</NavLink>
           <NavLink to="/lapgenic" onClick={closeAll}>Lapgenic</NavLink>
 
           <div className="social-links">

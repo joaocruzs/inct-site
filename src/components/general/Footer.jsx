@@ -8,6 +8,7 @@ export default function Footer() {
         
         <div className="footer-col">
           <h3>Navegação</h3>
+          <Link to="/">Página Inicial</Link>
           <Link to="/sobre">Sobre Nós</Link>
           <Link to="/pesquisadores">Pesquisadores</Link>
           <Link to="/publicacoes">Publicações</Link>
@@ -17,22 +18,26 @@ export default function Footer() {
 
         <div className="footer-col">
           <h3>Recursos</h3>
+          <Link to="/comite">Comitê Gestor</Link>
           <Link to="/documentos">Documentos</Link>
           <Link to="/parceiros">Parceiros</Link>
           <Link to="/plataforma">Plataforma</Link>
-          <Link to="/comite">Comitê Gestor</Link>
-          <a href="#" target="_blank">Relatório Anual</a>
+          {/*<a href="#" target="_blank">Relatório Anual</a> */}
         </div>
 
         <div className="footer-col">
           <h3>Contato</h3>
-          <p><FaEnvelope /> inctoncottgen@gmail.com</p>
+          <p><FaEnvelope /><a href="mailto:inctoncottgen@gmail.com">inctoncottgen@gmail.com</a></p>
           <p><FaPhoneAlt /> (86) 98100-6336</p>
-          <p><FaMapPin /> UFPI — Teresina, PI</p>
+          <p><FaMapPin /><a href="https://maps.app.goo.gl/iRuB6Ln3bWnymFjg7">UFPI — Teresina, PI</a></p>
           
           <div className="footer-apoio">
-            <strong>Apoio:</strong>
-            <span>CNPq • FAPEPI • CAPES</span>
+            <Link to="/apoio"><strong>Apoio:</strong></Link>
+            <span>
+              <a href="https://www.gov.br/cnpq/pt-br" target="_blank">CNPq</a> • 
+              <a href="https://www.fapepi.pi.gov.br/" target="_blank"> FAPEPI</a> • 
+              <a href="https://www.gov.br/capes/pt-br" target="_blank"> CAPES</a>
+              </span>
           </div>
         </div>
 

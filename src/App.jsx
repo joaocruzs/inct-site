@@ -16,6 +16,7 @@ import Publicacoes from "./pages/Publicacoes";
 import Comite from "./pages/Comite";
 import Pesquisadores from "./pages/Pesquisadores";
 import Parceiros from "./pages/Parceiros";
+import Apoio from "./pages/Apoio";
 import Lapgenic from "./pages/Lapgenic";
 
 /* 2. ADMIN */
@@ -62,6 +63,7 @@ export default function App() {
         <Route path="/comite" element={<Comite />} />
         <Route path="/pesquisadores" element={<Pesquisadores />} />
         <Route path="/parceiros" element={<Parceiros />} />
+        <Route path="/apoio" element={<Apoio />} />
         <Route path="/lapgenic" element={<Lapgenic />} />
 
         {/* ===================== */}

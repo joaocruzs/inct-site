@@ -1,5 +1,5 @@
 
-export default function Plataforma() {
+export default function Apoio() {
   return (
       <img src="banners/embreve.png" />
   );

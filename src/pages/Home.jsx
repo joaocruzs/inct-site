@@ -76,6 +76,7 @@ export default function Home() {
       <section className="banner">
         <img src="banners/banner.gif" className="banner-img" alt="" />
         <div className="banner-content container">
+          <img src="apoio.png" alt="" className="banner-logo" />
           <h1>Inovação e Avanços na Oncologia</h1>
           <p>Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia.</p>
           <Link to="/sobre" className="banner-button">
@@ -102,7 +103,7 @@ export default function Home() {
       </Section>
 
       {/* 4. FEED SOCIAL */}
-      <Section>
+      <Section title="Mais recentes no Feed">
         <div className="behold-container">
           <behold-widget feed-id="xcpomBbDoQRWf24Momyt"></behold-widget>
         </div>
