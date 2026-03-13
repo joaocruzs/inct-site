@@ -432,6 +432,15 @@
   },
   {
     "categoria": "Discentes de Graduação e Pós-graduação",
+    "nome": "Rayla Kelly Magalhães Costa",
+    "formacao": "Doutorando",
+    "instituicao": "Pontifícia Universidade Católica do Rio de Janeiro",
+    "areas": "",
+    "link": "https://lattes.cnpq.br/1310164035358343",
+    "imagem": "imagens/membros/rayla.gif"
+  },
+  {
+    "categoria": "Discentes de Graduação e Pós-graduação",
     "nome": "Ana Flávia Chaves Uchôa",
     "formacao": "Graduação",
     "instituicao": "Universidade Federal da Paraíba (UFPB-PB)",
