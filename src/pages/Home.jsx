@@ -34,7 +34,8 @@ export default function Home() {
   useEffect(() => {
     getNoticias()
       .then((data) => {
-        setNoticias(data.slice(0, 4));
+        const ordenadas = [...data].sort((a, b) => new Date(b.data) - new Date(a.data));
+        setNoticias(ordenadas.slice(0, 4));
       })
       .catch(() => setErroNoticias(true))
       .finally(() => setLoadingNoticias(false));
