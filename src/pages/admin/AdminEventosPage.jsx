@@ -51,7 +51,7 @@ export default function AdminEventosPage() {
 
         <button
           className="admin-btn primary"
-          onClick={() => navigate("/admin/eventos/novo")}
+          onClick={() => navigate("/admin/eventos/nova")}
         >
           + Novo Evento
         </button>
