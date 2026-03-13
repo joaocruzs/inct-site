@@ -400,16 +400,7 @@
     "areas": "",
     "link": "https://orcid.org/0000-0002-5894-0615",
     "imagem": "imagens/membros/roman.jpg"
-  },
-  {
-    "categoria": "Discentes de Graduação e Pós-graduação",
-    "nome": "Ag-Anne Pereira Melo de Menezes",
-    "formacao": "Doutorado",
-    "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
-    "areas": "Mutagenese, Avaliação e analises toxicológicas, Biotecnologia em Saúde Humana e Animal, Farmacologia Bioquímica e Molecular, Biologia Molecular, Ciências Biológicas",
-    "link": "http://lattes.cnpq.br/2206403249959287",
-    "imagem": "imagens/membros/ag-anne.gif"
-  },
+  },    
   {
     "categoria": "Discentes de Graduação e Pós-graduação",
     "nome": "Álisson Emannuel Franco Alves",
@@ -441,6 +432,15 @@
   },
   {
     "categoria": "Discentes de Graduação e Pós-graduação",
+    "nome": "Rayla Kelly Magalhães Costa",
+    "formacao": "Doutorando",
+    "instituicao": "Pontifícia Universidade Católica do Rio de Janeiro",
+    "areas": "",
+    "link": "https://lattes.cnpq.br/1310164035358343",
+    "imagem": "imagens/membros/rayla.gif"
+  },
+  {
+    "categoria": "Discentes de Graduação e Pós-graduação",
     "nome": "Ana Flávia Chaves Uchôa",
     "formacao": "Graduação",
     "instituicao": "Universidade Federal da Paraíba (UFPB-PB)",
@@ -468,15 +468,6 @@
     "link": "http://lattes.cnpq.br/5522801608795556",
     "imagem": "imagens/membros/anna.gif",
     "email": "annakcm1.8@gmail.com"
-  },
-  {
-    "categoria": "Discentes de Graduação e Pós-graduação",
-    "nome": "Antonielly Campinho dos Reis",
-    "formacao": "Doutorado",
-    "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
-    "areas": "Microbiologia, Toxicologia e Plantas Tóxicas, Hematologia, Bioquímica",
-    "link": "http://lattes.cnpq.br/2205485880792516",
-    "imagem": "imagens/membros/antonielly.gif"
   },
   {
     "categoria": "Discentes de Graduação e Pós-graduação",

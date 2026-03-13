@@ -16,8 +16,9 @@ export default function Noticias() {
   useEffect(() => {
     getNoticias()
       .then((data) => {
-        setNoticias(data);
-        setFiltradas(data);
+        const ordenadas = [...data].sort((a, b) => new Date(b.data) - new Date(a.data));
+        setNoticias(ordenadas);
+        setFiltradas(ordenadas);
       })
       .catch(() => setErro(true))
       .finally(() => setLoading(false));
