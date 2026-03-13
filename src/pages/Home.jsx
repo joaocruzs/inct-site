@@ -78,7 +78,7 @@ export default function Home() {
         <img src="banners/banner.gif" className="banner-img" alt="" />
         <div className="banner-content container">
           <img src="apoio.png" alt="" className="banner-logo" />
-          <h1>Inovação e Avanços na Oncologia</h1>
+          <h1>Inovação e Avanços em Oncologia</h1>
           <p>Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia.</p>
           <Link to="/sobre" className="banner-button">
             Saiba Mais
