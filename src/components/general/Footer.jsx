@@ -22,7 +22,7 @@ export default function Footer() {
           <Link to="/documentos">Documentos</Link>
           <Link to="/parceiros">Parceiros</Link>
           <Link to="/plataforma">Plataforma</Link>
-          {/*<a href="#" target="_blank">Relatório Anual</a> */}
+          <a href="#" target="_blank">Relatório Anual</a>
         </div>
 
         <div className="footer-col">
