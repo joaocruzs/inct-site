@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/general/Section";
 import CardNoticia from "../components/cards/CardNoticia";
@@ -7,6 +7,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 import { getNoticias } from "../services/noticias.service";
 import { getArtigos } from "../services/artigos.service";
+import { getCursosPublicados } from "../services/cursos.service";
 import destaques from "../data/destaques.json";
 
 export default function Home() {
@@ -51,7 +52,34 @@ export default function Home() {
       .finally(() => setLoadingPublicacoes(false));
   }, []);
 
-  /* 4. CARROSSEL DE DESTAQUES */
+  /* 4. CURSOS */
+  const [cursos, setCursos] = useState([]);
+  const trackRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX    = useRef(0);
+  const scrollLeft = useRef(0);
+
+  useEffect(() => {
+    getCursosPublicados()
+      .then(setCursos)
+      .catch(() => {});
+  }, []);
+
+  function onMouseDown(e) {
+    isDragging.current  = true;
+    startX.current      = e.pageX - trackRef.current.offsetLeft;
+    scrollLeft.current  = trackRef.current.scrollLeft;
+  }
+  function onMouseMove(e) {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    const x    = e.pageX - trackRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    trackRef.current.scrollLeft = scrollLeft.current - walk;
+  }
+  function onMouseUp() { isDragging.current = false; }
+
+  /* 5. CARROSSEL DE DESTAQUES */
   const [index, setIndex] = useState(0);
   const total = destaques.length;
 
@@ -118,7 +146,47 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 5. CARROSSEL DE DESTAQUES */} 
+      {/* 5. CURSOS */}
+      {cursos.length > 0 && (
+        <Section>
+          <div className="cursos-header">
+            <h2 className="section-title" style={{ marginBottom: 0 }}>Cursos</h2>
+            <Link to="/cursos" className="cursos-ver-todos">Ver todos →</Link>
+          </div>
+
+          <div
+            className="cursos-scroll-track"
+            ref={trackRef}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseUp}
+          >
+            {cursos.map((c) => (
+              <Link key={c._id} to={`/cursos/${c._id}`} className="card-curso">
+                {c.imagem && (
+                  <img src={c.imagem} alt={c.titulo} className="card-curso-img" />
+                )}
+                <div className="card-curso-info">
+                  <p className="card-curso-titulo">{c.titulo}</p>
+                  {c.tags.length > 0 && (
+                    <div className="card-curso-tags">
+                      {c.tags.slice(0, 2).map((t) => (
+                        <span key={t} className="card-curso-tag">{t}</span>
+                      ))}
+                    </div>
+                  )}
+                  <span className="card-curso-modulos">
+                    {c.modulos.length} módulo{c.modulos.length !== 1 ? "s" : ""}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* 6. CARROSSEL DE DESTAQUES */}
       <Section>
         <div className="carrossel-destaques">
           <div className="carrossel-window">

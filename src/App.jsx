@@ -35,6 +35,12 @@ import AdminEventoForm from "./pages/admin/AdminEventoForm";
 import AdminLayout from "./components/admin/AdminLayout";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 
+/* 3. CURSOS */
+import Cursos from "./features/cursos/Cursos";
+import CursoDetalhe from "./features/cursos/CursoDetalhe";
+import AdminCursosPage from "./features/cursos/admin/AdminCursosPage";
+import AdminCursoForm from "./features/cursos/admin/AdminCursoForm";
+
 export default function App() {
   const { pathname } = useLocation();
 
@@ -63,6 +69,9 @@ export default function App() {
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/eventos/:id" element={<Evento />} />
         <Route path="/publicacoes" element={<Publicacoes />} />
+
+        <Route path="/cursos"     element={<Cursos />} />
+        <Route path="/cursos/:id" element={<CursoDetalhe />} />
 
         <Route path="/comite" element={<Comite />} />
         <Route path="/pesquisadores" element={<Pesquisadores />} />
@@ -105,6 +114,11 @@ export default function App() {
           <Route path="eventos" element={<AdminEventosPage />} />
           <Route path="eventos/nova" element={<AdminEventoForm />} />
           <Route path="eventos/editar/:id" element={<AdminEventoForm />} />
+
+          {/* ===== CURSOS ADMIN ===== */}
+          <Route path="cursos" element={<AdminCursosPage />} />
+          <Route path="cursos/novo" element={<AdminCursoForm />} />
+          <Route path="cursos/editar/:id" element={<AdminCursoForm />} />
 
         </Route>
 

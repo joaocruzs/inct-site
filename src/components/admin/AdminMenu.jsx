@@ -29,6 +29,9 @@ export default function AdminMenu() {
         
         <NavLink to="/admin/eventos">Eventos</NavLink>
         <NavLink to="/admin/eventos/nova">Novo Evento</NavLink>
+
+        <NavLink to="/admin/cursos">Cursos</NavLink>
+        <NavLink to="/admin/cursos/novo">Novo Curso</NavLink>
       </nav>
 
       <button className="admin-logout" onClick={handleLogout}>
