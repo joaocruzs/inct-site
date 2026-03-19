@@ -52,8 +52,8 @@ export default function Header() {
 
             <div className={`submenu-box ${submenuOpen === "instituto" ? "open" : ""}`}>
               <NavLink to="/sobre" onClick={closeAll}>Sobre</NavLink>
-              <NavLink to="/plataforma" onClick={closeAll}>Plataforma</NavLink>
-              <NavLink to="/contato" onClick={closeAll}>Contato</NavLink>
+              {/*<NavLink to="/plataforma" onClick={closeAll}>Plataforma</NavLink>*/}
+              {/*<NavLink to="/contato" onClick={closeAll}>Contato</NavLink>*/}
             </div>
           </div>
 
@@ -68,7 +68,7 @@ export default function Header() {
 
             <div className={`submenu-box ${submenuOpen === "instituto" ? "open" : ""}`}>
               <NavLink to="/documentos" onClick={closeAll}>Documentos</NavLink>
-              <NavLink to="/relatorios" onClick={closeAll}>Relatórios</NavLink>
+              {/*<NavLink to="/relatorios" onClick={closeAll}>Relatórios</NavLink>*/}
               <NavLink to="/apoio" onClick={closeAll}>Apoio</NavLink>
             </div>
           </div>
