@@ -42,60 +42,39 @@
     "link": "https://www.gov.br/ebserh/pt-br/hospitais-universitarios/regiao-nordeste/hu-ufpi"
   },
  {
-    "categoria": "Instituições Internacionais",
+    "categoria": "Apoio Internacional",
     "nome": "Harvard Medical School",
     "descricao": "",
     "imagem": "imagens/internacionais/HMS.png",
     "link": "https://hms.harvard.edu/"
   },
  {
-    "categoria": "Instituições Internacionais",
+    "categoria": "Apoio Internacional",
     "nome": "Medical School Hamburg",
     "descricao": "",
     "imagem": "imagens/internacionais/MSH.png",
     "link": "https://www.medicalschool-hamburg.de/"
   },
  {
-    "categoria": "Instituições Internacionais",
+    "categoria": "Apoio Internacional",
     "nome": "Southern University of Bangladesh",
     "descricao": "",
     "imagem": "imagens/internacionais/SUB.png",
     "link": "https://southern.ac.bd/"
   },
  {
-    "categoria": "Instituições Internacionais",
+    "categoria": "Apoio Internacional",
     "nome": "University of Oxford",
     "descricao": "",
     "imagem": "imagens/internacionais/UOx.png",
     "link": "https://www.estudarfora.org.br/bolsas-rhodes-oxford/?utm_source=googlegrants&utm_medium=search&utm_campaign=donnu-artigos-bolsas-de-estudo&utm_term=universidade%20de%20oxford&utm_content=oxford&gad_source=1&gad_campaignid=22736396624&gbraid=0AAAAAD2cQDKZiYV0GVk9q52w6mJEY0kca&gclid=Cj0KCQiAvtzLBhCPARIsALwhxdqAvMeVhXgNBwn2vAN4UkcDwXmAcQ0nLecYW5h-0eE1mxFB3_lJK9YaAsPqEALw_wcB"
   },
  {
-    "categoria": "Instituições Internacionais",
+    "categoria": "Apoio Internacional",
     "nome": "Universidade de Santiago de Compostela",
     "descricao": "",
     "imagem": "imagens/internacionais/USC.png",
     "link": "https://www.usc.gal/gl"
-  },
-   {
-    "categoria": "Instituições Parceiras",
-    "nome": "CNPq",
-    "descricao": "",
-    "imagem": "imagens/nacionais/CNPQ.png",
-    "link": "https://www.gov.br/cnpq/pt-br"
-  },
-{
-    "categoria": "Instituições Parceiras",
-    "nome": "FAPEPI",
-    "descricao": "",
-    "imagem": "imagens/nacionais/FAPEPI.png",
-    "link": "https://www.fapepi.pi.gov.br/"
-  },
-     {
-    "categoria": "Instituições Parceiras",
-    "nome": "CAPES",
-    "descricao": "",
-    "imagem": "imagens/nacionais/CAPES.png",
-    "link": "https://www.gov.br/capes/pt-br"
   },
   {
     "categoria": "Instituições Parceiras",
@@ -106,7 +85,7 @@
   },
  {
     "categoria": "Instituições Parceiras",
-    "nome": "FIOCRUZ Instituto Gonçalo Moniz - Bahia",
+    "nome": "FIOCRUZ-BA Instituto Gonçalo Moniz",
     "descricao": "",
     "imagem": "imagens/nacionais/FIOCRUZ-BA.png",
     "link": "https://www.bahia.fiocruz.br/"
@@ -120,7 +99,7 @@
   },
  {
     "categoria": "Instituições Parceiras",
-    "nome": "Insittuto Federal do Piauí",
+    "nome": "Insituto Federal do Piauí",
     "descricao": "",
     "imagem": "imagens/nacionais/IFPI.png",
     "link": "https://www.ifpi.edu.br/"
@@ -246,10 +225,31 @@
   },
  {
     "categoria": "Laboratórios",
+    "nome": "LABCANCER",
+    "descricao": "Cancerologia Experimental - UFPI",
+    "imagem": "imagens/labs/LABCANCERUFPI.png",
+    "link": "https://www.instagram.com/labcancer_ufpi/"
+  },
+ {
+    "categoria": "Laboratórios",
+    "nome": "LABCANCER",
+    "descricao": "Departamento de Farmacologia - UFSC",
+    "imagem": "imagens/labs/LABCANCERUFSC.png",
+    "link": "https://www.instagram.com/labcancer/"
+  },
+ {
+    "categoria": "Laboratórios",
     "nome": "LABGEN",
     "descricao": "Laboratório de Genética Clínica NPDM-UFC",
     "imagem": "imagens/labs/LABGEN.png",
     "link": ""
+  },
+{
+    "categoria": "Laboratórios",
+    "nome": "LABNANO",
+    "descricao": "Laboratório de Biofísica de Sistemas Nanoestruturados",
+    "imagem": "imagens/labs/LABNANO.png",
+    "link": "https://www.instagram.com/labnanoufmg/"
   },
  {
     "categoria": "Laboratórios",
@@ -279,6 +279,13 @@
     "imagem": "imagens/labs/LAPAF.png",
     "link": ""
   },
+  {
+    "categoria": "Laboratórios",
+    "nome": "LAPGENIC",
+    "descricao": "Laboratório de Pesquisa em Genética Toxicológica - UFPI",
+    "imagem": "imagens/labs/LAPGENIC.png",
+    "link": "https://www.instagram.com/lapgenic/"
+  },
  {
     "categoria": "Laboratórios",
     "nome": "LaPIB",
@@ -286,12 +293,12 @@
     "imagem": "imagens/labs/LAPIB.png",
     "link": ""
   },
-  {
+ {
     "categoria": "Laboratórios",
-    "nome": "LAPGENIC",
-    "descricao": "Laboratório de Pesquisa em Genética Toxicológica - UFPI",
-    "imagem": "imagens/labs/LAPGENIC.png",
-    "link": "https://www.instagram.com/lapgenic/"
+    "nome": "LGI",
+    "descricao": "Laboratório de Genômica Integrativa",
+    "imagem": "imagens/labs/LGI.png",
+    "link": ""
   },
  {
     "categoria": "Laboratórios",
@@ -321,13 +328,6 @@
     "imagem": "imagens/labs/ONCOFAR.png",
     "link": "https://www.instagram.com/oncofar.ufpb/"
   },
- {
-    "categoria": "Laboratórios",
-    "nome": "PUC RIO",
-    "descricao": "",
-    "imagem": "imagens/labs/PUC.png",
-    "link": ""
-  },
   {
     "categoria": "Laboratórios",
     "nome": "ONCOFARLAB",
@@ -337,30 +337,9 @@
   },
  {
     "categoria": "Laboratórios",
-    "nome": "LABCANCER",
-    "descricao": "Cancerologia Experimental - UFPI",
-    "imagem": "imagens/labs/LABCANCERUFPI.png",
-    "link": "https://www.instagram.com/labcancer_ufpi/"
-  },
- {
-    "categoria": "Laboratórios",
-    "nome": "LABCANCER",
-    "descricao": "Departamento de Farmacologia - UFSC",
-    "imagem": "imagens/labs/LABCANCERUFSC.png",
-    "link": "https://www.instagram.com/labcancer/"
-  },
- {
-    "categoria": "Laboratórios",
-    "nome": "LABNANO",
-    "descricao": "Laboratório de Biofísica de Sistemas Nanoestruturados",
-    "imagem": "imagens/labs/LABNANO.png",
-    "link": "https://www.instagram.com/labnanoufmg/"
-  },
- {
-    "categoria": "Laboratórios",
-    "nome": "LGI",
-    "descricao": "Laboratório de Genômica Integrativa",
-    "imagem": "imagens/labs/LGI.png",
+    "nome": "PUC RIO",
+    "descricao": "",
+    "imagem": "imagens/labs/PUC.png",
     "link": ""
   },
  {

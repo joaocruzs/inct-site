@@ -24,7 +24,6 @@ export default function Parceiros() {
     });
   };
 
-  // contador animado
   const [counts, setCounts] = useState({});
   useEffect(() => {
     const updated = {};
@@ -69,7 +68,7 @@ export default function Parceiros() {
       {Object.keys(grupos).map((categoria, index) => (
         <div key={index} ref={refs[categoria]}>
           <Section title={categoria}>
-            <div className="equipe-grid">
+            <div className="grid-parceiros">
               {grupos[categoria].map((m, i) => (
                 <CardParceiro
                   key={i}

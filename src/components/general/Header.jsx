@@ -6,7 +6,7 @@ import {
 } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 
-export default function Header({ transparent = false }) {
+export default function Header() {
   const [open, setOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState(null);
 
@@ -20,10 +20,10 @@ export default function Header({ transparent = false }) {
   };
 
   return (
-    <header className={`header ${transparent ? "header-transparent" : ""}`}>
+    <header>
       <div className="container nav">
 
-        {/* Logo */}
+        {/* 1. Logo */}
         <div className="logo">
           <Link to="/" onClick={closeAll}>
             <img src="logo.png" alt="Logo INCT" />
@@ -38,12 +38,26 @@ export default function Header({ transparent = false }) {
           {open ? <FaTimes /> : <FaBars />}
         </div>
 
-        {/* Menu */}
+        {/* 2. Menu */}
         <nav className={`nav-links ${open ? "open" : ""}`}>
 
-          <NavLink to="/" onClick={closeAll}>Início</NavLink>
+          {/* 2.1. Início */}
+          <div className="submenu-click">
+            <span
+              className="submenu-title"
+              onClick={() => toggleSubmenu("instituto")}
+            >
+              Início
+            </span>
 
-          {/* Instituto */}
+            <div className={`submenu-box ${submenuOpen === "instituto" ? "open" : ""}`}>
+              <NavLink to="/sobre" onClick={closeAll}>Sobre</NavLink>
+              <NavLink to="/plataforma" onClick={closeAll}>Plataforma</NavLink>
+              <NavLink to="/contato" onClick={closeAll}>Contato</NavLink>
+            </div>
+          </div>
+
+          {/* 2.2. Instituto */}
           <div className="submenu-click">
             <span
               className="submenu-title"
@@ -53,13 +67,13 @@ export default function Header({ transparent = false }) {
             </span>
 
             <div className={`submenu-box ${submenuOpen === "instituto" ? "open" : ""}`}>
-              <NavLink to="/sobre" onClick={closeAll}>Sobre</NavLink>
               <NavLink to="/documentos" onClick={closeAll}>Documentos</NavLink>
-              <NavLink to="/plataforma" onClick={closeAll}>Plataforma</NavLink>
+              <NavLink to="/relatorios" onClick={closeAll}>Relatórios</NavLink>
+              <NavLink to="/apoio" onClick={closeAll}>Apoio</NavLink>
             </div>
           </div>
 
-          {/* Publicações */}
+          {/* 2.3. Publicações */}
           <div className="submenu-click">
             <span
               className="submenu-title"
@@ -75,7 +89,7 @@ export default function Header({ transparent = false }) {
             </div>
           </div>
 
-          {/* Equipe */}
+          {/* 2.4. Equipe */}
           <div className="submenu-click">
             <span
               className="submenu-title"
@@ -91,7 +105,7 @@ export default function Header({ transparent = false }) {
             </div>
           </div>
 
-          <NavLink to="/apoio" onClick={closeAll}>Apoio</NavLink>
+          {/* 2.5. Lapgenic */}
           <NavLink to="/lapgenic" onClick={closeAll}>Lapgenic</NavLink>
 
           <div className="social-links">

@@ -5,7 +5,7 @@ export default function CardParceiro({
     link
 }) {
   return (
-    <div className="card-membro-full">
+    <div className="card-parceiro">
       
         {/* 1. Foto clicável apenas se houver link */}
         {link ? (
@@ -13,18 +13,18 @@ export default function CardParceiro({
             href={link} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="card-parceiro-link-foto"
+            className="card-parceiro-linkado"
           >
             <img src={imagem || "/imagens/default.png"} alt={nome} />
           </a>
         ) : (
-          <div className="card-parceiro-foto">
+          <div>
             <img src={imagem || "/imagens/default.png"} alt={nome} />
           </div>
         )}
 
         {/* 2. Nome */}
-        <h3 className="card-membro-nome">{nome}</h3>
+        <h3 className="card-parceiro-nome">{nome}</h3>
 
         {/* 3. Descrição */}
         <p>{descricao}</p>

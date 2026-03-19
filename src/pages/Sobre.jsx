@@ -45,30 +45,7 @@ export default function Sobre() {
 
   return (
     <div>
-      {/* 1. MURAL */}
-      <div className="mural">
-        <img
-          src="banners/banner.gif"
-          className="mural-img"
-          alt="Banner institucional"
-        />
-
-        <div className="mural-container">
-          <Link to="/noticias" className="mural-card">
-            <span className="mural-num">Notícias</span>
-          </Link>
-          
-          <Link to="/publicacoes" className="mural-card">
-            <span className="mural-num">Publicações</span>
-          </Link>
-
-          <Link to="/eventos" className="mural-card">
-            <span className="mural-num">Eventos</span>
-          </Link>
-        </div>
-      </div>
-
-      {/* 2. SOBRE O INSTITUTO */}
+      {/* 1. SOBRE O INSTITUTO */}
       <Section title="Sobre o Instituto">
         <div className="split-about"> 
           <div><img src="banners/instituicoes.png" /> </div>
@@ -108,7 +85,7 @@ export default function Sobre() {
           <div><img src="banners/laboratorios.png" /> </div>
         </div>
 
-        {/* 3. CONCEITOS */}
+        {/* 2. CONCEITOS */}
         <div className="faq">
           {sobre.definicoes.map((item, i) => {
             const isOpen = abertos.includes(i);

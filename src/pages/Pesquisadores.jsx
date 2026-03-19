@@ -1,14 +1,14 @@
-import Section from "../components/general/Section";
-import CardMembro from "../components/cards/CardMembro";
 import { useRef, useEffect, useState } from "react";
+import Section from "../components/general/Section";
+import CardPesquisador from "../components/cards/CardPesquisador";
 
 import equipe from "../data/pesquisadores.json";
 
 export default function Pesquisadores() {
-  const grupos = equipe.reduce((acc, membro) => {
-    const cat = membro.categoria || "Outros";
+  const grupos = equipe.reduce((acc, pesquisador) => {
+    const cat = pesquisador.categoria || "Outros";
     if (!acc[cat]) acc[cat] = [];
-    acc[cat].push(membro);
+    acc[cat].push(pesquisador);
     return acc;
   }, {});
 
@@ -70,17 +70,17 @@ export default function Pesquisadores() {
       {categoriasOrdenadas.map((categoria, index) => (
         <div key={index} ref={refs[categoria]}>
           <Section title={categoria}>
-            <div className="equipe-grid">
-              {grupos[categoria].map((m, i) => (
-                <CardMembro
+            <div className="grid-pesquisadores">
+              {grupos[categoria].map((p, i) => (
+                <CardPesquisador
                   key={i}
-                  nome={m.nome}
-                  formacao={m.formacao}
-                  instituicao={m.instituicao}
-                  areas={m.areas}
-                  link={m.link}
-                  imagem={m.imagem}
-                  email={m.email}
+                  nome={p.nome}
+                  formacao={p.formacao}
+                  instituicao={p.instituicao}
+                  areas={p.areas}
+                  link={p.link}
+                  imagem={p.imagem}
+                  email={p.email}
                 />
               ))}
             </div>

@@ -10,23 +10,7 @@ import { getArtigos } from "../services/artigos.service";
 import destaques from "../data/destaques.json";
 
 export default function Home() {
-  /* 1. CARROSSEL DE DESTAQUES */
-  const [index, setIndex] = useState(0);
-  const total = destaques.length;
-
-  useEffect(() => {
-    if (!total) return;
-    const timer = setInterval(
-      () => setIndex((i) => (i + 1) % total),
-      7000
-    );
-    return () => clearInterval(timer);
-  }, [total]);
-
-  const next = () => setIndex((i) => (i + 1) % total);
-  const prev = () => setIndex((i) => (i - 1 + total) % total);
-
-  /* 2. ÚLTIMAS NOTÍCIAS (SERVICE) */
+  /* 1. ÚLTIMAS NOTÍCIAS */
   const [noticias, setNoticias] = useState([]);
   const [loadingNoticias, setLoadingNoticias] = useState(true);
   const [erroNoticias, setErroNoticias] = useState(false);
@@ -39,6 +23,17 @@ export default function Home() {
       })
       .catch(() => setErroNoticias(true))
       .finally(() => setLoadingNoticias(false));
+  }, []);
+
+  /* 2. CARREGAMENTO DO WIDGET BEHOLD */
+  useEffect(() => {
+    const existingScript = document.querySelector('script[src="https://w.behold.so/widget.js"]');
+    if (existingScript) return;
+
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = "https://w.behold.so/widget.js";
+    document.head.appendChild(script);
   }, []);
 
   /* 3. ÚLTIMAS PUBLICAÇÕES */
@@ -56,20 +51,21 @@ export default function Home() {
       .finally(() => setLoadingPublicacoes(false));
   }, []);
 
-  /* 4. CARREGAMENTO DO WIDGET BEHOLD */
+  /* 4. CARROSSEL DE DESTAQUES */
+  const [index, setIndex] = useState(0);
+  const total = destaques.length;
+
   useEffect(() => {
-    // Verifica se o script já foi carregado
-    const existingScript = document.querySelector('script[src="https://w.behold.so/widget.js"]');
-    if (existingScript) return;
+    if (!total) return;
+    const timer = setInterval(
+      () => setIndex((i) => (i + 1) % total),
+      7000
+    );
+    return () => clearInterval(timer);
+  }, [total]);
 
-    // Cria e adiciona o script
-    const script = document.createElement("script");
-    script.type = "module";
-    script.src = "https://w.behold.so/widget.js";
-    document.head.appendChild(script);
-  }, []);
-
-
+  const next = () => setIndex((i) => (i + 1) % total);
+  const prev = () => setIndex((i) => (i - 1 + total) % total);
 
   return (
     <>
@@ -77,17 +73,14 @@ export default function Home() {
       <section className="banner">
         <img src="banners/banner.gif" className="banner-img" alt="" />
         <div className="banner-content container">
-          <img src="apoio.png" alt="" className="banner-logo" />
+          <Link to="/apoio"> <img src="apoio.png" alt="" className="banner-logo" /> </Link>
           <h1>Inovação e Avanços em Oncologia</h1>
           <p>Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia.</p>
-          <Link to="/sobre" className="banner-button">
-            Saiba Mais
-          </Link>
+          <Link to="/sobre" className="banner-button"> Saiba Mais </Link>
         </div>
       </section>
 
-
-      {/* 3. ÚLTIMAS NOTÍCIAS */}
+      {/* 2. ÚLTIMAS NOTÍCIAS */}
       <Section title="Últimas Notícias">
         {loadingNoticias && <p>Carregando notícias...</p>}
         {erroNoticias && <p>Erro ao carregar notícias.</p>}
@@ -103,14 +96,14 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 4. FEED SOCIAL */}
+      {/* 3. FEED SOCIAL */}
       <Section title="Mais recentes no Feed">
         <div className="behold-container">
           <behold-widget feed-id="xcpomBbDoQRWf24Momyt"></behold-widget>
         </div>
       </Section>
 
-      {/* 5. ÚLTIMAS PUBLICAÇÕES */}
+      {/* 4. ÚLTIMAS PUBLICAÇÕES */}
       <Section title="Artigos Publicados">
         {loadingPublicacoes && <p>Carregando publicações...</p>}
         {erroPublicacoes && <p>Erro ao carregar publicações.</p>}
@@ -125,7 +118,7 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 6. CARROSSEL DE DESTAQUES */} 
+      {/* 5. CARROSSEL DE DESTAQUES */} 
       <Section>
         <div className="carrossel-destaques">
           <div className="carrossel-window">
