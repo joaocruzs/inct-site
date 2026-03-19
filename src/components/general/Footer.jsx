@@ -32,11 +32,9 @@ export default function Footer() {
           <Link to="/comite">Comitê Gestor</Link>
           <Link to="/documentos">Documentos</Link>
           <Link to="/parceiros">Parceiros</Link>
-          {/*
           <Link to="/plataforma">Plataforma</Link>
           <Link to="/relatorios">Relatórios</Link>
           <Link to="/contato">Contate-nos</Link>
-          */}
         </div>
 
         {/* 3. CONTATO */}

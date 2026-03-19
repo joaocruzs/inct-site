@@ -2,21 +2,49 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/general/Section";
 
+let apoio = {
+  "definicoes": [
+    {
+      "foto": "imagens/nacionais/CNPQ.png",
+      "texto": "O CNPq é uma instituição pública brasileira que promove a pesquisa científica e tecnológica, sendo uma das principais agências de fomento à ciência e à tecnologia do país.",
+      "link": "https://www.gov.br/cnpq/pt-br"
+    },
+    {
+      "foto": "imagens/nacionais/FAPEPI.png",
+      "texto": "A FAPEPI é a agência de fomento da Fundação de Amparo à Pesquisa do Estado do Piauí, responsável por apoiar projetos de pesquisa e desenvolvimento no estado.",
+      "link": "https://www.fapepi.pi.gov.br/"
+    },
+    {
+      "foto": "imagens/nacionais/CAPES.png",
+      "texto": "A CAPES é uma instituição pública brasileira que tem como objetivo promover a excelência na educação superior e o desenvolvimento da pesquisa científica e tecnológica.",
+      "link": "https://www.gov.br/capes/pt-br"
+    }
+  ]
+};
+
+
 export default function Apoio() {
 
   return (
     <Section>
-      {/* 1. APOIO INSTITUCIONAL */} 
-      <div className="grid-apoio">
-        <a href="https://www.gov.br/capes/pt-br" className="card-apoio-lateral" target="_blank">
-          <img src="imagens/nacionais/CNPQ.png" className="banner-logo" />
-        </a>
-        <a href="https://www.fapepi.gov.br/" className="card-apoio-lateral" target="_blank">
-          <img src="imagens/nacionais/FAPEPI.png" className="banner-logo" />
-        </a>
-        <a href="https://www.gov.br/capes/pt-br" className="card-apoio-lateral" target="_blank">
-          <img src="imagens/nacionais/CAPES.png" className="banner-logo" />
-        </a>
+      {/* 1. MURAL */}
+      <div className="mural"> 
+        <img
+          src="banners/banner.gif"
+          className="mural-img"
+          alt="Banner LAPGENIC"
+        />
+        <div className="mural-container">
+          <a href="https://www.gov.br/capes/pt-br" className="mural-card" target="_blank">
+            <img src="imagens/nacionais/CNPQ.png" className="banner-logo" />
+          </a>
+          <a href="https://www.fapepi.gov.br/" className="mural-card" target="_blank">
+            <img src="imagens/nacionais/FAPEPI.png" className="banner-logo" />
+          </a>
+          <a href="https://www.gov.br/capes/pt-br" className="mural-card" target="_blank">
+            <img src="imagens/nacionais/CAPES.png" className="banner-logo" />
+          </a>
+        </div>
       </div>
 
       <div className="grid-apoio"> 
