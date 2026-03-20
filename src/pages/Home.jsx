@@ -7,7 +7,43 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 import { getNoticias } from "../services/noticias.service";
 import { getArtigos } from "../services/artigos.service";
-import destaques from "../data/destaques.json";
+
+let destaques = [
+  {
+    "titulo": "INCT OncoTTGen",
+    "subtitulo": "Pesquisa e inovação em oncologia translacional",
+    "imagem": "banners/oncottgen.png",
+    "link": "/sobre"
+  },
+  {
+    "titulo": "Plataforma de Colaboração",
+    "subtitulo": "Ambiente dedicado aos pesquisadores",
+    "imagem": "banners/plataforma.png",
+    "link": "https://oncottgenpesq.vercel.app",
+    "externo": true
+  },
+  {
+    "titulo": "Conheça nosso Canal no YouTube",
+    "subtitulo": "",
+    "imagem": "banners/youtube.png",
+    "link": "https://www.youtube.com/@InstitutoNacionalONCOTTGEN",
+    "externo": true
+  },
+  {
+    "titulo": "Siga-nos no Instagram",
+    "subtitulo": "",
+    "imagem": "banners/instagram.png",
+    "link": "https://www.instagram.com/inct.oncottgen/",
+    "externo": true
+  },
+  {
+    "titulo": "Saiba mais no LinkedIn",
+    "subtitulo": "",
+    "imagem": "banners/linkedin.png",
+    "link": "https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true",
+    "externo": true
+  }
+]
 
 export default function Home() {
   /* 1. ÚLTIMAS NOTÍCIAS */
@@ -98,7 +134,7 @@ export default function Home() {
 
       {/* 3. FEED SOCIAL */}
       <Section title="Mais recentes no Feed">
-        <div className="behold-container">
+        <div>
           <behold-widget feed-id="xcpomBbDoQRWf24Momyt"></behold-widget>
         </div>
       </Section>
