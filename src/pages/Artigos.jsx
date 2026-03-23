@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import Container from "../components/general/Container";
 import PageTitle from "../components/general/PageTitle";
-import FilterSidebar from "../components/general/FilterSidebar";
 import ListaPublicacao from "../components/lists/ListaPublicacao";
 
 import { getArtigos } from "../services/artigos.service";
 
-export default function Publicacoes() {
+export default function Artigos() {
   const [publicacoes, setPublicacoes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState(false);
@@ -20,7 +19,7 @@ export default function Publicacoes() {
 
   return (
     <Container>
-      <PageTitle>Publicações</PageTitle>
+      <PageTitle>Artigos</PageTitle>
 
       {loading && <p>Carregando publicações...</p>}
       {erro && <p>Erro ao carregar publicações.</p>}

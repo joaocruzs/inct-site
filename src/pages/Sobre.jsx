@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/general/Section";
+import MapaInstituicoes from "../components/general/MapaInstituicoes";
+import dados from "../data/parceiros.json";
+
+const categorias = [
+  { nome: "Todas", cor: "#64748b" },
+  { nome: "Hospitais", cor: "#ef4444" },
+  { nome: "Instituições Parceiras", cor: "#3b82f6" },
+  { nome: "Laboratórios", cor: "#10b981" },
+  { nome: "Apoio Internacional", cor: "#8b5cf6" }
+];
 
 let sobre = {
   "definicoes": [
@@ -43,54 +53,197 @@ export default function Sobre() {
     );
   }
 
+  const [selecionado, setSelecionado] = useState(null);
+  const [categoriaAtiva, setCategoriaAtiva] = useState("Todas");
+
+  const dadosFiltrados =
+    categoriaAtiva === "Todas"
+      ? dados
+      : dados.filter((item) => item.categoria === categoriaAtiva);
+
   return (
-    <div>
-      {/* 1. SOBRE O INSTITUTO */}
-      <Section title="Sobre o Instituto">
-        <div className="split-about"> 
-          <div><img src="banners/instituicoes.png" /> </div>
-          <div className="prose max-w-none mb-12">
-            <p>
-                "O Instituto Nacional de Ciência e Tecnologia de Oncologia Translacional e 
-                Terapias Gênicas (INCT OncoTTGen) é uma rede nacional e internacional dedicada 
-                ao desenvolvimento de soluções inovadoras para o diagnóstico e tratamento do 
-                câncer, com foco especial nos tumores que acometem o sistema nervoso central.
-            </p>
+    <>
+      {/* 1. BANNER*/}
+      <div className="mural">
+        <img src="/banners/banner.gif" className="mural-img" />
+        <div className="mural-container">
+          <a href="#piaui" className="mural-card">
+            <h3>Contexto</h3>
+            <p>Estatísticas no Piauí</p>
+          </a>
+          <a href="#conceitos" className="mural-card">
+            <h3>Instituto</h3>
+            <p>Linhas de atuação</p>
+          </a>
+          <a href="#linhas" className="mural-card">
+            <h3>Pesquisa</h3>
+            <p>Linhas de trabalho</p>
+          </a>
+          <a href="#mapa" className="mural-card">
+            <h3>Parceiros</h3>
+            <p>Mapeamento institucional</p>
+          </a>
+          <a href="#faq" className="mural-card">
+            <h3>FAQ</h3>
+            <p>Dúvidas frequentes</p>
+          </a>
+        </div>
+      </div>
 
-            <p>
-              "O Instituto atua na interface entre a pesquisa básica e a aplicação clínica, 
-              integrando conhecimentos em oncologia translacional, biologia molecular, nanotecnologia 
-              e terapias gênicas. Seu objetivo é acelerar a transformação de descobertas científicas 
-              em estratégias terapêuticas mais eficazes e seguras.",
-            </p>
+      {/* 2. APOIO INSTITUCIONAL */}
+      <section className="section apoio">
+        <h2 className="section-title">Apoio Institucional</h2>
+
+        <p className="apoio-desc">
+          O INCT OncoTTGen conta com o apoio de agências de fomento que fortalecem a
+          pesquisa científica e o desenvolvimento tecnológico no Brasil.
+        </p>
+
+        <div className="apoio-logos">
+          <a href="https://www.gov.br/cnpq/pt-br" className="apoio-card" target="_blank">
+            <img src="imagens/nacionais/CNPQ.png" className="banner-logo" />
+          </a>
+          <a href="https://www.fapepi.pi.gov.br/" className="apoio-card" target="_blank">
+            <img src="imagens/nacionais/FAPEPI.png" className="banner-logo" />
+          </a>
+          <a href="https://www.gov.br/capes/pt-br" className="apoio-card" target="_blank">
+            <img src="imagens/nacionais/CAPES.png" className="banner-logo" />
+          </a>
+        </div>
+      </section>
+
+      {/* 3. SEÇÃO ESTATÍSTICA */}
+        <div id="piaui" className="destaque">
+          <h2 className="section-title">Contexto no Piauí</h2>
+          <p className="prose">
+            O câncer é um importante desafio de saúde pública no estado, com aumento de casos
+            relacionados ao sistema nervoso central e limitações terapêuticas.
+          </p>
+          <div className="stats">
+            <div className="stat">
+              <h3>33.000+</h3>
+              <p>Internações (2019–2023)</p>
+            </div>
+            <div className="stat">
+              <h3>↑ Mortalidade</h3>
+              <p>Tumores cerebrais</p>
+            </div>
+            <div className="stat">
+              <h3>Alta demanda</h3>
+              <p>Tratamentos inovadores</p>
+            </div>
           </div>
         </div>
 
-        <div className="split-about"> 
-          <div className="prose max-w-none mb-12">
-            <p>
-              Entre as principais frentes de atuação estão o desenvolvimento de terapias baseadas 
-              em CRISPR/Cas9 e RNAs de interferência (siRNA), associadas a nanomedicamentos capazes 
-              de superar barreiras biológicas como a barreira hematoencefálica. Essas abordagens buscam 
-              combater a quimiorresistência tumoral e melhorar a sobrevida e a qualidade de vida dos pacientes.
-            </p>
-
-            <p>  
-              Além da pesquisa científica, o INCT tem como missão a formação de recursos humanos qualificados, 
-              a transferência de conhecimento para o setor público, a popularização da ciência e o estímulo à 
-              inovação tecnológica, contribuindo para o fortalecimento do Sistema Único de Saúde e da pesquisa 
-              oncológica no Brasil.
-            </p>
+      {/* 4. MINITEMAS */}
+      <div id="conceitos" className="destaque">
+        <h2 className="section-title">Sobre o Instituto</h2>
+        <div className="grid-cards">
+          <div className="card">
+            <h3>Missão</h3>
+            <p>Desenvolver soluções inovadoras para o diagnóstico e tratamento do câncer.</p>
           </div>
-          <div><img src="banners/laboratorios.png" /> </div>
+          <div className="card">
+            <h3>Visão</h3>
+            <p>Ser referência nacional e internacional em oncologia translacional.</p>
+          </div>
+          <div className="card">
+            <h3>Impacto</h3>
+            <p>Transformar descobertas científicas em benefícios reais para pacientes.</p>
+          </div>
         </div>
+      </div>
 
-        {/* 2. CONCEITOS */}
-        <div className="faq">
-          {sobre.definicoes.map((item, i) => {
-            const isOpen = abertos.includes(i);
+      {/* 5. LINHAS DE PESQUISA */}
+      <div id="linhas"className="destaque">
+        <h2 className="section-title">Linhas de Pesquisa</h2>
+        <div className="grid-cards">
+          <div className="card">
+            <h3>CRISPR/Cas9</h3>
+            <p>Edição genética aplicada ao tratamento do câncer.</p>
+          </div>
+          <div className="card">
+            <h3>siRNA</h3>
+            <p>Silenciamento gênico para combater tumores.</p>
+          </div>
+          <div className="card">
+            <h3>Nanomedicina</h3>
+            <p>Entrega direcionada de terapias com maior eficácia.</p>
+          </div>
+        </div>
+      </div>
 
-            return (
+      <div id="mapa" title="Mapeamento Institucional" className="destaque">
+        <h2 className="section-title">Mapeamento Institucional</h2>
+        <div className="page-with-sidebar apoio-layout">
+          {/* 6.1. SIDEBAR */}
+          <div className="sidebar-apoio">
+            {/* 6.1.1. FILTROS */}
+            <div className="filtros">
+              <h3>Filtrar por categoria</h3>
+
+              {categorias.map((cat) => (
+                <button
+                  key={cat.nome}
+                  className={`filtro-btn ${categoriaAtiva === cat.nome ? "ativo" : ""}`}
+                  onClick={() => {
+                    setCategoriaAtiva(cat.nome);
+                    setSelecionado(null);
+                  }}
+                  style={{ borderColor: cat.cor }}
+                >
+                  <span
+                    className="dot"
+                    style={{ background: cat.cor }}
+                  ></span>
+                  {cat.nome}
+                </button>
+              ))}
+            </div>
+
+            {/* 6.1.2.DETALHES */}
+            <div className="detalhes">
+              {selecionado ? (
+                <>
+                  <img src={selecionado.imagem} alt={selecionado.nome} />
+                  <h4>{selecionado.nome}</h4>
+                  <p>{selecionado.descricao || "Sem descrição disponível."}</p>
+
+                  <a href={selecionado.link} target="_blank">
+                    Acessar site
+                  </a>
+                </>
+              ) : (
+                <p className="placeholder">
+                  Selecione um ponto no mapa para ver detalhes.
+                </p>
+              )}
+            </div>
+
+            <div className="section-action">
+              <Link to="/parceiros">Ver todos os parceiros</Link>
+            </div>
+          </div>
+
+          {/* 6.2. MAPA */}
+          <div className="mapa-area">
+            <MapaInstituicoes
+              dados={dadosFiltrados}
+              onSelect={setSelecionado}
+              categoriaAtiva={categoriaAtiva}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* 7. FAQ */}
+      <div id="faq" title="Perquntas Frequentes" className="destaque">
+        <h2 className="section-title">Perguntas Frequentes</h2>
+        {sobre.definicoes.map((item, i) => {
+          const isOpen = abertos.includes(i);
+          return (
+            <div>
+
               <div key={i} className={`faq-item ${isOpen ? "open" : ""}`}>
                 <button
                   className="faq-header"
@@ -109,38 +262,11 @@ export default function Sobre() {
                   <p>{item.descricao}</p>
                 </div>
               </div>
+            </div>
 
-            );
-          })}
-        </div>
-        
-        <div className="grid-apoio"> 
-          <div className="card-apoio-mural" style={{ backgroundColor: '#2c85eb'}}>
-            <img src="banners/laboratorios.png" />
-            <h2>Contexto no Piauí</h2>
-            <p>
-              O câncer é um importante desafio de saúde pública no Piauí, com mais de 33 mil internações entre 2019 e 2023. Destaca-se o aumento da mortalidade por tumores do sistema nervoso central, incluindo o glioblastoma, que ainda apresenta limitações terapêuticas.
-            </p>
-          </div>
-
-          <div className="card-apoio-mural" style={{backgroundColor: '#4699c0'}}>
-            <img src="banners/instituicoes.png" />
-            <h2>Atuação do INCT</h2>
-            <p>
-              O INCT OncoTTgen desenvolve pesquisas em oncologia translacional com foco em alterações genéticas, biomarcadores moleculares e novas abordagens terapêuticas, fortalecendo a ciência no estado.
-            </p>
-          </div>
-
-          <div className="card-apoio-mural" style={{ backgroundColor: '#52a4aa'}}>
-            <img src="banners/embreve.png" className="card-membro-img" />
-            <h2>Apoio à Pesquisa</h2>
-            <p>
-              A atuação do instituto é viabilizada por agências de fomento que impulsionam a ciência, inovação e o avanço da oncologia no Brasil.
-            </p>
-          </div>
-
-        </div>
-      </Section>
-    </div>
+          );
+        })}
+      </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import emailjs from "emailjs-com";
+import { FaEnvelope, FaPhoneAlt, FaMapPin } from "react-icons/fa";
 
 export default function Contato() {
   const form = useRef();
@@ -46,67 +47,68 @@ export default function Contato() {
   };
 
   return (
-    <section className="container contato" style={{backgroundColor: "#bdd1e6", padding: "40px 20px", borderRadius: "16px"}}>
-
-      {/* HEADER */}
+    <>
+      {/* 1. HEADER */}
       <div className="contato-header">
         <h2>Entre em contato</h2>
-        <p>Preencha o formulário abaixo. Retornaremos o mais breve possível.</p>
+        <p>Estamos disponíveis para colaborações, dúvidas e informações institucionais.</p>
       </div>
 
-      {/* LAYOUT COM SIDEBAR */}
-      <div className="page-with-sidebar contato-layout">
-
-        {/* SIDEBAR (INFO) */}
+      <div style={{padding: '10px'}} className="page-with-sidebar contato-layout">
+        {/* 2. SIDEBAR */}
         <aside className="contato-sidebar">
           <h3>Informações</h3>
 
-          <p><strong>Email:</strong> inctoncottgen@gmail.com</p>
-          <p><strong>Localização:</strong> Teresina - PI</p>
-          <p><strong>Telefone:</strong> (86) 98100-6336</p>
+          <div className="info-item">
+            <FaEnvelope size={16} color="#002a66" />
+            <p>inctoncottgen@gmail.com</p>
+          </div>
+
+          <div className="info-item">
+            <FaMapPin size={16} color="#002a66" />
+            <p>Teresina - PI</p>
+          </div>
+
+          <div className="info-item">
+            <FaPhoneAlt size={16} color="#002a66" />
+            <p>(86) 98100-6336</p>
+          </div>
+
+          <div className="contato-extra">
+            <p>Respondemos em horário comercial.</p>
+          </div>
         </aside>
 
-        {/* CONTEÚDO PRINCIPAL */}
+        {/* FORM */}
         <div className="contato-main">
 
           <form ref={form} onSubmit={enviarEmail} className="contato-form">
 
             <div className="form-group">
               <label>Nome</label>
-              <input type="text" name="name" placeholder="Digite seu nome" required />
+              <input type="text" name="name" placeholder="Seu nome completo" required />
             </div>
 
             <div className="form-group">
               <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Digite seu próprio email para resposta"
-                required
-              />
+              <input type="email" name="email" placeholder="seu@email.com" required />
             </div>
 
             <div className="form-group">
               <label>Confirme seu Email</label>
-              <input
-                type="email"
-                name="email_confirm"
-                placeholder="Repita seu email"
-                required
-              />
+              <input type="email" name="email_confirm" placeholder="Repita seu email" required />
             </div>
 
             <div className="form-group">
               <label>Assunto</label>
-              <input type="text" name="assunto" required />
+              <input type="text" name="assunto" placeholder="Ex: Parceria institucional" required />
             </div>
 
             <div className="form-group">
               <label>Mensagem</label>
-              <textarea name="mensagem" rows="5" required></textarea>
+              <textarea name="mensagem" rows="5" placeholder="Digite sua mensagem..." required></textarea>
             </div>
 
-            {/* FEEDBACK INLINE */}
             {status && (
               <div className={`form-status ${status}`}>
                 {mensagemStatus}
@@ -120,6 +122,6 @@ export default function Contato() {
           </form>
         </div>
       </div>
-    </section>
+    </>
   );
 }

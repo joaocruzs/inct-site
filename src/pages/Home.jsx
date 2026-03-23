@@ -3,50 +3,24 @@ import { Link } from "react-router-dom";
 import Section from "../components/general/Section";
 import CardNoticia from "../components/cards/CardNoticia";
 import ListaPublicacao from "../components/lists/ListaPublicacao";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaYoutube, FaInstagram, FaLinkedin, FaUserFriends } from "react-icons/fa";
 
 import { getNoticias } from "../services/noticias.service";
 import { getArtigos } from "../services/artigos.service";
 
-let destaques = [
-  {
-    "titulo": "INCT OncoTTGen",
-    "subtitulo": "Pesquisa e inovação em oncologia translacional",
-    "imagem": "banners/oncottgen.png",
-    "link": "/sobre"
-  },
-  {
-    "titulo": "Plataforma de Colaboração",
-    "subtitulo": "Ambiente dedicado aos pesquisadores",
-    "imagem": "banners/plataforma.png",
-    "link": "https://oncottgenpesq.vercel.app",
-    "externo": true
-  },
-  {
-    "titulo": "Conheça nosso Canal no YouTube",
-    "subtitulo": "",
-    "imagem": "banners/youtube.png",
-    "link": "https://www.youtube.com/@InstitutoNacionalONCOTTGEN",
-    "externo": true
-  },
-  {
-    "titulo": "Siga-nos no Instagram",
-    "subtitulo": "",
-    "imagem": "banners/instagram.png",
-    "link": "https://www.instagram.com/inct.oncottgen/",
-    "externo": true
-  },
-  {
-    "titulo": "Saiba mais no LinkedIn",
-    "subtitulo": "",
-    "imagem": "banners/linkedin.png",
-    "link": "https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true",
-    "externo": true
-  }
-]
-
 export default function Home() {
-  /* 1. ÚLTIMAS NOTÍCIAS */
+  /* 1. CARREGAMENTO DO WIDGET BEHOLD */
+  useEffect(() => {
+    const existingScript = document.querySelector('script[src="https://w.behold.so/widget.js"]');
+    if (existingScript) return;
+
+    const script = document.createElement("script");
+    script.type = "module";
+    script.src = "https://w.behold.so/widget.js";
+    document.head.appendChild(script);
+  }, []);
+
+  /* 2. ÚLTIMAS NOTÍCIAS */
   const [noticias, setNoticias] = useState([]);
   const [loadingNoticias, setLoadingNoticias] = useState(true);
   const [erroNoticias, setErroNoticias] = useState(false);
@@ -59,17 +33,6 @@ export default function Home() {
       })
       .catch(() => setErroNoticias(true))
       .finally(() => setLoadingNoticias(false));
-  }, []);
-
-  /* 2. CARREGAMENTO DO WIDGET BEHOLD */
-  useEffect(() => {
-    const existingScript = document.querySelector('script[src="https://w.behold.so/widget.js"]');
-    if (existingScript) return;
-
-    const script = document.createElement("script");
-    script.type = "module";
-    script.src = "https://w.behold.so/widget.js";
-    document.head.appendChild(script);
   }, []);
 
   /* 3. ÚLTIMAS PUBLICAÇÕES */
@@ -87,36 +50,27 @@ export default function Home() {
       .finally(() => setLoadingPublicacoes(false));
   }, []);
 
-  /* 4. CARROSSEL DE DESTAQUES */
-  const [index, setIndex] = useState(0);
-  const total = destaques.length;
-
-  useEffect(() => {
-    if (!total) return;
-    const timer = setInterval(
-      () => setIndex((i) => (i + 1) % total),
-      7000
-    );
-    return () => clearInterval(timer);
-  }, [total]);
-
-  const next = () => setIndex((i) => (i + 1) % total);
-  const prev = () => setIndex((i) => (i - 1 + total) % total);
-
   return (
     <>
       {/* 1. HERO */}
       <section className="banner">
         <img src="banners/banner.gif" className="banner-img" alt="" />
         <div className="banner-content container">
-          <Link to="/apoio"> <img src="apoio.png" alt="" className="banner-logo" /> </Link>
+          <img src="apoio.png" alt="" className="banner-logo" />
           <h1>Inovação e Avanços em Oncologia</h1>
           <p>Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia.</p>
           <Link to="/sobre" className="banner-button"> Saiba Mais </Link>
         </div>
       </section>
 
-      {/* 2. ÚLTIMAS NOTÍCIAS */}
+      {/* 2. FEED SOCIAL */}
+      <Section title="Mais recentes no Feed">
+        <div>
+          <behold-widget feed-id="xcpomBbDoQRWf24Momyt"></behold-widget>
+        </div>
+      </Section>
+
+      {/* 3. ÚLTIMAS NOTÍCIAS */}
       <Section title="Últimas Notícias">
         {loadingNoticias && <p>Carregando notícias...</p>}
         {erroNoticias && <p>Erro ao carregar notícias.</p>}
@@ -132,13 +86,6 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* 3. FEED SOCIAL */}
-      <Section title="Mais recentes no Feed">
-        <div>
-          <behold-widget feed-id="xcpomBbDoQRWf24Momyt"></behold-widget>
-        </div>
-      </Section>
-
       {/* 4. ÚLTIMAS PUBLICAÇÕES */}
       <Section title="Artigos Publicados">
         {loadingPublicacoes && <p>Carregando publicações...</p>}
@@ -150,55 +97,7 @@ export default function Home() {
         </div>
 
         <div className="section-action">
-          <Link to="/publicacoes">Ver todas as publicações</Link>
-        </div>
-      </Section>
-
-      {/* 5. CARROSSEL DE DESTAQUES */} 
-      <Section>
-        <div className="carrossel-destaques">
-          <div className="carrossel-window">
-            <div
-              className="carrossel-track"
-              style={{ transform: `translateX(-${index * 100}%)` }}
-            >
-              {destaques.map((item, i) => (
-                <div className="carrossel-slide destaque" key={i}>
-                  <img src={item.imagem} alt="" />
-
-                  <div className="destaque-content">
-                    <h3>{item.titulo}</h3>
-                    {item.subtitulo && <p>{item.subtitulo}</p>}
-
-                    {item.link &&
-                      (item.externo ? (
-                        <a href={item.link} target="_blank" rel="noreferrer">
-                          Acessar <FaExternalLinkAlt />
-                        </a>
-                      ) : (
-                        <Link to={item.link}>Saiba mais</Link>
-                      ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="carrossel-controls">
-            <button onClick={prev} className="carrossel-arrow">‹</button>
-
-            <div className="carrossel-dots">
-              {destaques.map((_, i) => (
-                <span
-                  key={i}
-                  className={`dot ${i === index ? "active" : ""}`}
-                  onClick={() => setIndex(i)}
-                />
-              ))}
-            </div>
-
-            <button onClick={next} className="carrossel-arrow">›</button>
-          </div>
+          <Link to="/artigos">Ver todos os Artigos</Link>
         </div>
       </Section>
     </>
