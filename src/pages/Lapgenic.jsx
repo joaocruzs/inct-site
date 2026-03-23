@@ -5,57 +5,110 @@ export default function Lapgenic() {
   return (
     <div>
       {/* 1. APRESENTAÇÃO */}
-      <Section title="Sobre o Laboratório">
-        <div className="split-about">
-          <div><img src="imagens/labs/LAPGENIC.png" /> </div>
+      <div className="mural">
+        <img src="/banners/banner.gif" className="mural-img" />
 
-          <div className="prose max-w-none space-y-6">
-            <p>
-              <strong>Desde fevereiro de 2024</strong>, o <strong>LAPGENIC</strong>{" "}
-              atua como um laboratório dedicado à realização de avaliações
-              toxicológicas e mutagênicas de produtos naturais e sintéticos, com
-              foco em pesquisas aplicadas à área da oncologia e da saúde ambiental.
-            </p>
+        <div className="mural-header">
+          <h1>LAPGENIC</h1>
+          <p>Laboratório de Pesquisa em Genética Toxicológica</p>
+        </div>
 
-            <p>
-              Entre suas principais atividades estão as avaliações
-              toxicogenéticas de xenobióticos liberados em ambientes aquáticos, a
-              determinação do status mutacional de genes envolvidos na resposta a
-              drogas antitumorais, além do desenvolvimento de pesquisas voltadas à
-              compreensão dos mecanismos de toxicidade e mutagênese.
-            </p>
+        <div className="mural-container">
+          <a href="#apresentação" className="mural-card">
+            <h3>Apresentação</h3>
+            <p>Conheça o laboratório</p>
+          </a>
 
-            <p>
-              O laboratório também tem como missão a formação de recursos humanos
-              em nível de graduação e pós-graduação, a consolidação de um grupo de
-              pesquisa qualificado para atuar na área de oncologia e a disseminação
-              do conhecimento científico sobre o câncer junto à comunidade
-              acadêmica e à sociedade.
-            </p>
+          <a href="#sobre" className="mural-card">
+            <h3>Sobre</h3>
+            <p>Atuação e Estrutura</p>
+          </a>
+
+          <a href="#equipe" className="mural-card">
+            <h3>Equipe</h3>
+            <p>Pesquisadores</p>
+          </a>
+
+          <a href="#contato" className="mural-card">
+            <h3>Contato</h3>
+            <p>Localização</p>
+          </a>
+        </div>
+      </div>
+
+      <Section >
+        <div id="sobre" className="grid-2">
+          <div className="stat">
+            <h3>Áreas de atuação</h3>
+            <div className="grid-cards">
+              <div className="card">
+                <h3>Toxicogenética</h3>
+                <p>Análise de mutações causadas por xenobióticos.</p>
+              </div>
+              <div className="card">
+                <h3>Oncologia Molecular</h3>
+                <p>Estudo de genes relacionados à resposta a tratamentos.</p>
+              </div>
+              <div className="card">
+                <h3>Saúde Ambiental</h3>
+                <p>Avaliação de impactos ambientais em organismos vivos.</p>
+              </div>
+            </div>
           </div>
-        </div>  
-      </Section>
 
-      {/* 2. ENDEREÇO E CONTATO */}
-      <Section title="Endereço e Contato">
-        <div className="prose max-w-none">
-          <p>
-            <strong>Endereço:</strong>
-            <br />
-            Av. Universitária
-            <br />
-            Teresina – PI – s/n
-            <br />
-            CEP 64049-550
-          </p>
-
-          <p>
-            <strong>Responsável:</strong> João Marcelo de Castro Sousa
-            <br />
-            <strong>Telefone:</strong> (86) 98100-6336
-          </p>
+          <div className="stat">
+            <h3>Infraestrutura</h3>
+            <div className="grid-cards">
+              <div className="card">
+                <h3>Laboratórios Equipados</h3>
+                <p>Ambiente adequado para análises moleculares e celulares.</p>
+              </div>
+              <div className="card">
+                <h3>Análises Genéticas</h3>
+                <p>Equipamentos para detecção de mutações e expressão gênica.</p>
+              </div>
+              <div className="card">
+                <h3>Ensaios Toxicológicos</h3>
+                <p>Testes com organismos modelo e substâncias químicas.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
-    </div>
+
+      <div id="equipe" className="stat">
+        <h3>Equipe</h3>
+        <div className="grid-cards">
+        </div>
+      </div>
+
+      <div id="contato" className="stat">
+        <h3>Localização e Contato</h3>
+        <div className="split-about">
+
+          <div className="prose">
+            <p><strong>Endereço:</strong><br />
+            Av. Universitária<br />
+            Teresina – PI<br />
+            CEP 64049-550</p>
+
+            <p>
+              <strong>Responsável:</strong> João Marcelo de Castro Sousa<br />
+              <strong>Telefone:</strong> (86) 98100-6336
+            </p>
+          </div>
+
+          <div>
+            <iframe
+              src="https://maps.google.com/maps?q=Teresina&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="250"
+              style={{ border: 0, borderRadius: "12px" }}
+            />
+          </div>
+
+        </div>
+      </div>
+  </div>
   );
 }

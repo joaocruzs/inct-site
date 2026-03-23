@@ -2,7 +2,11 @@ import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import {
   FaBars,
-  FaTimes
+  FaTimes,
+  FaYoutube,
+  FaInstagram,
+  FaLinkedin,
+  FaUserFriends
 } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 
@@ -69,7 +73,7 @@ export default function Header() {
             <div className={`submenu-box ${submenuOpen === "instituto" ? "open" : ""}`}>
               <NavLink to="/documentos" onClick={closeAll}>Documentos</NavLink>
               <NavLink to="/relatorios" onClick={closeAll}>Relatórios</NavLink>
-              <NavLink to="/apoio" onClick={closeAll}>Apoio</NavLink>
+              <NavLink to="/lapgenic" onClick={closeAll}>Lapgenic</NavLink>
             </div>
           </div>
 
@@ -84,13 +88,13 @@ export default function Header() {
 
             <div className={`submenu-box ${submenuOpen === "publicacoes" ? "open" : ""}`}>
               <NavLink to="/noticias" onClick={closeAll}>Notícias</NavLink>
-              <NavLink to="/publicacoes" onClick={closeAll}>Publicações Acadêmicas</NavLink>
+              <NavLink to="/artigos" onClick={closeAll}>Artigos</NavLink>
               <NavLink to="/eventos" onClick={closeAll}>Eventos</NavLink>
             </div>
           </div>
 
           {/* 2.4. Equipe */}
-          <div className="submenu-click">
+          <div className="submenu-click right">
             <span
               className="submenu-title"
               onClick={() => toggleSubmenu("equipe")}
@@ -105,9 +109,7 @@ export default function Header() {
             </div>
           </div>
 
-          {/* 2.5. Lapgenic */}
-          <NavLink to="/lapgenic" onClick={closeAll}>Lapgenic</NavLink>
-
+          {/* 2.5. acesso administrador */}
           <div className="social-links">
             <NavLink to="/admin/login" onClick={closeAll}>
               <FiUser />
@@ -116,6 +118,26 @@ export default function Header() {
 
         </nav>
       </div>
+
+      {/* 3. Redes Sociais */}
+      <div className="social-bar">
+          <div className="social-item">
+            <FaYoutube size={16} color="#002a66" />
+            <a href="https://www.youtube.com/@InstitutoNacionalONCOTTGEN" target="_blank" rel="noopener noreferrer" className="social-link">YouTube</a>
+          </div>
+          <div className="social-item">
+            <FaInstagram size={16} color="#002a66" />
+            <a href="https://www.instagram.com/inct.oncottgen/" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
+          </div>
+          <div className="social-item">
+            <FaLinkedin size={16} color="#002a66" />
+            <a href="https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
+          </div>
+          <div className="social-item">
+            <FaUserFriends size={16} color="#002a66" />
+            <a href="https://oncottgenpesq.vercel.app" target="_blank" rel="noopener noreferrer" className="social-link">Plataforma</a>
+          </div>
+        </div>
     </header>
   );
 }
