@@ -10,16 +10,15 @@ import Plataforma from "./pages/Plataforma";
 import Contato from "./pages/Contato";
 import Documentos from "./pages/Documentos";
 import Relatorios from "./pages/Relatorios";
-import Apoio from "./pages/Apoio";
+import Lapgenic from "./pages/Lapgenic";
 import Noticias from "./pages/Noticias";
 import Noticia from "./pages/Noticia";
 import Eventos from "./pages/Eventos";
 import Evento from "./pages/Evento";
-import Publicacoes from "./pages/Publicacoes";
+import Artigos from "./pages/Artigos";
 import Comite from "./pages/Comite";
 import Pesquisadores from "./pages/Pesquisadores";
 import Parceiros from "./pages/Parceiros";
-import Lapgenic from "./pages/Lapgenic";
 
 /* 2. ADMIN */
 import LoginAdmin from "./pages/admin/LoginAdmin";
@@ -56,19 +55,18 @@ export default function App() {
 
         <Route path="/documentos" element={<Documentos />} />
         <Route path="/relatorios" element={<Relatorios />} />
-        <Route path="/apoio" element={<Apoio />} />
+        <Route path="/lapgenic" element={<Lapgenic />} />
 
         <Route path="/noticias" element={<Noticias />} />
         <Route path="/noticias/:id" element={<Noticia />} />
         <Route path="/eventos" element={<Eventos />} />
         <Route path="/eventos/:id" element={<Evento />} />
-        <Route path="/publicacoes" element={<Publicacoes />} />
+        <Route path="/artigos" element={<Artigos />} />
 
         <Route path="/comite" element={<Comite />} />
         <Route path="/pesquisadores" element={<Pesquisadores />} />
         <Route path="/parceiros" element={<Parceiros />} />
 
-        <Route path="/lapgenic" element={<Lapgenic />} />
 
         {/* ===================== */}
         {/* 2. LOGIN ADMIN */}

@@ -21,7 +21,7 @@ export default function Footer() {
           <Link to="/">Página Inicial</Link>
           <Link to="/sobre">Sobre Nós</Link>
           <Link to="/pesquisadores">Pesquisadores</Link>
-          <Link to="/publicacoes">Publicações</Link>
+          <Link to="/artigos">Artigos</Link>
           <Link to="/noticias">Notícias</Link>
           <Link to="/eventos">Eventos</Link>
         </div>
@@ -71,7 +71,7 @@ export default function Footer() {
           </p>
 
           <div className="footer-apoio">
-            <Link to="/apoio"><strong>Apoio:</strong></Link>
+            <Link to="/sobre"><strong>Apoio:</strong></Link>
             <span>
               <a href="https://www.gov.br/cnpq/pt-br" target="_blank">CNPq</a> • 
               <a href="https://www.fapepi.pi.gov.br/" target="_blank"> FAPEPI</a> • 
