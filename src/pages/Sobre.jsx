@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Section from "../components/general/Section";
 import MapaInstituicoes from "../components/general/MapaInstituicoes";
@@ -56,6 +56,26 @@ export default function Sobre() {
   const [selecionado, setSelecionado] = useState(null);
   const [categoriaAtiva, setCategoriaAtiva] = useState("Todas");
 
+  // ── refs para cada seção ──────────────────────────────────────
+  const refPiaui     = useRef(null);
+  const refConceitos = useRef(null);
+  const refLinhas    = useRef(null);
+  const refMapa      = useRef(null);
+  const refFaq       = useRef(null);
+
+  function scrollTo(ref) {
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  const secoes = [
+    { label: "Contexto",   sub: "Estatísticas no Piauí",        ref: refPiaui     },
+    { label: "Instituto",  sub: "Linhas de atuação",             ref: refConceitos },
+    { label: "Pesquisa",   sub: "Linhas de trabalho",            ref: refLinhas    },
+    { label: "Parceiros",  sub: "Mapeamento institucional",      ref: refMapa      },
+    { label: "FAQ",        sub: "Dúvidas frequentes",            ref: refFaq       },
+  ];
+  // ─────────────────────────────────────────────────────────────
+
   const dadosFiltrados =
     categoriaAtiva === "Todas"
       ? dados
@@ -63,42 +83,30 @@ export default function Sobre() {
 
   return (
     <>
-      {/* 1. BANNER*/}
+      {/* 1. BANNER */}
       <div className="mural">
-        <img src="/banners/banner.gif" className="mural-img" />
+        <img src="/banners/banner.gif" className="mural-img" alt="" />
         <div className="mural-container">
-          <a href="#piaui" className="mural-card">
-            <h3>Contexto</h3>
-            <p>Estatísticas no Piauí</p>
-          </a>
-          <a href="#conceitos" className="mural-card">
-            <h3>Instituto</h3>
-            <p>Linhas de atuação</p>
-          </a>
-          <a href="#linhas" className="mural-card">
-            <h3>Pesquisa</h3>
-            <p>Linhas de trabalho</p>
-          </a>
-          <a href="#mapa" className="mural-card">
-            <h3>Parceiros</h3>
-            <p>Mapeamento institucional</p>
-          </a>
-          <a href="#faq" className="mural-card">
-            <h3>FAQ</h3>
-            <p>Dúvidas frequentes</p>
-          </a>
+          {secoes.map((s) => (
+            <div
+              key={s.label}
+              className="mural-card"
+              onClick={() => scrollTo(s.ref)}
+            >
+              <h3>{s.label}</h3>
+              <p>{s.sub}</p>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* 2. APOIO INSTITUCIONAL */}
       <section className="section apoio">
         <h2 className="section-title">Apoio Institucional</h2>
-
         <p className="apoio-desc">
           O INCT OncoTTGen conta com o apoio de agências de fomento que fortalecem a
           pesquisa científica e o desenvolvimento tecnológico no Brasil.
         </p>
-
         <div className="apoio-logos">
           <a href="https://www.gov.br/cnpq/pt-br" className="apoio-card" target="_blank">
             <img src="imagens/nacionais/CNPQ.png" className="banner-logo" />
@@ -113,75 +121,73 @@ export default function Sobre() {
       </section>
 
       {/* 3. SEÇÃO ESTATÍSTICA */}
-        <div id="piaui" className="destaque">
-          <h2 className="section-title">Contexto no Piauí</h2>
-          <p className="prose">
-            O câncer é um importante desafio de saúde pública no estado, com aumento de casos
-            relacionados ao sistema nervoso central e limitações terapêuticas.
-          </p>
-          <div className="stats">
-            <div className="stat">
-              <h3>33.000+</h3>
-              <p>Internações (2019–2023)</p>
-            </div>
-            <div className="stat">
-              <h3>↑ Mortalidade</h3>
-              <p>Tumores cerebrais</p>
-            </div>
-            <div className="stat">
-              <h3>Alta demanda</h3>
-              <p>Tratamentos inovadores</p>
-            </div>
+      <div ref={refPiaui} className="destaque">
+        <h2 className="section-title">Contexto no Piauí</h2>
+        <p className="prose">
+          O câncer é um importante desafio de saúde pública no estado, com aumento de casos
+          relacionados ao sistema nervoso central e limitações terapêuticas.
+        </p>
+        <div className="stats">
+          <div className="stat">
+            <h3>33.000+</h3>
+            <p>Internações (2019–2023)</p>
+          </div>
+          <div className="stat">
+            <h3>↑ Mortalidade</h3>
+            <p>Tumores cerebrais</p>
+          </div>
+          <div className="stat">
+            <h3>Alta demanda</h3>
+            <p>Tratamentos inovadores</p>
           </div>
         </div>
+      </div>
 
       {/* 4. MINITEMAS */}
-      <div id="conceitos" className="destaque">
+      <div ref={refConceitos} className="destaque">
         <h2 className="section-title">Sobre o Instituto</h2>
         <div className="grid-cards">
           <div className="card">
-            <h3>Missão</h3>
+            <h2>Missão</h2>
             <p>Desenvolver soluções inovadoras para o diagnóstico e tratamento do câncer.</p>
           </div>
           <div className="card">
-            <h3>Visão</h3>
+            <h2>Visão</h2>
             <p>Ser referência nacional e internacional em oncologia translacional.</p>
           </div>
           <div className="card">
-            <h3>Impacto</h3>
+            <h2>Impacto</h2>
             <p>Transformar descobertas científicas em benefícios reais para pacientes.</p>
           </div>
         </div>
       </div>
 
       {/* 5. LINHAS DE PESQUISA */}
-      <div id="linhas"className="destaque">
+      <div ref={refLinhas} className="destaque">
         <h2 className="section-title">Linhas de Pesquisa</h2>
         <div className="grid-cards">
           <div className="card">
-            <h3>CRISPR/Cas9</h3>
+            <h2>CRISPR/Cas9</h2>
             <p>Edição genética aplicada ao tratamento do câncer.</p>
           </div>
           <div className="card">
-            <h3>siRNA</h3>
+            <h2>siRNA</h2>
             <p>Silenciamento gênico para combater tumores.</p>
           </div>
           <div className="card">
-            <h3>Nanomedicina</h3>
+            <h2>Nanomedicina</h2>
             <p>Entrega direcionada de terapias com maior eficácia.</p>
           </div>
         </div>
       </div>
 
-      <div id="mapa" title="Mapeamento Institucional" className="destaque">
+      {/* 6. MAPA */}
+      <div ref={refMapa} title="Mapeamento Institucional" className="destaque">
         <h2 className="section-title">Mapeamento Institucional</h2>
         <div className="page-with-sidebar apoio-layout">
-          {/* 6.1. SIDEBAR */}
           <div className="sidebar-apoio">
-            {/* 6.1.1. FILTROS */}
             <div className="filtros">
               <h3>Filtrar por categoria</h3>
-
               {categorias.map((cat) => (
                 <button
                   key={cat.nome}
@@ -192,40 +198,27 @@ export default function Sobre() {
                   }}
                   style={{ borderColor: cat.cor }}
                 >
-                  <span
-                    className="dot"
-                    style={{ background: cat.cor }}
-                  ></span>
+                  <span className="dot" style={{ background: cat.cor }}></span>
                   {cat.nome}
                 </button>
               ))}
             </div>
-
-            {/* 6.1.2.DETALHES */}
             <div className="detalhes">
               {selecionado ? (
                 <>
                   <img src={selecionado.imagem} alt={selecionado.nome} />
                   <h4>{selecionado.nome}</h4>
                   <p>{selecionado.descricao || "Sem descrição disponível."}</p>
-
-                  <a href={selecionado.link} target="_blank">
-                    Acessar site
-                  </a>
+                  <a href={selecionado.link} target="_blank">Acessar site</a>
                 </>
               ) : (
-                <p className="placeholder">
-                  Selecione um ponto no mapa para ver detalhes.
-                </p>
+                <p className="placeholder">Selecione um ponto no mapa para ver detalhes.</p>
               )}
             </div>
-
             <div className="section-action">
               <Link to="/parceiros">Ver todos os parceiros</Link>
             </div>
           </div>
-
-          {/* 6.2. MAPA */}
           <div className="mapa-area">
             <MapaInstituicoes
               dados={dadosFiltrados}
@@ -237,33 +230,28 @@ export default function Sobre() {
       </div>
 
       {/* 7. FAQ */}
-      <div id="faq" title="Perquntas Frequentes" className="destaque">
+      <div ref={refFaq} title="Perguntas Frequentes" className="destaque">
         <h2 className="section-title">Perguntas Frequentes</h2>
         {sobre.definicoes.map((item, i) => {
           const isOpen = abertos.includes(i);
           return (
-            <div>
-
-              <div key={i} className={`faq-item ${isOpen ? "open" : ""}`}>
-                <button
-                  className="faq-header"
-                  onClick={() => toggle(i)}
-                  aria-expanded={isOpen}
-                >
-                  <span className="faq-titulo">{item.titulo}</span>
-                  <span className="faq-icon">
-                    <svg viewBox="0 0 24 24" width="20" height="20">
-                      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                    </svg>
-                  </span>
-                </button>
-
-                <div className="faq-content">
-                  <p>{item.descricao}</p>
-                </div>
+            <div key={i} className={`faq-item ${isOpen ? "open" : ""}`}>
+              <button
+                className="faq-header"
+                onClick={() => toggle(i)}
+                aria-expanded={isOpen}
+              >
+                <span className="faq-titulo">{item.titulo}</span>
+                <span className="faq-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  </svg>
+                </span>
+              </button>
+              <div className="faq-content">
+                <p>{item.descricao}</p>
               </div>
             </div>
-
           );
         })}
       </div>

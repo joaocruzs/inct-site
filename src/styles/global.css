@@ -21,9 +21,10 @@
    20. ROLETA DO COMITÊ
    21. GRIDS DE EQUIPES
    22. CATEGORIAS
-   23. FOOTER
-   24. COPIAR NO FOOTER
-   25. SCROOLBAR
+   23. LAPGENIC
+   24. FOOTER
+   25. COPIAR NO FOOTER
+   26. SCROOLBAR
 =========================================- */
 
 /* ==========================================
@@ -250,14 +251,6 @@ img  { max-width: 100%; display: block; }
   }
 
   .nav-links.open { right: 0; }
-
-  .nav-links.open::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.45);
-    z-index: -1;
-  }
 
   .nav-links > a {
     width: 100%;
@@ -1063,8 +1056,8 @@ img  { max-width: 100%; display: block; }
 }
 
 .grid-pesquisadores {
-  display: grid; gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   width: 100%; justify-items: center;
 }
 
@@ -1085,10 +1078,10 @@ img  { max-width: 100%; display: block; }
 .card-parceiro {
   color: var(--color-text);
   background: var(--color-white);
-  padding: 20px; border: 1px solid #e5e5e5;
+  padding: 10px; border: 1px solid #e5e5e5;
   border-radius: var(--radius-md);
   box-shadow: 0 5px 10px rgba(0,0,0,.05);
-  max-width: 330px;
+  max-width: 250px;
   transition: transform .5s, box-shadow .5s;
 }
 .card-pesquisador:hover,
@@ -1149,7 +1142,17 @@ img  { max-width: 100%; display: block; }
 @media (max-width: 900px) { .categoria-dashboard { grid-template-columns: 1fr; } }
 
 /* ==========================================
-   23. FOOTER
+   23. LAPGENIC
+========================================== */
+.grid-lapgenic { display: grid; grid-template-columns: repeat(2, 1fr); }
+.lapgenic img {
+  padding: 10px;
+  border-radius: 24px;
+  width: 100%; height: 300px; object-fit: cover;
+}
+
+/* ==========================================
+   24. FOOTER
 ========================================== */
 .footer-informativo {
   background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3730a3 100%);
@@ -1183,7 +1186,7 @@ img  { max-width: 100%; display: block; }
 }
 
 /* ==========================================
-   24. COPIAR NO FOOTER
+   25. COPIAR NO FOOTER
 ========================================== */
 .copy-item {
   display: flex; align-items: center; gap: 10px;
@@ -1207,7 +1210,7 @@ img  { max-width: 100%; display: block; }
 .copy-item:hover .copy-action { opacity: 1; transform: translateY(0); }
 
 /* ==========================================
-   25. SCROLLBAR
+   26. SCROLLBAR
 ========================================== */
 ::-webkit-scrollbar       { width: 9px; }
 ::-webkit-scrollbar-track { background: #cbd5e1; }
