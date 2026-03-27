@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import Section from "../components/general/Section";
 import MapaInstituicoes from "../components/general/MapaInstituicoes";
+import CardParceiro from "../components/cards/CardParceiro";
 import dados from "../data/parceiros.json";
 
 const categorias = [
@@ -187,7 +187,6 @@ export default function Sobre() {
         <div className="page-with-sidebar apoio-layout">
           <div className="sidebar-apoio">
             <div className="filtros">
-              <h3>Filtrar por categoria</h3>
               {categorias.map((cat) => (
                 <button
                   key={cat.nome}
@@ -203,28 +202,30 @@ export default function Sobre() {
                 </button>
               ))}
             </div>
-            <div className="detalhes">
+            <div>
               {selecionado ? (
-                <>
-                  <img src={selecionado.imagem} alt={selecionado.nome} />
-                  <h4>{selecionado.nome}</h4>
-                  <p>{selecionado.descricao || "Sem descrição disponível."}</p>
-                  <a href={selecionado.link} target="_blank">Acessar site</a>
-                </>
+                 (<CardParceiro
+                    nome={selecionado.nome}
+                    descricao={selecionado.descricao}
+                    imagem={selecionado.imagem}
+                    link={selecionado.link}
+                  />)
               ) : (
                 <p className="placeholder">Selecione um ponto no mapa para ver detalhes.</p>
               )}
             </div>
+          </div>
+          <div>
+            <div className="mapa-area">
+              <MapaInstituicoes
+                dados={dadosFiltrados}
+                onSelect={setSelecionado}
+                categoriaAtiva={categoriaAtiva}
+              />
+            </div>
             <div className="section-action">
               <Link to="/parceiros">Ver todos os parceiros</Link>
             </div>
-          </div>
-          <div className="mapa-area">
-            <MapaInstituicoes
-              dados={dadosFiltrados}
-              onSelect={setSelecionado}
-              categoriaAtiva={categoriaAtiva}
-            />
           </div>
         </div>
       </div>

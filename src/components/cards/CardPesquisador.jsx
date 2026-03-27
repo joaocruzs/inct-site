@@ -5,6 +5,8 @@ export default function CardPesquisador({
   nome,
   formacao,
   instituicao,
+  programa,
+  lab,
   areas,
   link,
   imagem,
@@ -23,7 +25,7 @@ export default function CardPesquisador({
     <div className="card-pesquisador">
       {/* 1. Foto */}
       <div className="card-pesquisador-img">
-        <img src={imagem || "/imagens/default.png"} alt={nome} />
+        <img src={imagem || "/imagens/Default.png"} alt={nome} />
       </div>
 
       {/* 2. Nome */}
@@ -42,7 +44,6 @@ export default function CardPesquisador({
           <strong>Instituição: </strong> {instituicao}
         </p>
       )}
-
       {/* 5. Áreas */}
       {areas && (
         <p className="card-pesquisador-info">
