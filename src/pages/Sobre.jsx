@@ -85,7 +85,7 @@ export default function Sobre() {
     <>
       {/* 1. BANNER */}
       <div className="mural">
-        <img src="/banners/banner.gif" className="mural-img" alt="" />
+        <img src="imagens/banners/banner.gif" className="mural-img" alt="" />
         <div className="mural-container">
           {secoes.map((s) => (
             <div

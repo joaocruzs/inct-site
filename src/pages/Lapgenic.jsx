@@ -33,7 +33,7 @@ export default function Lapgenic() {
           1. MURAL (NAVEGAÇÃO)
       ========================== */}
       <div className="mural">
-        <img src="/banners/banner.gif" className="mural-img" />
+        <img src="imagens/banners/banner.gif" className="mural-img" />
 
         <div className="mural-header">
           <h1>LAPGENIC</h1>
@@ -69,7 +69,7 @@ export default function Lapgenic() {
 
           <div className="grid-2">
             <div className="lapgenic">
-              <img src="/banners/grupo.png" />
+              <img src="imagens/banners/grupo.png" />
             </div>
             <div className="prose">
               <p>

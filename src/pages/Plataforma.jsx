@@ -4,7 +4,7 @@ export default function Plataforma() {
   return (
     <>
       <div className="banner">
-        <img src="/banners/plataforma.png" className="banner-img" />
+        <img src="imagens/banners/plataforma.png" className="banner-img" />
 
         <div className="banner-content">
           <h1>Plataforma de Colaboração Científica</h1>

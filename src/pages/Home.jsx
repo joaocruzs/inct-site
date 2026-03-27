@@ -54,9 +54,9 @@ export default function Home() {
     <>
       {/* 1. HERO */}
       <section className="banner">
-        <img src="banners/banner.gif" className="banner-img" alt="" />
+        <img src="imagens/banners/banner.gif" className="banner-img" alt="" />
         <div className="banner-content container">
-          <img src="apoio.png" alt="" className="banner-logo" />
+          <img src="imagens/banners/apoio.png" alt="" className="banner-logo" />
           <h1>Inovação e Avanços em Oncologia</h1>
           <p>Pesquisas em Terapias Gênicas, CRISPR e Nanotecnologia.</p>
           <Link to="/sobre" className="banner-button"> Saiba Mais </Link>
