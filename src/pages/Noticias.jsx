@@ -47,8 +47,8 @@ export default function Noticias() {
     <Container>
       <PageTitle>Notícias</PageTitle>
 
-      <div className="page-with-sidebar">
-        {/* 1. FILTROS */}
+      <div>
+        {/* 1. FILTROS
         <FilterSidebar
           periodos={[
             { label: "Últimos 7 dias", value: "7d" },
@@ -59,7 +59,7 @@ export default function Noticias() {
           tags={["CRISPR", "siRNA", "Nanotecnologia"]}
           onApply={aplicarFiltros}
         />
-
+        =============================== */}
         {/* 2. LISTA */}  
         <div className="page-content">
           {loading && <p>Carregando notícias...</p>}

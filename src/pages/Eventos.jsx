@@ -69,10 +69,10 @@ export default function Eventos() {
     <Container>
       <PageTitle>Eventos</PageTitle>
 
-      <div className="page-with-sidebar">
+      <div>
         {/* ===============================
             FILTROS
-        =============================== */}
+
         <FilterSidebar
           periodos={[
             { label: "Próximos eventos", value: "futuros" },
@@ -82,7 +82,7 @@ export default function Eventos() {
           tags={[]}
           onApply={aplicarFiltros}
         />
-
+        =============================== */}
         {/* ===============================
             LISTA
         =============================== */}
@@ -91,7 +91,7 @@ export default function Eventos() {
           {erro && <p>Erro ao carregar eventos.</p>}
 
           {!loading && !erro && filtrados.length === 0 && (
-            <p>Nenhum evento encontrado com os filtros aplicados.</p>
+            <p>Nenhum evento registrado até o momento.</p>
           )}
 
           {!loading &&
