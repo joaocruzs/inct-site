@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import MapaInstituicoes from "../components/general/MapaInstituicoes";
 import CardParceiro from "../components/cards/CardParceiro";
+import Section from "../components/general/Section";
 import dados from "../data/parceiros.json";
 
 const categorias = [
@@ -70,7 +71,6 @@ export default function Sobre() {
   const secoes = [
     { label: "Contexto",   sub: "Estatísticas no Piauí",        ref: refPiaui     },
     { label: "Instituto",  sub: "Linhas de atuação",             ref: refConceitos },
-    { label: "Pesquisa",   sub: "Linhas de trabalho",            ref: refLinhas    },
     { label: "Parceiros",  sub: "Mapeamento institucional",      ref: refMapa      },
     { label: "FAQ",        sub: "Dúvidas frequentes",            ref: refFaq       },
   ];
@@ -127,29 +127,26 @@ export default function Sobre() {
           O câncer é um importante desafio de saúde pública no estado, com aumento de casos
           relacionados ao sistema nervoso central e limitações terapêuticas.
         </p>
-        <div className="stats">
-          <div className="stat">
+        <div className="grid-3">
+          <div className="destaque">
             <h3>33.000+</h3>
             <p>Internações (2019–2023)</p>
           </div>
-          <div className="stat">
+          <div className="destaque">
             <h3>↑ Mortalidade</h3>
             <p>Tumores cerebrais</p>
           </div>
-          <div className="stat">
+          <div className="destaque">
             <h3>Alta demanda</h3>
             <p>Tratamentos inovadores</p>
           </div>
         </div>
       </div>
 
-      {/* 4. MINITEMAS */}
-      <div ref={refConceitos} className="destaque">
-        <h2 className="section-title">Sobre o Instituto</h2>
-        <div className="grid-cards">
+      <div ref={refPiaui} className="grid-6">
           <div className="card">
             <h2>Missão</h2>
-            <p>Desenvolver soluções inovadoras para o diagnóstico e tratamento do câncer.</p>
+            <p>Desenvolver soluções para o diagnóstico e tratamento do câncer.</p>
           </div>
           <div className="card">
             <h2>Visão</h2>
@@ -157,18 +154,12 @@ export default function Sobre() {
           </div>
           <div className="card">
             <h2>Impacto</h2>
-            <p>Transformar descobertas científicas em benefícios reais para pacientes.</p>
+            <p>Transformar descobertas científicas em benefícios aos pacientes.</p>
           </div>
-        </div>
-      </div>
 
-      {/* 5. LINHAS DE PESQUISA */}
-      <div ref={refLinhas} className="destaque">
-        <h2 className="section-title">Linhas de Pesquisa</h2>
-        <div className="grid-cards">
           <div className="card">
             <h2>CRISPR/Cas9</h2>
-            <p>Edição genética aplicada ao tratamento do câncer.</p>
+            <p>Processo de edição genética aplicada ao tratamento do câncer.</p>
           </div>
           <div className="card">
             <h2>siRNA</h2>
@@ -179,7 +170,7 @@ export default function Sobre() {
             <p>Entrega direcionada de terapias com maior eficácia.</p>
           </div>
         </div>
-      </div>
+
 
       {/* 6. MAPA */}
       <div ref={refMapa} title="Mapeamento Institucional" className="destaque">

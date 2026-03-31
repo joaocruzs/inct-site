@@ -39,44 +39,36 @@ export default function Plataforma() {
         </div>
       </Section>
 
-      <div className="grid-2">
-        <Section title="Funcionalidades">
-          <div className="grid-cards">
-            <div className="card">
-              <h2>Grafo de Conhecimento</h2>
-              <p>Visualização das conexões entre ideias, pesquisas e dados.</p>
-            </div>
+      <div className="grid-6">
+        <div className="card">
+          <h2>Grafo de Conhecimento</h2>
+          <p>Visualização das conexões entre ideias, pesquisas e dados.</p>
+        </div>
 
-            <div className="card">
-              <h2>Colaboração</h2>
-              <p>Ambiente compartilhado entre pesquisadores do INCT.</p>
-            </div>
+        <div className="card">
+          <h2>Colaboração</h2>
+          <p>Ambiente compartilhado entre pesquisadores do INCT.</p>
+        </div>
 
-            <div className="card">
-              <h2>Exploração de Dados</h2>
-              <p>Identificação de padrões e relações entre estudos.</p>
-            </div>
-          </div>
-        </Section>
+        <div className="card">
+          <h2>Exploração de Dados</h2>
+          <p>Identificação de padrões e relações entre estudos.</p>
+        </div>
+    
+        <div className="card">
+          <h2>Integração de Conhecimento</h2>
+          <p>Conecta diferentes áreas da oncologia.</p>
+        </div>
 
-        <Section title="Impacto na Pesquisa">
-          <div className="grid-cards">
-            <div className="card">
-              <h2>Integração de Conhecimento</h2>
-              <p>Conecta diferentes áreas da oncologia.</p>
-            </div>
+        <div className="card">
+          <h2>Geração de Hipóteses</h2>
+          <p>Facilita novas ideias a partir de conexões entre pesquisadores.</p>
+        </div>
 
-            <div className="card">
-              <h2>Geração de Hipóteses</h2>
-              <p>Facilita novas ideias a partir de conexões entre pesquisadores.</p>
-            </div>
-
-            <div className="card">
-              <h2>Colaboração Ativa</h2>
-              <p>Estimula interação entre pesquisadores.</p>
-            </div>
-          </div>
-        </Section>
+        <div className="card">
+          <h2>Colaboração Ativa</h2>
+          <p>Estimula interação entre pesquisadores.</p>
+        </div>
       </div>
 
       <Section title="Acesso à Plataforma">

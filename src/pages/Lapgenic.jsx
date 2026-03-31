@@ -93,53 +93,37 @@ export default function Lapgenic() {
       {/* =========================
           3. DIRETRIZES
       ========================== */}
-      <Section>
-        <div ref={refSobre} className="grid-lapgenic">
-
-          <div className="stat">
-            <h3>Áreas de atuação</h3>
-
-            <div className="grid-cards">
-              <div className="card">
-                <h2>Toxicogenética</h2>
-                <p>Análise de mutações causadas por xenobióticos.</p>
-              </div>
-
-              <div className="card">
-                <h2>Oncologia Molecular</h2>
-                <p>Estudo de genes relacionados à resposta terapêutica.</p>
-              </div>
-
-              <div className="card">
-                <h2>Saúde Ambiental</h2>
-                <p>Avaliação de impactos ambientais em organismos.</p>
-              </div>
-            </div>
+        <div ref={refSobre} className="grid-6">
+          <div className="card">
+            <h2>Toxicogenética</h2>
+            <p>Análise de mutações causadas por xenobióticos.</p>
           </div>
 
-          <div className="stat">
-            <h3>Infraestrutura</h3>
-
-            <div className="grid-cards">
-              <div className="card">
-                <h2>Laboratórios Equipados</h2>
-                <p>Ambiente dedicado a análises moleculares e celulares.</p>
-              </div>
-
-              <div className="card">
-                <h2>Análises Genéticas</h2>
-                <p>Detecção de mutações e expressão gênica.</p>
-              </div>
-
-              <div className="card">
-                <h2>Ensaios Toxicológicos</h2>
-                <p>Testes com organismos modelo.</p>
-              </div>
-            </div>
+          <div className="card">
+            <h2>Oncologia Molecular</h2>
+            <p>Estudo de genes relacionados à resposta terapêutica.</p>
           </div>
 
+          <div className="card">
+            <h2>Saúde Ambiental</h2>
+            <p>Avaliação de impactos ambientais em organismos.</p>
+          </div>
+
+          <div className="card">
+            <h2>Laboratórios Equipados</h2>
+            <p>Ambiente dedicado a análises moleculares e celulares.</p>
+          </div>
+
+          <div className="card">
+            <h2>Análises Genéticas</h2>
+            <p>Detecção de mutações e expressão gênica.</p>
+          </div>
+
+          <div className="card">
+            <h2>Ensaios Toxicológicos</h2>
+            <p>Testes com organismos modelo.</p>
+          </div>
         </div>
-      </Section>
 
       {/* =========================
           4. EQUIPE (GRID)
