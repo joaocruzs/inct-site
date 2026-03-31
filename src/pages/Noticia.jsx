@@ -27,6 +27,11 @@ export default function Noticia() {
           {noticia.data} · {noticia.laboratorio}
         </p>
 
+        <div
+          className="conteudo-texto"
+          dangerouslySetInnerHTML={{ __html: formatarConteudoNoticia(noticia.resumo) }}
+        />
+        
         {noticia.imagem && (
           <img
             src={noticia.imagem}
