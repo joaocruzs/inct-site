@@ -14,7 +14,7 @@ export default function Documentos() {
 
             <div className="documentos-actions">
               <a href={doc.arquivo} target="_blank" className="btn visualizar"> Visualizar </a>
-              <a href={doc.arquivo} download className="btn baixar"> Baixar </a>
+              {!doc.externo && <a href={doc.arquivo} download className="btn baixar"> Baixar </a>}
             </div>
           </div>
         ))}
