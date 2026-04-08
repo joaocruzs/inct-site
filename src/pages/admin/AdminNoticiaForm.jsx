@@ -21,7 +21,7 @@ export default function NovaNoticia() {
 
   const TAGS = ["INCT", "EXTERNO"];
   const LABS = [
-    "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
+    "INCT", "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
     "LABGEN", "LABNANO", "LAFAN", "LAGMES",
     "LAMON", "LaPAF", "LAPGENIC", "LaPIB",
     "LGI", "LMBM", "LSC", "LVGBM",
@@ -70,7 +70,7 @@ export default function NovaNoticia() {
           throw new Error("URL externa inválida");
         }
 
-        conteudoFinal = urlExterna; // 👈 aqui acontece a “troca”
+        conteudoFinal = urlExterna; 
       }
 
       const payload = {
