@@ -12,7 +12,7 @@ export default function ListaNoticia({
   const isExterna = tags.includes("EXTERNO") && link;
 
   const content = (
-    <article className="noticia-list">
+    <article className={`noticia-list ${isExterna ? "externa" : ""}`}>
       <img src={imagem} alt={titulo} />
 
       <div className="noticia-list-content">
@@ -20,14 +20,23 @@ export default function ListaNoticia({
           {new Date(data).toLocaleDateString()}
         </span>
 
-        {/* ✅ renderiza todas as tags */}
+        {/* 🔥 destaque especial para externa */}
+        {isExterna && (
+          <span className="noticia-tag externa-tag">
+            Externa 🔗
+          </span>
+        )}
+
+        {/* outras tags (opcional manter) */}
         {tags.length > 0 && (
           <div className="noticia-tags">
-            {tags.map((t) => (
-              <span key={t} className="noticia-tag">
-                {t}
-              </span>
-            ))}
+            {tags
+              .filter((t) => t !== "EXTERNO")
+              .map((t) => (
+                <span key={t} className="noticia-tag">
+                  {t}
+                </span>
+              ))}
           </div>
         )}
 
