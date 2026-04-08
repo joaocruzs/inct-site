@@ -859,13 +859,61 @@ img  { max-width: 100%; display: block; }
    17. LISTAS DE CONTEÚDO
 ========================================== */
 .noticia-list {
-  display: grid; grid-template-columns: 240px 1fr;
-  gap: 24px; padding: 20px 0;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  padding: 20px 0;
   border-bottom: 1px solid var(--color-border);
+  position: relative;
 }
-.noticia-list img { width: 100%; height: 160px; object-fit: cover; border-radius: var(--radius-md); }
-.noticia-data     { font-size: 13px; color: var(--color-text-muted); }
 
+.noticia-list img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.noticia-data {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.noticia-tags {
+  margin-top: 6px;
+}
+
+.noticia-tag {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-right: 6px;
+}
+
+/* 🔥 TAG EXTERNA (pill / elipse) */
+.externa-tag {
+  display: inline-block;
+  margin-top: 6px;
+  margin-left: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #f97316; /* laranja */
+  border-radius: 999px; /* elipse */
+}
+
+/* 🔥 linha vertical discreta à direita */
+.noticia-list.externa::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 3px;
+  height: 80%;
+  background-color: #f97316;
+  border-radius: 2px;
+  opacity: 0.7;
+}
 .publicacao-list            { padding: 22px 0; border-bottom: 1px solid var(--color-border); }
 .publicacao-list-content h3 { font-size: 18px; margin: 6px 0; }
 .pub-ano                    { font-size: 13px; color: #666; font-weight: 500; }
@@ -986,6 +1034,41 @@ img  { max-width: 100%; display: block; }
 @media (max-width: 600px) {
   .news-grid        { grid-template-columns: 1fr; }
   .card-noticia-img { height: 200px; }
+}
+
+/* 🔥 BADGE EXTERNA (consistente com lista) */
+.card-noticia-horizontal .externa-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #f97316; /* laranja */
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+/* 🔥 linha vertical lateral */
+.card-noticia-horizontal.externa {
+  position: relative;
+}
+
+.card-noticia-horizontal.externa::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: 0;
+  width: 3px;
+  height: 80%;
+  background-color: #f97316;
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* 🔥 leve feedback no hover para externa */
+.card-noticia-horizontal.externa:hover {
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.15);
 }
 
 /* ==========================================

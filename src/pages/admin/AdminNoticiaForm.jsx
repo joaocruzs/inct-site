@@ -13,16 +13,19 @@ export default function NovaNoticia() {
     publicado: false
   });
 
+  const [urlExterna, setUrlExterna] = useState("");
+
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState(false);
 
   const TAGS = ["INCT", "EXTERNO"];
-  const LABS = ["BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
-                "LABGEN", "LABNANO", "LAFAN", "LAGMES",
-                "LAMON", "LaPAF", "LAPGENIC", "LaPIB",
-                "LGI", "LMBM", "LSC", "LVGBM",
-                "ONCOFAR", "ONCOFARLAB", "PUC RIO", "NPO"
+  const LABS = [
+    "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
+    "LABGEN", "LABNANO", "LAFAN", "LAGMES",
+    "LAMON", "LaPAF", "LAPGENIC", "LaPIB",
+    "LGI", "LMBM", "LSC", "LVGBM",
+    "ONCOFAR", "ONCOFARLAB", "PUC RIO", "NPO"
   ];
 
   function handleChange(e) {
@@ -42,6 +45,15 @@ export default function NovaNoticia() {
     }));
   }
 
+  function isValidUrl(str) {
+    try {
+      new URL(str);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setErro("");
@@ -49,8 +61,28 @@ export default function NovaNoticia() {
     setLoading(true);
 
     try {
-      await createNoticia(form);
+      const isExterna = form.tags.includes("EXTERNO");
+
+      let conteudoFinal = form.conteudo;
+
+      if (isExterna) {
+        if (!isValidUrl(urlExterna)) {
+          throw new Error("URL externa inválida");
+        }
+
+        conteudoFinal = urlExterna; // 👈 aqui acontece a “troca”
+      }
+
+      const payload = {
+        ...form,
+        conteudo: conteudoFinal,
+        laboratorio: form.laboratorio || undefined
+      };
+
+      await createNoticia(payload);
+
       setSucesso(true);
+
       setForm({
         titulo: "",
         resumo: "",
@@ -61,12 +93,17 @@ export default function NovaNoticia() {
         tags: [],
         publicado: false
       });
-    } catch (erro) {
-      setErro("Erro ao criar notícia.");
+
+      setUrlExterna("");
+
+    } catch (err) {
+      setErro(err.message || "Erro ao criar notícia.");
     } finally {
       setLoading(false);
     }
   }
+
+  const isExterna = form.tags.includes("EXTERNO");
 
   return (
     <div className="admin-page">
@@ -98,15 +135,28 @@ export default function NovaNoticia() {
           <small>{form.resumo.length}/280</small>
         </div>
 
-        <div className="form-group">
-          <label>Conteúdo completo</label>
-          <textarea
-            name="conteudo"
-            value={form.conteudo}
-            rows={8}
-            onChange={handleChange}
-          />
-        </div>
+        {/* 🔀 CONTEÚDO DINÂMICO */}
+        {!isExterna ? (
+          <div className="form-group">
+            <label>Conteúdo completo</label>
+            <textarea
+              name="conteudo"
+              value={form.conteudo}
+              rows={8}
+              onChange={handleChange}
+            />
+          </div>
+        ) : (
+          <div className="form-group">
+            <label>URL da notícia externa</label>
+            <input
+              value={urlExterna}
+              onChange={(e) => setUrlExterna(e.target.value)}
+              placeholder="https://..."
+              required
+            />
+          </div>
+        )}
 
         <div className="form-group">
           <label>Imagem (URL)</label>
@@ -136,7 +186,7 @@ export default function NovaNoticia() {
             value={form.laboratorio || ""}
             onChange={handleChange}
           >
-            <option value="">Selecione</option>
+            <option value="">Geral / INCT</option>
             {LABS.map((lab) => (
               <option key={lab} value={lab}>
                 {lab}
@@ -145,31 +195,21 @@ export default function NovaNoticia() {
           </select>
         </div>
 
+        {/* ✅ TAGS COMO CHECKBOX */}
         <div className="form-group">
           <label>Tags</label>
-          <select
-            name="tags"
-            value={form.tags}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Selecione</option>
+          <div>
             {TAGS.map((tag) => (
-              <option key={tag} value={tag}>
+              <label key={tag} style={{ marginRight: "10px" }}>
+                <input
+                  type="checkbox"
+                  checked={form.tags.includes(tag)}
+                  onChange={() => toggleTag(tag)}
+                />
                 {tag}
-              </option>
+              </label>
             ))}
-          </select>
-        </div>
-
-        <div className="form-group">
-          <label>É uma noticia externa? coloque a URL Aqui:</label>
-          <input
-            name="link"
-            value={form.link || ""}
-            onChange={handleChange}
-            placeholder="https://..."
-          />
+          </div>
         </div>
 
         <label className="checkbox">

@@ -3,15 +3,43 @@ const BASE_URL = "https://publicacoes-inct-api.vercel.app";
 /* HELPER: Headers com autenticação */
 function getAuthHeaders() {
   const token = localStorage.getItem("admin_token");
-  
+
   return {
     "Content-Type": "application/json",
-    ...(token && { "Authorization": `Bearer ${token}` })
+    ...(token && { Authorization: `Bearer ${token}` })
+  };
+}
+
+/* HELPER: valida URL */
+function isValidUrl(str) {
+  try {
+    new URL(str);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/* HELPER: limpar payload antes de enviar */
+function limparPayload(noticia) {
+  return {
+    ...noticia,
+    laboratorio: noticia.laboratorio || undefined,
+    tags: Array.isArray(noticia.tags) ? noticia.tags : []
   };
 }
 
 /* 0. NORMALIZAÇÃO */
 function normalizarNoticia(n) {
+  const tags = Array.isArray(n.tags) ? n.tags : [];
+  const isExterna = tags.includes("EXTERNO");
+
+  let link = null;
+
+  if (isExterna && isValidUrl(n.conteudo)) {
+    link = n.conteudo;
+  }
+
   return {
     _id: n.id || n._id,
     titulo: n.titulo,
@@ -20,8 +48,8 @@ function normalizarNoticia(n) {
     imagem: n.imagem,
     data: n.data,
     laboratorio: n.laboratorio,
-    tags: Array.isArray(n.tags) ? n.tags : [],
-    link: n.link,
+    tags,
+    link, // 👈 derivado do conteudo quando EXTERNO
     publicado: Boolean(n.publicado)
   };
 }
@@ -35,10 +63,8 @@ export async function getNoticias() {
   }
 
   const json = await res.json();
-  
-  // API pode retornar: json.data ou json diretamente
-  const noticias = Array.isArray(json) ? json : (json.data || []);
-  
+  const noticias = Array.isArray(json) ? json : json.data || [];
+
   return noticias.map(normalizarNoticia);
 }
 
@@ -51,10 +77,8 @@ export async function getNoticiasPublicadas() {
   }
 
   const json = await res.json();
-  
-  // API pode retornar: json.data ou json diretamente
-  const noticias = Array.isArray(json) ? json : (json.data || []);
-  
+  const noticias = Array.isArray(json) ? json : json.data || [];
+
   return noticias.map(normalizarNoticia);
 }
 
@@ -67,10 +91,8 @@ export async function getNoticiaById(id) {
   }
 
   const json = await res.json();
-  
-  // API pode retornar: json.data ou json diretamente
   const noticia = json.data || json;
-  
+
   return normalizarNoticia(noticia);
 }
 
@@ -79,12 +101,14 @@ export async function createNoticia(noticia) {
   const res = await fetch(`${BASE_URL}/noticias`, {
     method: "POST",
     headers: getAuthHeaders(),
-    body: JSON.stringify(noticia)
+    body: JSON.stringify(limparPayload(noticia))
   });
 
   if (!res.ok) {
     const errorText = await res.text();
-    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao criar notícia"}`);
+    throw new Error(
+      `Erro ${res.status}: ${errorText || "Erro ao criar notícia"}`
+    );
   }
 
   const json = await res.json();
@@ -96,12 +120,14 @@ export async function updateNoticia(id, noticia) {
   const res = await fetch(`${BASE_URL}/noticias/${id}`, {
     method: "PATCH",
     headers: getAuthHeaders(),
-    body: JSON.stringify(noticia)
+    body: JSON.stringify(limparPayload(noticia))
   });
 
   if (!res.ok) {
     const errorText = await res.text();
-    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao atualizar notícia"}`);
+    throw new Error(
+      `Erro ${res.status}: ${errorText || "Erro ao atualizar notícia"}`
+    );
   }
 
   const json = await res.json();
@@ -117,10 +143,10 @@ export async function deleteNoticia(id) {
 
   if (!res.ok) {
     const errorText = await res.text();
-    throw new Error(`Erro ${res.status}: ${errorText || "Erro ao deletar notícia"}`);
+    throw new Error(
+      `Erro ${res.status}: ${errorText || "Erro ao deletar notícia"}`
+    );
   }
 
   return true;
 }
-
-

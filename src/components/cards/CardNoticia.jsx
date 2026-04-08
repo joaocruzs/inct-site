@@ -37,14 +37,23 @@ export default function CardNoticia({
           </span>
         )}
 
-        {/* ✅ tags como array */}
+        {/* 🔥 badge externa */}
+        {isExterna && (
+          <span className="noticia-tag externa-tag">
+            Externa 🔗
+          </span>
+        )}
+
+        {/* outras tags */}
         {tags.length > 0 && (
           <div className="noticia-tags">
-            {tags.map((t) => (
-              <span key={t} className="noticia-tag">
-                {t}
-              </span>
-            ))}
+            {tags
+              .filter((t) => t !== "EXTERNO")
+              .map((t) => (
+                <span key={t} className="noticia-tag">
+                  {t}
+                </span>
+              ))}
           </div>
         )}
       </div>
@@ -52,7 +61,7 @@ export default function CardNoticia({
   );
 
   return (
-    <article className="card-noticia-horizontal">
+    <article className={`card-noticia-horizontal ${isExterna ? "externa" : ""}`}>
       {isExterna ? (
         <a
           href={link}
