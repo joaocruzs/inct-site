@@ -17,8 +17,13 @@ export default function NovaNoticia() {
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState(false);
 
-  const TAGS = ["CRISPR", "Terapia Gênica", "Oncologia", "Nanotecnologia"];
-  const LABS = ["INCT", "LAPGENIC"];
+  const TAGS = ["INCT", "EXTERNO"];
+  const LABS = ["BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
+                "LABGEN", "LABNANO", "LAFAN", "LAGMES",
+                "LAMON", "LaPAF", "LAPGENIC", "LaPIB",
+                "LGI", "LMBM", "LSC", "LVGBM",
+                "ONCOFAR", "ONCOFARLAB", "PUC RIO", "NPO"
+  ];
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
@@ -128,9 +133,8 @@ export default function NovaNoticia() {
           <label>Laboratório</label>
           <select
             name="laboratorio"
-            value={form.laboratorio}
+            value={form.laboratorio || ""}
             onChange={handleChange}
-            required
           >
             <option value="">Selecione</option>
             {LABS.map((lab) => (
@@ -143,18 +147,29 @@ export default function NovaNoticia() {
 
         <div className="form-group">
           <label>Tags</label>
-          <div className="tag-selector">
+          <select
+            name="tags"
+            value={form.tags}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Selecione</option>
             {TAGS.map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                className={form.tags.includes(tag) ? "tag active" : "tag"}
-                onClick={() => toggleTag(tag)}
-              >
+              <option key={tag} value={tag}>
                 {tag}
-              </button>
+              </option>
             ))}
-          </div>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>É uma noticia externa? coloque a URL Aqui:</label>
+          <input
+            name="link"
+            value={form.link || ""}
+            onChange={handleChange}
+            placeholder="https://..."
+          />
         </div>
 
         <label className="checkbox">
