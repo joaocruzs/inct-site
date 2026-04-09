@@ -49,7 +49,7 @@ function normalizarNoticia(n) {
     data: n.data,
     laboratorio: n.laboratorio,
     tags,
-    link, // 👈 derivado do conteudo quando EXTERNO
+    link,
     publicado: Boolean(n.publicado)
   };
 }

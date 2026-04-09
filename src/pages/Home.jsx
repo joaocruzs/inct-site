@@ -29,7 +29,7 @@ export default function Home() {
     getNoticias()
       .then((data) => {
         const ordenadas = [...data].sort((a, b) => new Date(b.data) - new Date(a.data));
-        setNoticias(ordenadas.slice(0, 4));
+        setNoticias(ordenadas.slice(0, 6));
       })
       .catch(() => setErroNoticias(true))
       .finally(() => setLoadingNoticias(false));
@@ -44,7 +44,7 @@ export default function Home() {
     getArtigos()
       .then((data) => {
         const ordenadas = [...data].sort((a, b) => b.ano - a.ano);
-        setPublicacoes(ordenadas.slice(0, 8));
+        setPublicacoes(ordenadas.slice(0, 6));
       })
       .catch(() => setErroPublicacoes(true))
       .finally(() => setLoadingPublicacoes(false));

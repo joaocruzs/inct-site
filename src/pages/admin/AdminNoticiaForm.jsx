@@ -13,13 +13,13 @@ export default function NovaNoticia() {
     publicado: false
   });
 
-  const [urlExterna, setUrlExterna] = useState("");
+  const [urlImprensa, setUrlImprensa] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState(false);
 
-  const TAGS = ["INCT", "EXTERNO"];
+  const TAGS = ["INCT", "Imprensa"];
   const LABS = [
     "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
     "LABGEN", "LABNANO", "LAFAN", "LAGMES",
@@ -61,16 +61,16 @@ export default function NovaNoticia() {
     setLoading(true);
 
     try {
-      const isExterna = form.tags.includes("EXTERNO");
+      const isImprensa = form.tags.includes("Imprensa");
 
       let conteudoFinal = form.conteudo;
-
-      if (isExterna) {
-        if (!isValidUrl(urlExterna)) {
+      
+      if (isImprensa) {
+        if (!isValidUrl(urlImprensa)) {
           throw new Error("URL externa inválida");
         }
 
-        conteudoFinal = urlExterna; // 👈 aqui acontece a “troca”
+        conteudoFinal = urlImprensa;
       }
 
       const payload = {
@@ -94,7 +94,7 @@ export default function NovaNoticia() {
         publicado: false
       });
 
-      setUrlExterna("");
+      setUrlImprensa("");
 
     } catch (err) {
       setErro(err.message || "Erro ao criar notícia.");
@@ -103,7 +103,7 @@ export default function NovaNoticia() {
     }
   }
 
-  const isExterna = form.tags.includes("EXTERNO");
+  const isImprensa = form.tags.includes("Imprensa");
 
   return (
     <div className="admin-page">
@@ -136,7 +136,7 @@ export default function NovaNoticia() {
         </div>
 
         {/* 🔀 CONTEÚDO DINÂMICO */}
-        {!isExterna ? (
+        {!isImprensa ? (
           <div className="form-group">
             <label>Conteúdo completo</label>
             <textarea
@@ -150,8 +150,8 @@ export default function NovaNoticia() {
           <div className="form-group">
             <label>URL da notícia externa</label>
             <input
-              value={urlExterna}
-              onChange={(e) => setUrlExterna(e.target.value)}
+              value={urlImprensa}
+              onChange={(e) => setUrlImprensa(e.target.value)}
               placeholder="https://..."
               required
             />

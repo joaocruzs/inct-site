@@ -8,7 +8,7 @@ export default function CardNoticia({
   tags = [],
   link
 }) {
-  const isExterna = tags.includes("EXTERNO") && link;
+  const isImprensa = tags.includes("Imprensa") && link;
 
   const formatarData = (dataString) => {
     if (!dataString) return null;
@@ -31,38 +31,26 @@ export default function CardNoticia({
       <div className="card-noticia-content">
         <h3 className="noticia-titulo">{titulo}</h3>
 
-        {data && (
-          <span className="noticia-data">
-            {formatarData(data)}
-          </span>
-        )}
+        <div className="noticia-rodape">
+          {data && (
+            <span className="noticia-data">
+              {formatarData(data)}
+            </span>
+          )}
 
-        {/* 🔥 badge externa */}
-        {isExterna && (
-          <span className="noticia-tag externa-tag">
-            Externa 🔗
-          </span>
-        )}
-
-        {/* outras tags */}
-        {tags.length > 0 && (
-          <div className="noticia-tags">
-            {tags
-              .filter((t) => t !== "EXTERNO")
-              .map((t) => (
-                <span key={t} className="noticia-tag">
-                  {t}
-                </span>
-              ))}
-          </div>
-        )}
+          {isImprensa && (
+            <span className="noticia-tag imprensa-tag">
+              Imprensa
+            </span>
+          )}
+        </div>
       </div>
     </>
   );
 
   return (
-    <article className={`card-noticia-horizontal ${isExterna ? "externa" : ""}`}>
-      {isExterna ? (
+    <article className={`card-noticia-horizontal ${isImprensa ? "imprensa" : ""}`}>
+      {isImprensa ? (
         <a
           href={link}
           target="_blank"
