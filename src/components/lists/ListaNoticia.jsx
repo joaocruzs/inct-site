@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ListaNoticia({
@@ -9,10 +10,22 @@ export default function ListaNoticia({
   tags = [],
   link
 }) {
-  const isExterna = tags.includes("EXTERNO") && link;
+  const isImprensa = tags.includes("Imprensa") && link;
+  const [mostrarResumo, setMostrarResumo] = useState(
+    typeof window !== "undefined" ? window.innerWidth > 678 : true
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setMostrarResumo(window.innerWidth > 678);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const content = (
-    <article className={`noticia-list ${isExterna ? "externa" : ""}`}>
+    <article className={`noticia-list ${isImprensa ? "imprensa" : ""}`}>
       <img src={imagem} alt={titulo} />
 
       <div className="noticia-list-content">
@@ -20,10 +33,10 @@ export default function ListaNoticia({
           {new Date(data).toLocaleDateString()}
         </span>
 
-        {/* 🔥 destaque especial para externa */}
-        {isExterna && (
-          <span className="noticia-tag externa-tag">
-            Externa 🔗
+        {/* 🔥 destaque especial para imprensa */}
+        {isImprensa && (
+          <span className="noticia-tag imprensa-tag">
+            Imprensa
           </span>
         )}
 
@@ -31,7 +44,7 @@ export default function ListaNoticia({
         {tags.length > 0 && (
           <div className="noticia-tags">
             {tags
-              .filter((t) => t !== "EXTERNO")
+              .filter((t) => t !== "Imprensa")
               .map((t) => (
                 <span key={t} className="noticia-tag">
                   {t}
@@ -41,12 +54,13 @@ export default function ListaNoticia({
         )}
 
         <h3>{titulo}</h3>
-        <p>{resumo}</p>
+        {mostrarResumo && <p>{resumo}</p>}
+
       </div>
     </article>
   );
 
-  if (isExterna) {
+  if (isImprensa) {
     return (
       <a
         href={link}
