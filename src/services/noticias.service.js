@@ -32,11 +32,11 @@ function limparPayload(noticia) {
 /* 0. NORMALIZAÇÃO */
 function normalizarNoticia(n) {
   const tags = Array.isArray(n.tags) ? n.tags : [];
-  const isExterna = tags.includes("EXTERNO");
+  const isImprensa = tags.includes("Imprensa");
 
   let link = null;
 
-  if (isExterna && isValidUrl(n.conteudo)) {
+  if (isImprensa && isValidUrl(n.conteudo)) {
     link = n.conteudo;
   }
 
