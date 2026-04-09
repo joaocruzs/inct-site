@@ -21,7 +21,7 @@ export default function NovaNoticia() {
 
   const TAGS = ["INCT", "Imprensa"];
   const LABS = [
-    "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
+    "INCT", "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
     "LABGEN", "LABNANO", "LAFAN", "LAGMES",
     "LAMON", "LaPAF", "LAPGENIC", "LaPIB",
     "LGI", "LMBM", "LSC", "LVGBM",
