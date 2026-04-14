@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Section from "../components/general/Section";
 import CardNoticia from "../components/cards/CardNoticia";
 import ListaPublicacao from "../components/lists/ListaPublicacao";
-
 import { getNoticias } from "../services/noticias.service";
 import { getArtigos } from "../services/artigos.service";
 
