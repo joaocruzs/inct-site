@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+/* PÁGINA 6 -- RELATÓRIOS  */
+
 export default function Relatorios() {
   const [dados, setDados] = useState([]);
   const [cabecalho, setCabecalho] = useState([]);
@@ -11,11 +13,7 @@ export default function Relatorios() {
         const linhas = texto.split("\n").map(l => l.trim()).filter(Boolean);
 
         const tabela = linhas.map(linha => linha.split(","));
-
-        // primeira linha = meses
         setCabecalho(tabela[0]);
-
-        // restante = dados
         setDados(tabela.slice(1));
       });
   }, []);
@@ -23,20 +21,15 @@ export default function Relatorios() {
   return (
     <div className="page-relatorios">
 
-      {/* =========================
-          HEADER
-      ========================== */}
+      {/* 1. CABEÇALHO */}
       <div className="page-header">
         <h1>Relatórios do INCT</h1>
         <p>Acompanhamento mensal de desempenho</p>
       </div>
 
-      {/* =========================
-          TABELA
-      ========================== */}
+      {/* 2. TABELA */}
       <div className="tabela-wrapper">
         <table className="tabela-relatorio">
-
           <thead>
             <tr>
               {cabecalho.map((col, i) => (
@@ -44,7 +37,6 @@ export default function Relatorios() {
               ))}
             </tr>
           </thead>
-
           <tbody>
             {dados.map((linha, i) => (
               <tr key={i}>
@@ -56,10 +48,8 @@ export default function Relatorios() {
               </tr>
             ))}
           </tbody>
-
         </table>
       </div>
-
     </div>
   );
 }

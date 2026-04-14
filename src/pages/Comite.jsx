@@ -1,5 +1,7 @@
 import Section from "../components/general/Section";
 
+/* PÁGINA 11 -- COMITÊ GESTOR */
+
 let comite = [
   {
     "nome": "Dr. João Marcelo de Castro e Sousa",

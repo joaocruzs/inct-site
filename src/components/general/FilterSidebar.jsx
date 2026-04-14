@@ -70,7 +70,7 @@ export default function FilterSidebar({
       {/* 3. BUSCA POR TAGS */}
       {tags.length > 0 && (
         <div className="filter-group">
-          <h4>Temas</h4>
+          <h4>Tags</h4>
           {tags.map((tag) => (
             <label key={tag} className="filter-option">
               <input

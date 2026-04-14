@@ -2,8 +2,9 @@ import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import MapaInstituicoes from "../components/general/MapaInstituicoes";
 import CardParceiro from "../components/cards/CardParceiro";
-import Section from "../components/general/Section";
 import dados from "../data/parceiros.json";
+
+/* PÁGINA 2 -- SOBRE O INCT */
 
 const categorias = [
   { nome: "Todas", cor: "#64748b" },
@@ -42,7 +43,6 @@ let sobre = {
   ]
 }
 
-
 export default function Sobre() {
   const [abertos, setAbertos] = useState([]);
 
@@ -56,11 +56,8 @@ export default function Sobre() {
 
   const [selecionado, setSelecionado] = useState(null);
   const [categoriaAtiva, setCategoriaAtiva] = useState("Todas");
-
-  // ── refs para cada seção ──────────────────────────────────────
   const refPiaui     = useRef(null);
   const refConceitos = useRef(null);
-  const refLinhas    = useRef(null);
   const refMapa      = useRef(null);
   const refFaq       = useRef(null);
 
@@ -74,7 +71,6 @@ export default function Sobre() {
     { label: "Parceiros",  sub: "Mapeamento institucional",      ref: refMapa      },
     { label: "FAQ",        sub: "Dúvidas frequentes",            ref: refFaq       },
   ];
-  // ─────────────────────────────────────────────────────────────
 
   const dadosFiltrados =
     categoriaAtiva === "Todas"
@@ -83,9 +79,9 @@ export default function Sobre() {
 
   return (
     <>
-      {/* 1. BANNER */}
+      {/* 1. MURAL */}
       <div className="mural">
-        <img src="imagens/banners/banner.gif" className="mural-img" alt="" />
+        <img src="imagens/banners/banner.gif" className="mural-img"/>
         <div className="mural-container">
           {secoes.map((s) => (
             <div
@@ -100,7 +96,7 @@ export default function Sobre() {
         </div>
       </div>
 
-      {/* 2. APOIO INSTITUCIONAL */}
+      {/* 2. APOIO INSTITUCIONAL -- 3 CÉLULAS */}
       <section className="section apoio">
         <h2 className="section-title">Apoio Institucional</h2>
         <p className="apoio-desc">
@@ -109,18 +105,15 @@ export default function Sobre() {
         </p>
         <div className="apoio-logos">
           <a href="https://www.gov.br/cnpq/pt-br" className="apoio-card" target="_blank">
-            <img src="imagens/nacionais/CNPQ.png" className="banner-logo" />
-          </a>
+            <img src="imagens/nacionais/CNPQ.png" className="banner-logo" /> </a>
           <a href="https://www.fapepi.pi.gov.br/" className="apoio-card" target="_blank">
-            <img src="imagens/nacionais/FAPEPI.png" className="banner-logo" />
-          </a>
+            <img src="imagens/nacionais/FAPEPI.png" className="banner-logo" /> </a>
           <a href="https://www.gov.br/capes/pt-br" className="apoio-card" target="_blank">
-            <img src="imagens/nacionais/CAPES.png" className="banner-logo" />
-          </a>
+            <img src="imagens/nacionais/CAPES.png" className="banner-logo" /> </a>
         </div>
       </section>
 
-      {/* 3. SEÇÃO ESTATÍSTICA */}
+      {/* 3. SEÇÃO ESTATÍSTICA -- 3 CARDS */}
       <div ref={refPiaui} className="destaque">
         <h2 className="section-title">Contexto no Piauí</h2>
         <p className="prose">
@@ -143,7 +136,8 @@ export default function Sobre() {
         </div>
       </div>
 
-      <div ref={refPiaui} className="grid-6">
+      {/* 4. SEÇÃO CONCEITOS -- 6 CARDS*/}
+      <div ref={refConceitos} className="grid-6">
           <div className="card">
             <h2>Missão</h2>
             <p>Desenvolver soluções para o diagnóstico e tratamento do câncer.</p>
@@ -172,7 +166,7 @@ export default function Sobre() {
         </div>
 
 
-      {/* 6. MAPA */}
+      {/* 5. MAPA -- SIDEBAR */}
       <div ref={refMapa} title="Mapeamento Institucional" className="destaque">
         <h2 className="section-title">Mapeamento Institucional</h2>
         <div className="page-with-sidebar apoio-layout">
@@ -221,7 +215,7 @@ export default function Sobre() {
         </div>
       </div>
 
-      {/* 7. FAQ */}
+      {/* 6. FAQ */}
       <div ref={refFaq} title="Perguntas Frequentes" className="destaque">
         <h2 className="section-title">Perguntas Frequentes</h2>
         {sobre.definicoes.map((item, i) => {
