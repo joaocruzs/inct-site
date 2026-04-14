@@ -187,7 +187,7 @@ export default function Sobre() {
                 </button>
               ))}
             </div>
-            <div>
+            <div className="detalhes">
               {selecionado ? (
                  (<CardParceiro
                     nome={selecionado.nome}
