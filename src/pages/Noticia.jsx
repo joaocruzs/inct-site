@@ -4,6 +4,8 @@ import Container from "../components/general/Container";
 import { getNoticiaById } from "../services/noticias.service";
 import { formatarConteudoNoticia } from "../utils/contentFormatter";
 
+/* PÁGINA 8.1 -- NOTÍCIA DE NOTÍCIAS */
+
 export default function Noticia() {
   const { id } = useParams();
   const [noticia, setNoticia] = useState(null);

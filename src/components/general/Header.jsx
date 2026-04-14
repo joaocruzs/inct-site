@@ -9,6 +9,7 @@ import {
   FaUserFriends
 } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
+import { BsGridFill } from "react-icons/bs";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -49,7 +50,7 @@ export default function Header() {
           <div className="submenu-click">
             <span
               className="submenu-title"
-              onClick={() => toggleSubmenu("instituto")}
+              onClick={() => toggleSubmenu("inicio")}
             >
               Início
             </span>
@@ -109,35 +110,42 @@ export default function Header() {
             </div>
           </div>
 
-          {/* 2.5. acesso administrador */}
-          <div className="social-links">
-            <NavLink to="/admin/login" onClick={closeAll}>
-              <FiUser />
-            </NavLink>
+          {/* 2.5. Links com icons */}
+          <div className="submenu-click right">
+            <span
+              className="submenu-title grid-icon"
+              onClick={() => toggleSubmenu("apps")}
+            >
+              <BsGridFill />
+            </span>
+
+            <div className={`submenu-box ${submenuOpen === "apps" ? "open" : ""}`}>
+
+              <a href="https://www.youtube.com/@InstitutoNacionalONCOTTGEN" target="_blank" rel="noopener noreferrer">
+                <FaYoutube /> YouTube
+              </a>
+
+              <a href="https://www.instagram.com/inct.oncottgen/" target="_blank" rel="noopener noreferrer">
+                <FaInstagram /> Instagram
+              </a>
+
+              <a href="https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true" target="_blank" rel="noopener noreferrer">
+                <FaLinkedin /> LinkedIn
+              </a>
+
+              <a href="https://oncottgenpesq.vercel.app" target="_blank" rel="noopener noreferrer">
+                <FaUserFriends /> Plataforma
+              </a>
+
+              <NavLink to="/admin/login" onClick={closeAll}>
+                <FiUser /> Admin
+              </NavLink>
+
+            </div>
           </div>
 
         </nav>
       </div>
-
-      {/* 3. Redes Sociais */}
-      <div className="social-bar">
-          <div className="social-item">
-            <FaYoutube size={16} color="#002a66" />
-            <a href="https://www.youtube.com/@InstitutoNacionalONCOTTGEN" target="_blank" rel="noopener noreferrer" className="social-link">YouTube</a>
-          </div>
-          <div className="social-item">
-            <FaInstagram size={16} color="#002a66" />
-            <a href="https://www.instagram.com/inct.oncottgen/" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
-          </div>
-          <div className="social-item">
-            <FaLinkedin size={16} color="#002a66" />
-            <a href="https://www.linkedin.com/company/inct-oncottgen/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="social-link">LinkedIn</a>
-          </div>
-          <div className="social-item">
-            <FaUserFriends size={16} color="#002a66" />
-            <a href="https://oncottgenpesq.vercel.app" target="_blank" rel="noopener noreferrer" className="social-link">Plataforma</a>
-          </div>
-        </div>
     </header>
   );
 }

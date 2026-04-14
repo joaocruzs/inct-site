@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Container from "../components/general/Container";
 import { getEventoById } from "../services/eventos.service";
 
+/* PÁGINA 10.1 -- EVENTO DE EVENTOS */
+
 export default function Evento() {
   const { id } = useParams();
   const [evento, setEvento] = useState(null);

@@ -3,8 +3,9 @@ import Container from "../components/general/Container";
 import PageTitle from "../components/general/PageTitle";
 import FilterSidebar from "../components/general/FilterSidebar";
 import ListaEvento from "../components/lists/ListaEvento";
-
 import { getEventos, getEventosFuturos } from "../services/eventos.service";
+
+/* PÁGINA 10 -- EVENTOS */
 
 export default function Eventos() {
   const [eventos, setEventos] = useState([]);
@@ -12,9 +13,7 @@ export default function Eventos() {
   const [loading, setLoading] = useState(true);
   const [erro, setErro] = useState(false);
 
-  /* ===============================
-     BUSCA INICIAL (SERVICE)
-  =============================== */
+  /* I. BUSCA INICIAL (SERVICE) */
   useEffect(() => {
     getEventos()
       .then((data) => {
@@ -25,22 +24,17 @@ export default function Eventos() {
       .finally(() => setLoading(false));
   }, []);
 
-  /* ===============================
-     FILTROS
-  =============================== */
+  /* II - FILTROS */
   async function aplicarFiltros(filtros) {
     setLoading(true);
     
     try {
       let resultado;
-
-      // Usar API para eventos futuros (mais eficiente)
       if (filtros.periodo === "futuros") {
         resultado = await getEventosFuturos();
       } else {
         resultado = [...eventos];
-        
-        // Filtro local para eventos passados
+
         if (filtros.periodo === "passados") {
           const hoje = new Date();
           resultado = resultado.filter(
@@ -49,7 +43,6 @@ export default function Eventos() {
         }
       }
 
-      // Filtro por laboratório (sempre local)
       if (filtros.laboratorio) {
         resultado = resultado.filter(
           (e) => e.laboratorio === filtros.laboratorio
@@ -69,7 +62,7 @@ export default function Eventos() {
     <Container>
       <PageTitle>Eventos</PageTitle>
 
-      <div>
+      <div className="page-with-sidebar">
         {/* ===============================
             FILTROS
 

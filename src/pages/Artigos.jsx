@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import Container from "../components/general/Container";
 import PageTitle from "../components/general/PageTitle";
 import ListaPublicacao from "../components/lists/ListaPublicacao";
-
 import { getArtigos } from "../services/artigos.service";
+
+/* PÁGINA 9 -- ARTIGOS PUBLICADOS */
 
 export default function Artigos() {
   const [publicacoes, setPublicacoes] = useState([]);
@@ -21,24 +22,6 @@ export default function Artigos() {
     <Container>
       <PageTitle>Artigos</PageTitle>
 
-      {loading && <p>Carregando publicações...</p>}
-      {erro && <p>Erro ao carregar publicações.</p>}
-
-      {/* 2. LISTA DE PUBLICAÇÕES */}
-      <div className="page-content">
-        {publicacoes.map((p) => (
-          <ListaPublicacao key={p._id} {...p} />
-        ))}
-      </div>
-    </Container>
-  );
-}
-
-
-/*
-    <Container>
-      <PageTitle>Publicações</PageTitle>
-
       {/* 1. FILTROS DE BUSCA }
       <div className="page-with-sidebar">
         <FilterSidebar
@@ -52,5 +35,18 @@ export default function Artigos() {
           ]}
           onApply={aplicarFiltros}
         />
-*/
+*/}
+        {loading && <p>Carregando publicações...</p>}
+        {erro && <p>Erro ao carregar publicações.</p>}
+
+        {/* 2. LISTA DE PUBLICAÇÕES */}
+        <div className="page-content">
+          {publicacoes.map((p) => (
+            <ListaPublicacao key={p._id} {...p} />
+          ))}
+        </div>
+      {/*/div */}
+    </Container>
+  );
+}
 

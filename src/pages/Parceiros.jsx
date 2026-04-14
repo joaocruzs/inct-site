@@ -1,8 +1,9 @@
 import Section from "../components/general/Section";
 import CardParceiro from "../components/cards/CardParceiro";
 import { useRef, useEffect, useState } from "react";
-
 import parceiros from "../data/parceiros.json";
+
+/* PÁGINA 13 -- PARCEIROS */
 
 export default function Parceiros() {
   const grupos = parceiros.reduce((acc, parceiro) => {

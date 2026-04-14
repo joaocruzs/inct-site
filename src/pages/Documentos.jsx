@@ -1,6 +1,7 @@
 import Section from "../components/general/Section";
-
 import documentos from "../data/documentos.json";
+
+/* PÁGINA 5 -- DOCUMENTOS OFICIAIS */
 
 export default function Documentos() {
   return (

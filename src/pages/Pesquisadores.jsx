@@ -1,8 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import Section from "../components/general/Section";
 import CardPesquisador from "../components/cards/CardPesquisador";
-
 import equipe from "../data/pesquisadores.json";
+
+/* PÁGINA 12 -- PESQUISADORES */
 
 export default function Pesquisadores() {
   const grupos = equipe.reduce((acc, pesquisador) => {
