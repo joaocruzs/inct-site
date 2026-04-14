@@ -666,7 +666,16 @@ img  { max-width: 100%; display: block; }
 .filter-apply:hover { background: var(--color-primary-dk); }
 .filter-clear       { margin-top: 10px; background: transparent; border: none; color: var(--color-text-muted); font-size: 14px; cursor: pointer; }
 
-@media (max-width: 900px) { .page-with-sidebar { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+  .page-with-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-sidebar {
+    order: -1;
+    position: static;
+  }
+}
 
 /* ==========================================
    14. NOTÍCIAS
