@@ -20,21 +20,12 @@
   },
   {
     "categoria": "Pesquisadores Nacionais",
-    "nome": "Ana Beatriz Santana Sousa",
-    "formacao": "Graduação",
-    "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
-    "lab": "LAPGENIC",
-    "link": "http://lattes.cnpq.br/7256095690600810",
-    "imagem": "imagens/membros/ana.gif"
-  },
-  {
-    "categoria": "Pesquisadores Nacionais",
     "nome": "André Salim Khayat",
     "formacao": "Doutorado",
     "instituicao": "Universidade Federal do Pará (UFPA-PA)",
     "areas": "Genética Humana e Médica, Citogenética, Biologia Celular, Carcinogênese, Genética, Mutagenese",
     "link": "http://lattes.cnpq.br/6305099258051586",
-    "imagem": "imagens/membros/salim.jpg",
+    "imagem": "imagens/membros/Salim.png",
     "email": "khayatas@gmail.com"
   },
   {
@@ -101,7 +92,7 @@
     "instituicao": "Instituto Gonçalo Moniz (IGM-Fiocruz-BA)",
     "areas": "Oncologia Translacional, Inovação Terapêutica, Farmacologia de Produtos Naturais, Etnofarmacologia, Quimioterápicos antineoplásicos, Química Medicinal",
     "link": "http://lattes.cnpq.br/9827317232001760",
-    "imagem": "imagens/membros/daniel.gif",
+    "imagem": "imagens/membros/Daniel.png",
     "email": "daniel.bezerra@fiocruz.br"
   },
   {
@@ -139,7 +130,7 @@
     "instituicao": "Universidade Federal de Pernambuco (UFPE-PE)",
     "areas": "Farmácia, Farmacologia",
     "link": "http://lattes.cnpq.br/4175148208512640",
-    "imagem": "imagens/membros/gardenia.gif"
+    "imagem": "imagens/membros/Gardenia.png"
   },
   {
     "categoria": "Pesquisadores Nacionais",
@@ -148,7 +139,7 @@
     "instituicao": "Hospital AC Camargo (AC CAMARGO-SP)",
     "areas": "Genética, Genética Humana e Médica",
     "link": "http://lattes.cnpq.br/1174527002469907",
-    "imagem": "imagens/membros/giovana.gif",
+    "imagem": "imagens/membros/Giovana.png",
     "email": "giovana.torrezan@accamargo.org.br"
   },
   {
@@ -230,7 +221,7 @@
     "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
     "lab": "LAPGENIC",
     "link": "http://lattes.cnpq.br/5551042924769063",
-    "imagem": "imagens/membros/marcelo.gif"
+    "imagem": "imagens/membros/Marcelo.png"
   },
   {
     "categoria": "Pesquisadores Nacionais",
@@ -248,7 +239,7 @@
     "instituicao": "Universidade Federal da Paraíba (UFPB-PB)",
     "areas": "Farmacologia de Produtos Naturais, Citologia e Biologia Celular, Biotecnologia",
     "link": "http://lattes.cnpq.br/0104934558803330",
-    "imagem": "imagens/membros/juan.gif",
+    "imagem": "imagens/membros/Juan.png",
     "email": "juan.goncalves@academico.ufpb.br"
   },
   {
@@ -310,7 +301,7 @@
     "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
     "areas": "Oncologia Experimental, Fisiologia de Órgãos e Sistemas, Citologia e Biologia Celular, Toxicologia",
     "link": "http://lattes.cnpq.br/4897632187244463",
-    "imagem": "imagens/membros/paulo.gif"
+    "imagem": "imagens/membros/Paulo.png"
   },
   {
     "categoria": "Pesquisadores Nacionais",
@@ -640,6 +631,15 @@
   },
   {
     "categoria": "Mestrandos e Discentes de IC's",
+    "nome": "Ana Beatriz Santana Sousa",
+    "formacao": "Graduação",
+    "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
+    "lab": "LAPGENIC",
+    "link": "http://lattes.cnpq.br/7256095690600810",
+    "imagem": "imagens/membros/ana.gif"
+  },
+  {
+    "categoria": "Mestrandos e Discentes de IC's",
     "nome": "Ana Carolina Melo",
     "formacao": "Iniciação Científica; Graduanda em Farmácia",
     "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
@@ -831,7 +831,7 @@
     "categoria": "Mestrandos e Discentes de IC's",
     "nome": "Taís Melo de Resende",
     "formacao": "Iniciação Científica; Graduanda em Nutrição",
-    "instituicao": "Universidade Federal do Piauí (UFPI-PI)",
+    "instituicao": "Universidade Federal do Piauí (UFPI)",
     "lab": "LAPGENIC",
     "link": "http://lattes.cnpq.br/1557068007259197",
     "imagem": "imagens/membros/tais.gif"
@@ -858,9 +858,27 @@
     "categoria": "Mestrandos e Discentes de IC's",
     "nome": "Victoria Pereira Costa",
     "formacao": "Mestranda",
-    "instituicao": "Universidade Federal do Pará (UFPA-PA)",
+    "instituicao": "Universidade Federal do Pará (UFPA)",
     "areas": "Oncologia",
     "link": "http://lattes.cnpq.br/6103489222998261",
     "imagem": "imagens/membros/victoria.gif"
+  },
+  {
+    "categoria": "Doutorandos e Pós-Doutorandos",
+    "nome": "Antonielly Campinho dos Reis",
+    "formacao": "Doutorado",
+    "instituicao": "Universidade Federal do Piauí (UFPI)",
+    "areas": "",
+    "link": "http://lattes.cnpq.br/2205485880792516",
+    "imagem": "imagens/membros/Antonielly.png"
+  },
+  {
+    "categoria": "Doutorandos e Pós-Doutorandos",
+    "nome": "Ag-Anne Pereira Melo de Menezes",
+    "formacao": "Doutorado",
+    "instituicao": "Universidade Federal do Piauí (UFPI)",
+    "areas": "",
+    "link": "http://lattes.cnpq.br/2206403249959287",
+    "imagem": "imagens/membros/Ag-anne.png"
   }
 ]
