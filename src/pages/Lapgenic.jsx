@@ -107,7 +107,7 @@ export default function Lapgenic() {
           </div>
         </div>
 
-      {/* 4. EQUIPE */}
+      {/* 4. EQUIPE 
       <Section title="Equipe">
         <div ref={refEquipe} className="grid-pesquisadores">
 
@@ -129,7 +129,7 @@ export default function Lapgenic() {
           )}
         </div>
       </Section>
-
+*/}
       {/* 5. CONTATO E MAPA */}
       <Section title="Contato e Localização">
         <div ref={refContato} className="split-about">
