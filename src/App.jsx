@@ -25,11 +25,14 @@ import LoginAdmin from "./pages/admin/LoginAdmin";
 import DashboardAdmin from "./pages/admin/DashboardAdmin";
 
 import AdminPublicacoesPage from "./pages/admin/AdminPublicacoesPage";
-import AdminPublicacaoForm from "./pages/admin/AdminPublicacaoForm";
+import AdminPublicacaoCreate from "./pages/admin/AdminPublicacaoCreate";
+import AdminPublicacaoEdit from "./pages/admin/AdminPublicacaoEdit";
 import AdminNoticiasPage from "./pages/admin/AdminNoticiasPage";
-import AdminNoticiaForm from "./pages/admin/AdminNoticiaForm";
+import AdminNoticiaCreate from "./pages/admin/AdminNoticiaCreate";
+import AdminNoticiaEdit from "./pages/admin/AdminNoticiaEdit";
 import AdminEventosPage from "./pages/admin/AdminEventosPage";
-import AdminEventoForm from "./pages/admin/AdminEventoForm";
+import AdminEventoCreate from "./pages/admin/AdminEventoCreate";
+import AdminEventoEdit from "./pages/admin/AdminEventoEdit";
 
 import AdminLayout from "./components/admin/AdminLayout";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
@@ -91,18 +94,18 @@ export default function App() {
 
           {/* ===== NOTÍCIAS ADMIN ===== */}
           <Route path="noticias" element={<AdminNoticiasPage />} />
-          <Route path="noticias/nova" element={<AdminNoticiaForm />} />
-          <Route path="noticias/editar/:id" element={<AdminNoticiaForm />} />
+          <Route path="noticias/nova" element={<AdminNoticiaCreate />} />
+          <Route path="noticias/editar/:id" element={<AdminNoticiaEdit />} />
 
           {/* ===== PUBLICAÇÕES ADMIN ===== */}
           <Route path="publicacoes" element={<AdminPublicacoesPage />} />
-          <Route path="publicacoes/nova" element={<AdminPublicacaoForm />} />
-          <Route path="publicacoes/editar/:id" element={<AdminPublicacaoForm />} />
+          <Route path="publicacoes/nova" element={<AdminPublicacaoCreate />} />
+          <Route path="publicacoes/editar/:id" element={<AdminPublicacaoEdit />} />
 
           {/* ===== EVENTOS ADMIN ===== */}
           <Route path="eventos" element={<AdminEventosPage />} />
-          <Route path="eventos/nova" element={<AdminEventoForm />} />
-          <Route path="eventos/editar/:id" element={<AdminEventoForm />} />
+          <Route path="eventos/nova" element={<AdminEventoCreate />} />
+          <Route path="eventos/editar/:id" element={<AdminEventoEdit />} />
 
         </Route>
 
