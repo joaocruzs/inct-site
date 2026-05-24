@@ -1,32 +1,47 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { createNoticia } from "../../services/noticias.service";
 
-export default function NovaNoticia() {
-  const [form, setForm] = useState({
-    titulo: "",
-    resumo: "",
-    conteudo: "",
-    imagem: "",
-    data: "",
-    laboratorio: "",
-    tags: [],
-    publicado: false
-  });
+const TAGS = ["INCT", "Imprensa"];
 
+const LABS = [
+  "INCT", "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
+  "LABGEN", "LABNANO", "LAFAN", "LAGMES", "LAMON", "LaPAF", "LAPGENIC",
+  "LaPIB", "LGI", "LMBM", "LSC", "LVGBM", "ONCOFAR", "ONCOFARLAB",
+  "PUC RIO", "NPO"
+];
+
+const FORM_INICIAL = {
+  titulo: "",
+  resumo: "",
+  conteudo: "",
+  imagem: "",
+  data: "",
+  laboratorio: "",
+  tags: [],
+  publicado: false
+};
+
+function isValidUrl(str) {
+  try {
+    new URL(str);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export default function AdminNoticiaCreate() {
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState(FORM_INICIAL);
   const [urlImprensa, setUrlImprensa] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState(false);
 
-  const TAGS = ["INCT", "Imprensa"];
-  const LABS = [
-    "INCT", "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",
-    "LABGEN", "LABNANO", "LAFAN", "LAGMES",
-    "LAMON", "LaPAF", "LAPGENIC", "LaPIB",
-    "LGI", "LMBM", "LSC", "LVGBM",
-    "ONCOFAR", "ONCOFARLAB", "PUC RIO", "NPO"
-  ];
+  const isImprensa = form.tags.includes("Imprensa");
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
@@ -45,15 +60,6 @@ export default function NovaNoticia() {
     }));
   }
 
-  function isValidUrl(str) {
-    try {
-      new URL(str);
-      return true;
-    } catch {
-      return false;
-    }
-  }
-
   async function handleSubmit(e) {
     e.preventDefault();
     setErro("");
@@ -61,15 +67,12 @@ export default function NovaNoticia() {
     setLoading(true);
 
     try {
-      const isImprensa = form.tags.includes("Imprensa");
-
       let conteudoFinal = form.conteudo;
-      
+
       if (isImprensa) {
         if (!isValidUrl(urlImprensa)) {
           throw new Error("URL externa inválida");
         }
-
         conteudoFinal = urlImprensa;
       }
 
@@ -82,19 +85,12 @@ export default function NovaNoticia() {
       await createNoticia(payload);
 
       setSucesso(true);
-
-      setForm({
-        titulo: "",
-        resumo: "",
-        conteudo: "",
-        imagem: "",
-        data: "",
-        laboratorio: "",
-        tags: [],
-        publicado: false
-      });
-
+      setForm(FORM_INICIAL);
       setUrlImprensa("");
+
+      setTimeout(() => {
+        navigate("/admin/noticias");
+      }, 1000);
 
     } catch (err) {
       setErro(err.message || "Erro ao criar notícia.");
@@ -102,8 +98,6 @@ export default function NovaNoticia() {
       setLoading(false);
     }
   }
-
-  const isImprensa = form.tags.includes("Imprensa");
 
   return (
     <div className="admin-page">
@@ -135,7 +129,6 @@ export default function NovaNoticia() {
           <small>{form.resumo.length}/280</small>
         </div>
 
-        {/* 🔀 CONTEÚDO DINÂMICO */}
         {!isImprensa ? (
           <div className="form-group">
             <label>Conteúdo completo</label>
@@ -183,19 +176,16 @@ export default function NovaNoticia() {
           <label>Laboratório</label>
           <select
             name="laboratorio"
-            value={form.laboratorio || ""}
+            value={form.laboratorio}
             onChange={handleChange}
           >
             <option value="">Geral / INCT</option>
             {LABS.map((lab) => (
-              <option key={lab} value={lab}>
-                {lab}
-              </option>
+              <option key={lab} value={lab}>{lab}</option>
             ))}
           </select>
         </div>
 
-        {/* ✅ TAGS COMO CHECKBOX */}
         <div className="form-group">
           <label>Tags</label>
           <div>

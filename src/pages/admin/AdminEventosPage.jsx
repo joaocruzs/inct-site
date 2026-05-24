@@ -72,7 +72,7 @@ export default function AdminEventosPage() {
               </div>
 
               <div className="admin-cell actions">
-                {/*     
+                 
                 <button
                   className="admin-btn edit"
                   onClick={() =>
@@ -81,7 +81,7 @@ export default function AdminEventosPage() {
                 >
                   Editar
                 </button>
-                */}
+                
                 <button
                   className="admin-btn delete"
                   onClick={() => handleDelete(e._id)}
