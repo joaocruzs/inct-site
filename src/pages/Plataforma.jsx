@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Section from "../components/general/Section";
 
 /* PÁGINA 3 -- PLATAFORMA */
@@ -11,9 +12,9 @@ export default function Plataforma() {
         <div className="banner-content">
           <h1>Plataforma de Colaboração Científica</h1>
           <p>Ambiente interativo para conectar pesquisas, ideias e dados em oncologia translacional.</p>
-          <a href="https://oncottgenpesq.vercel.app/" target="_blank" className="banner-button">
+          <Link to="/pesqcolab/login" className="banner-button">
             Acessar plataforma
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -76,9 +77,9 @@ export default function Plataforma() {
             Para garantir a segurança dos dados e das pesquisas, o sistema utiliza autenticação
             controlada e permissões de acesso.
           </p>
-          <a href="https://oncottgenpesq.vercel.app" target="_blank" className="special-link">
+          <Link to="/pesqcolab/login" className="special-link">
             Ir para login →
-          </a>
+          </Link>
         </div>
       </Section>
     </>
