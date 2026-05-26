@@ -133,9 +133,9 @@ export default function Header() {
                 <FaLinkedin /> LinkedIn
               </a>
 
-              <a href="https://oncottgenpesq.vercel.app" target="_blank" rel="noopener noreferrer">
+              <NavLink to="/pesqcolab/login" onClick={closeAll}>
                 <FaUserFriends /> Plataforma
-              </a>
+              </NavLink>
 
               <NavLink to="/admin/login" onClick={closeAll}>
                 <FiUser /> Admin
