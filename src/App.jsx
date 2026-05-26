@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation, Outlet } from "react-router-dom";
 
 import Header from "./components/general/Header";
 import Footer from "./components/general/Footer";
@@ -37,14 +37,33 @@ import AdminEventoEdit from "./pages/admin/AdminEventoEdit";
 import AdminLayout from "./components/admin/AdminLayout";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
 
+/* 3. PESQCOLAB */
+import { AuthProvider } from "./plataforma/context/AuthContext.jsx";
+import ProtectedRoutePesqColab from "./plataforma/components/ProtectedRoutePesqColab.jsx";
+import PlataformaLayout from "./plataforma/components/PlataformaLayout.jsx";
+import LoginPesqColab from "./plataforma/pages/LoginPesqColab.jsx";
+import CadastroPesqColab from "./plataforma/pages/CadastroPesqColab.jsx";
+import GrafoPesqColab from "./plataforma/pages/GrafoPesqColab.jsx";
+import ArquivosPesqColab from "./plataforma/pages/ArquivosPesqColab.jsx";
+import ProjetosPesqColab from "./plataforma/pages/ProjetosPesqColab.jsx";
+
+function PlataformaAuthWrapper() {
+  return (
+    <AuthProvider>
+      <Outlet />
+    </AuthProvider>
+  );
+}
+
 export default function App() {
   const { pathname } = useLocation();
 
   const isAdminRoute = pathname.startsWith("/admin");
+  const isPlataformaRoute = pathname.startsWith("/pesqcolab");
 
   return (
     <>
-      {!isAdminRoute && <Header />}
+      {!isAdminRoute && !isPlataformaRoute && <Header />}
 
       <Routes>
 
@@ -109,9 +128,29 @@ export default function App() {
 
         </Route>
 
+        {/* ===================== */}
+        {/* 4. PESQCOLAB          */}
+        {/* ===================== */}
+        <Route path="/pesqcolab" element={<PlataformaAuthWrapper />}>
+          <Route path="login" element={<LoginPesqColab />} />
+          <Route
+            element={
+              <ProtectedRoutePesqColab>
+                <PlataformaLayout />
+              </ProtectedRoutePesqColab>
+            }
+          >
+            <Route index element={<Navigate to="grafo" />} />
+            <Route path="grafo" element={<GrafoPesqColab />} />
+            <Route path="projetos" element={<ProjetosPesqColab />} />
+            <Route path="arquivos" element={<ArquivosPesqColab />} />
+            <Route path="cadastro" element={<CadastroPesqColab />} />
+          </Route>
+        </Route>
+
       </Routes>
 
-      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && !isPlataformaRoute && <Footer />}
     </>
   );
 }
