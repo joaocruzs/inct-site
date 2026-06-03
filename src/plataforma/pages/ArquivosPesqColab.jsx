@@ -20,7 +20,13 @@ export default function ArquivosPesqColab() {
 
   const filtrados = useMemo(() => {
     const t = normalizar(busca);
-    return pesquisadores.filter((p) => p._id !== user._id && (!t || normalizar(p.nomeCompleto).includes(t)));
+    return pesquisadores.filter((p) =>
+      p._id !== user._id && (
+        !t ||
+        normalizar(p.nomeCompleto).includes(t) ||
+        (p.coordenadorNome && normalizar(p.coordenadorNome).includes(t))
+      )
+    );
   }, [pesquisadores, busca, user._id]);
 
   return (
@@ -61,6 +67,14 @@ export default function ArquivosPesqColab() {
                   <span className="arquivos-page__sidebar-nome">{p.nomeCompleto}</span>
                   {p.universidade && (
                     <span className="arquivos-page__sidebar-univ">{p.universidade}</span>
+                  )}
+                  {p.papel === "coordenador" && (
+                    <span className="painel-esquerdo__item-papel painel-esquerdo__item-papel--coord">Coordenador</span>
+                  )}
+                  {p.papel === "vinculado" && (
+                    <span className="painel-esquerdo__item-papel painel-esquerdo__item-papel--vinc">
+                      Vinculado a {p.coordenadorNome ?? "coordenador não informado"}
+                    </span>
                   )}
                 </div>
               </button>

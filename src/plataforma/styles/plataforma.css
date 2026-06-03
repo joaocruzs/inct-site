@@ -231,6 +231,78 @@
 }
 
 /* ===================== */
+/* CADASTRO PAGE         */
+/* ===================== */
+
+.cadastro-page {
+  padding: 40px;
+  max-width: 520px;
+}
+
+.cadastro-page__card {
+  background: white;
+  border: 1px solid #dde1ea;
+  border-radius: 8px;
+  padding: 32px 36px;
+}
+
+.cadastro-page__card h2 {
+  font-size: 20px;
+  color: #1e3a5f;
+  margin: 0 0 24px;
+}
+
+.cadastro-page__card form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cadastro-page__card label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #444;
+  margin-top: 10px;
+}
+
+.cadastro-page__card input,
+.cadastro-page__card select {
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.cadastro-page__card input:focus,
+.cadastro-page__card select:focus {
+  border-color: #1e3a5f;
+}
+
+.cadastro-page__sucesso {
+  background: #f0f7f0;
+  border: 1px solid #b2d8b2;
+  border-radius: 6px;
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #2e6b2e;
+}
+
+.cadastro-page__sucesso ul {
+  margin: 8px 0 16px;
+  padding-left: 18px;
+  color: #444;
+}
+
+.cadastro-page__sucesso li {
+  margin-bottom: 4px;
+}
+
+/* ===================== */
 /* PAINEL ESQUERDO       */
 /* ===================== */
 
@@ -454,6 +526,25 @@
   font-size: 13px;
   color: #666;
   margin-top: 2px;
+}
+
+.painel-esquerdo__item-papel {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.painel-esquerdo__item-papel--coord {
+  background: #e4ecf5;
+  color: #1e3a5f;
+}
+
+.painel-esquerdo__item-papel--vinc {
+  background: #f0f4f0;
+  color: #2e6b2e;
 }
 
 .painel-esquerdo__areas {

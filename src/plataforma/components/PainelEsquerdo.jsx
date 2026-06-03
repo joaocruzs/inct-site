@@ -13,6 +13,8 @@ function CardPerfil({ onPerfilAtualizado }) {
     areas: user?.areas?.join(", ") ?? "",
     lattes: user?.lattes ?? "",
     resumo: user?.resumo ?? "",
+    papel: user?.papel ?? "",
+    coordenadorNome: user?.coordenadorNome ?? "",
   });
   const [salvando, setSalvando] = useState(false);
 
@@ -34,6 +36,8 @@ function CardPerfil({ onPerfilAtualizado }) {
         areas: form.areas.split(",").map((a) => a.trim()).filter(Boolean),
         lattes: form.lattes.trim() || null,
         resumo: form.resumo.trim() || null,
+        papel: form.papel || null,
+        coordenadorNome: form.papel === "vinculado" ? (form.coordenadorNome.trim() || null) : null,
       });
       await refreshUser();
       onPerfilAtualizado?.();
@@ -89,6 +93,8 @@ function CardPerfil({ onPerfilAtualizado }) {
                 areas: user?.areas?.join(", ") ?? "",
                 lattes: user?.lattes ?? "",
                 resumo: user?.resumo ?? "",
+                papel: user?.papel ?? "",
+                coordenadorNome: user?.coordenadorNome ?? "",
               });
               setEditando(true);
             }}
@@ -120,6 +126,21 @@ function CardPerfil({ onPerfilAtualizado }) {
             maxLength={200}
             rows={3}
           />
+          <select
+            value={form.papel}
+            onChange={(e) => setForm({ ...form, papel: e.target.value, coordenadorNome: "" })}
+          >
+            <option value="">Papel não informado</option>
+            <option value="coordenador">Coordenador</option>
+            <option value="vinculado">Vinculado a um coordenador</option>
+          </select>
+          {form.papel === "vinculado" && (
+            <input
+              value={form.coordenadorNome}
+              onChange={(e) => setForm({ ...form, coordenadorNome: e.target.value })}
+              placeholder="Nome do coordenador"
+            />
+          )}
           <div className="painel-perfil__form-acoes">
             <button type="submit" className="btn-primary" disabled={salvando}>
               {salvando ? "Salvando..." : "Salvar"}
@@ -134,7 +155,7 @@ function CardPerfil({ onPerfilAtualizado }) {
   );
 }
 
-export default function PainelEsquerdo({ pesquisadores, onSelecionarPesquisador, onPerfilAtualizado }) {
+export default function PainelEsquerdo({ pesquisadores, onPerfilAtualizado }) {
   const [busca, setBusca] = useState("");
 
   const filtrados = useMemo(() => {
@@ -144,7 +165,8 @@ export default function PainelEsquerdo({ pesquisadores, onSelecionarPesquisador,
         (p) =>
           !termo ||
           normalizar(p.nomeCompleto).includes(termo) ||
-          normalizar(p.universidade).includes(termo)
+          normalizar(p.universidade).includes(termo) ||
+          (p.coordenadorNome && normalizar(p.coordenadorNome).includes(termo))
       )
       .sort((a, b) => a.nomeCompleto.localeCompare(b.nomeCompleto, "pt"));
   }, [pesquisadores, busca]);
@@ -164,16 +186,21 @@ export default function PainelEsquerdo({ pesquisadores, onSelecionarPesquisador,
       <ul className="painel-esquerdo__lista">
         {filtrados.map((p) => (
           <li key={p._id}>
-            <button
-              className="painel-esquerdo__item"
-              onClick={() => onSelecionarPesquisador(p)}
-            >
+            <div className="painel-esquerdo__item">
               <div className="painel-esquerdo__item-nome">{p.nomeCompleto}</div>
               <div className="painel-esquerdo__item-univ">{p.universidade}</div>
+              {p.papel === "coordenador" && (
+                <div className="painel-esquerdo__item-papel painel-esquerdo__item-papel--coord">Coordenador</div>
+              )}
+              {p.papel === "vinculado" && (
+                <div className="painel-esquerdo__item-papel painel-esquerdo__item-papel--vinc">
+                  Vinculado a {p.coordenadorNome ?? "coordenador não informado"}
+                </div>
+              )}
               {p.resumo && (
                 <div className="painel-esquerdo__item-resumo">{p.resumo}</div>
               )}
-            </button>
+            </div>
           </li>
         ))}
       </ul>

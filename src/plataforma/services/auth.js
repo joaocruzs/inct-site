@@ -1,9 +1,13 @@
 import { BASE_URL, apiFetch } from "./api.js";
 
 export async function cadastrar(dados) {
+  const token = localStorage.getItem("pesqcolab_token");
   const res = await fetch(`${BASE_URL}/auth/register`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
     body: JSON.stringify(dados),
   });
   if (!res.ok) {
