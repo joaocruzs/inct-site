@@ -47,7 +47,7 @@ export default function CadastroPesqColab() {
   return (
     <div className="cadastro-page">
       <div className="cadastro-page__card">
-        <h2>Cadastrar pesquisador</h2>
+        <h2>Plataforma de Rede · OncoTTGen</h2>
 
         {cadastrado && (
           <div className="cadastro-page__sucesso">

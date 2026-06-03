@@ -16,7 +16,7 @@ export default function PlataformaLayout() {
     <div className="plataforma-layout">
       <nav className="plataforma-nav">
         <div className="plataforma-nav__logo-wrap">
-          <img src={logo} alt="INCT Oncottgen" className="plataforma-nav__logo-img" />
+          <img src={logo} alt="Plataforma de Rede OncoTTGen" className="plataforma-nav__logo-img" />
         </div>
         <div className="plataforma-nav__links">
           <NavLink to="/pesqcolab/grafo">Rede</NavLink>

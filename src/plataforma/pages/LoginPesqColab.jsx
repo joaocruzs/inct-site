@@ -28,8 +28,8 @@ export default function LoginPesqColab() {
   return (
     <div className="login-pesqcolab">
       <div className="login-pesqcolab__card">
-        <h1>PesqColab</h1>
-        <p>Rede de colaboração — INCT Oncottgen</p>
+        <h1>Plataforma de Rede</h1>
+        <p>OncoTTGen</p>
         <form onSubmit={handleSubmit}>
           <label>Email</label>
           <input

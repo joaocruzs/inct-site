@@ -56,13 +56,12 @@ export default function GrafoViz({ dados, graphRef, onNodeClick }) {
     const fontSize = Math.max(8, 11 / globalScale);
 
     if (node.tipo === "projeto") {
-      const textSize = Math.max(8, 11 / globalScale);
       const maxLineWidth = 100;
-      const lineH = textSize * 1.4;
+      const lineH = fontSize * 1.4;
       const pad = { x: 12, y: 8 };
       const rad = 8;
 
-      ctx.font = `600 ${textSize}px system-ui, sans-serif`;
+      ctx.font = `600 ${fontSize}px system-ui, sans-serif`;
       const label = node.area || node.titulo || node.nomeCompleto || "Projeto";
       const linhas = quebrarTexto(ctx, label, maxLineWidth, 2);
 
@@ -86,7 +85,7 @@ export default function GrafoViz({ dados, graphRef, onNodeClick }) {
       ctx.stroke();
 
       // texto
-      ctx.font = `600 ${textSize}px system-ui, sans-serif`;
+      ctx.font = `600 ${fontSize}px system-ui, sans-serif`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
       ctx.fillStyle = "#0d3560";
@@ -221,7 +220,7 @@ function roundRect(ctx, x, y, w, h, r) {
 function drawPlaceholder(ctx, x, y, r, nomeCompleto) {
   ctx.beginPath();
   ctx.arc(x, y, r, 0, 2 * Math.PI);
-  ctx.fillStyle = "#003f91";
+  ctx.fillStyle = "#1e3a5f";
   ctx.fill();
   ctx.font = `bold ${r}px system-ui, sans-serif`;
   ctx.textAlign = "center";
