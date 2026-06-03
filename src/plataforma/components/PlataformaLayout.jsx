@@ -21,7 +21,7 @@ export default function PlataformaLayout() {
         <div className="plataforma-nav__links">
           <NavLink to="/pesqcolab/grafo">Rede</NavLink>
           <NavLink to="/pesqcolab/projetos">Projetos</NavLink>
-          <NavLink to="/pesqcolab/arquivos">Documentação e Resultados</NavLink>
+          <NavLink to="/pesqcolab/arquivos">Documentos</NavLink>
           <NavLink to="/pesqcolab/cadastro">Cadastrar pesquisador</NavLink>
         </div>
         <div className="plataforma-nav__user">

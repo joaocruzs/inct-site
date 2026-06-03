@@ -3,7 +3,6 @@ import { useAuth } from "../context/AuthContext.jsx";
 import PainelEsquerdo from "../components/PainelEsquerdo.jsx";
 import PainelProjetos from "../components/PainelProjetos.jsx";
 import GrafoControls from "../components/GrafoControls.jsx";
-import ModalConexao from "../components/ModalConexao.jsx";
 import { getGrafo, getGrafoPesquisador } from "../services/grafo.js";
 import { getPesquisadores } from "../services/pesquisadores.js";
 
@@ -15,7 +14,6 @@ export default function GrafoPesqColab() {
   const [grafoData, setGrafoData] = useState({ nodes: [], links: [] });
   const [pesquisadores, setPesquisadores] = useState([]);
   const [modo, setModo] = useState("individual");
-  const [pesquisadorSelecionado, setPesquisadorSelecionado] = useState(null);
   const [nodeProjetoClicado, setNodeProjetoClicado] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -56,16 +54,10 @@ export default function GrafoPesqColab() {
     setModo((m) => (m === "integrado" ? "individual" : "integrado"));
   }
 
-  function handleConexaoCriada() {
-    setPesquisadorSelecionado(null);
-    carregarDados(modo);
-  }
-
   return (
     <div className="grafo-page">
       <PainelEsquerdo
         pesquisadores={pesquisadores}
-        onSelecionarPesquisador={setPesquisadorSelecionado}
         onPerfilAtualizado={() => carregarDados(modo)}
       />
 
@@ -116,14 +108,6 @@ export default function GrafoPesqColab() {
             </div>
           </div>
         </div>
-      )}
-
-      {pesquisadorSelecionado && (
-        <ModalConexao
-          pesquisadorB={pesquisadorSelecionado}
-          onSalvar={handleConexaoCriada}
-          onFechar={() => setPesquisadorSelecionado(null)}
-        />
       )}
     </div>
   );
