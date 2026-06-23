@@ -82,7 +82,7 @@ function aplicarFiltros(filtros) {
             { label: "Últimos 30 dias", value: "30d" },
             { label: "Último ano", value: "1y" }
           ]}
-          tags={["Imprensa", "Conquistas", "Defesas", "Eventos", "Publicações", "INCT"]}
+          tags={["Imprensa", "Conquistas", "Defesas", "Eventos", "Resultados", "INCT"]}
           onApply={aplicarFiltros}
         />
 

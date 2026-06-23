@@ -6,7 +6,7 @@ import {
   updateNoticia
 } from "../../services/noticias.service";
 
-const TAGS = ["Imprensa", "Conquistas", "Defesas", "Eventos", "Publicações", "INCT"];
+const TAGS = ["Imprensa", "Conquistas", "Defesas", "Eventos", "Resultados", "INCT"];
 
 const LABS = [
   "INCT", "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",

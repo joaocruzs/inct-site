@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { createNoticia } from "../../services/noticias.service";
 
-const TAGS = ["Imprensa", "Conquistas", "Defesas", "Eventos", "Publicações", "INCT"];
+const TAGS = ["Imprensa", "Conquistas", "Defesas", "Eventos", "Resultados", "INCT"];
 
 const LABS = [
   "INCT", "BIOTECFARM", "GEHMED", "LABCANCER - UFPI", "LABCANCER - UFSC",

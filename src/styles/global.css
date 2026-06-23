@@ -684,7 +684,7 @@ img  { max-width: 100%; display: block; }
   --tag-imprensa:    #ff670f;
   --tag-conquistas:  #16a34a;
   --tag-defesas:     #dc2626;
-  --tag-eventos:     #eab308;
+  --tag-eventos:     #a07800;
   --tag-resultados:  #9333ea;
   --tag-inct:        #2563eb;
 }
@@ -728,6 +728,7 @@ img  { max-width: 100%; display: block; }
 
 /* Lista de notícias */
 .noticia-list {
+  margin: 5px;
   display: grid;
   grid-template-columns: 250px 1fr;
   gap: 20px;
@@ -791,7 +792,7 @@ img  { max-width: 100%; display: block; }
 .noticia-tag-label[data-tag="imprensa"]    { background: var(--tag-imprensa); }
 .noticia-tag-label[data-tag="conquistas"]  { background: var(--tag-conquistas); }
 .noticia-tag-label[data-tag="defesas"]     { background: var(--tag-defesas); }
-.noticia-tag-label[data-tag="eventos"]     { background: var(--tag-eventos); color: var(--color-text-dark); }
+.noticia-tag-label[data-tag="eventos"]     { background: var(--tag-eventos); }
 .noticia-tag-label[data-tag="resultados"]  { background: var(--tag-resultados); }
 .noticia-tag-label[data-tag="inct"]        { background: var(--tag-inct); }
 
