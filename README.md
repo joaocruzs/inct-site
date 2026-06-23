@@ -1,3 +1,3 @@
-#Protótipo de site para o INCT
+#Site para o INCT
 
-ao clonar não esqueça de `npm install` e para rodar `npm run dev`
+Ao clonar não esqueça de `npm install` e para rodar `npm run dev`

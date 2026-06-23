@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
 
+const TAG_SLUGS = {
+  Imprensa: "imprensa",
+  Conquistas: "conquistas",
+  Defesas: "defesas",
+  Eventos: "eventos",
+  Resultados: "resultados",
+  INCT: "inct",
+};
+
 export default function CardNoticia({
   _id,
   imagem,
@@ -9,10 +18,13 @@ export default function CardNoticia({
   link
 }) {
   const isImprensa = tags.includes("Imprensa") && link;
+  const tagSlug = tags.length === 1 ? TAG_SLUGS[tags[0]] : "neutro";
 
   const content = (
-    <article className={`noticia-list noticia-card-horizontal ${isImprensa ? "imprensa-card" : ""}`}>
-      
+    <article
+      className="noticia-list noticia-card-horizontal noticia-destaque"
+      data-tag={tagSlug}
+    >
       <img src={imagem} alt={titulo} />
 
       <div className="noticia-list-content">
@@ -22,11 +34,15 @@ export default function CardNoticia({
             {new Date(data).toLocaleDateString()}
           </span>
 
-          {isImprensa && (
-            <span className="noticia-tag imprensa-tag">
-              Imprensa
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="noticia-tag-label"
+              data-tag={TAG_SLUGS[tag]}
+            >
+              {tag}
             </span>
-          )}
+          ))}
         </div>
 
         <h3 className="noticia-titulo">{titulo}</h3>
