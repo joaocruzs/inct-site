@@ -311,8 +311,12 @@
 /* ===================== */
 
 .painel-perfil {
-  padding: 16px 14px 12px;
-  border-bottom: 1px solid #eee;
+  margin: 12px 12px 0;
+  padding: 16px 14px 14px;
+  background: white;
+  border: 1px solid #e4e7ef;
+  border-radius: 14px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   flex-shrink: 0;
 }
 
@@ -427,25 +431,35 @@
 .painel-perfil__form {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  background: #f8f9fc;
+  border: 1px solid #e4e7ef;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 4px;
 }
 
 .painel-perfil__form input,
-.painel-perfil__form textarea {
+.painel-perfil__form textarea,
+.painel-perfil__form select {
   width: 100%;
-  padding: 6px 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 7px 10px;
+  border: 1px solid #dde1ea;
+  border-radius: 8px;
   font-size: 12px;
   box-sizing: border-box;
   outline: none;
   resize: none;
   font-family: inherit;
+  background: white;
+  color: #1a1a2e;
 }
 
 .painel-perfil__form input:focus,
-.painel-perfil__form textarea:focus {
+.painel-perfil__form textarea:focus,
+.painel-perfil__form select:focus {
   border-color: #1e3a5f;
+  box-shadow: 0 0 0 2px rgba(30,58,95,0.08);
 }
 
 .painel-perfil__form-acoes {
@@ -764,7 +778,14 @@
   font-size: 16px;
 }
 
+.painel-projetos__busca-wrapper {
+  padding: 8px 12px;
+  flex-shrink: 0;
+}
+
 .painel-projetos__busca {
+  width: 100%;
+  box-sizing: border-box;
   padding: 7px 10px;
   border-radius: 8px;
   border: 1px solid #ddd;
@@ -1202,7 +1223,7 @@
   padding: 20px 32px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .projetos-feed__vazio {
@@ -1217,11 +1238,11 @@
 /* ---------------------- */
 
 .feed-card {
+  flex-shrink: 0;
   background: white;
-  border-radius: 6px;
+  border-radius: 12px;
   border: 1px solid #dde1ea;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   transition: box-shadow 0.15s;
 }
 

@@ -22,7 +22,7 @@ export default function PainelProjetos({ modo = "individual" }) {
         <h2 className="painel-projetos__titulo">Projetos</h2>
       </div>
 
-      <div style={{ padding: "8px 12px" }}>
+      <div className="painel-projetos__busca-wrapper">
         <input
           className="painel-projetos__busca"
           value={busca}
